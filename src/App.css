@@ -1,0 +1,118 @@
+* {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	background-image: linear-gradient(
+		180deg,
+		hsl(240deg 15% 3%) 0%,
+		hsl(240deg 14% 5%) 11%,
+		hsl(240deg 12% 7%) 22%,
+		hsl(240deg 12% 9%) 33%,
+		hsl(236deg 10% 11%) 44%,
+		hsl(236deg 9% 12%) 56%,
+		hsl(236deg 8% 14%) 67%,
+		hsl(235deg 7% 16%) 78%,
+		hsl(235deg 6% 18%) 89%,
+		hsl(233deg 4% 20%) 100%
+	);
+	height: 600vh;
+	margin: 0;
+	overflow-x: hidden;
+}
+
+#logo {
+	position: fixed;
+	top: 8rem;
+	padding: 0;
+	margin: 0;
+	width: 100%;
+	height: 200px;
+	user-select: none;
+	max-width: 800px;
+}
+
+#logo > h1 {
+	font-family: 'Rubik', sans-serif;
+	color: hsl(200deg 80% 50% / 0.7);
+	font-size: 10rem;
+	width: 100%;
+	min-height: 100%;
+	position: absolute;
+	left: 1rem;
+	top: -6.5rem;
+}
+
+#logo > h1:first-of-type {
+	color: hsl(160deg 80% 50% / 0.7);
+}
+
+#logo > h1:last-of-type {
+	color: hsl(240deg 80% 50% / 0.7);
+}
+
+#intro {
+	background-image: linear-gradient(
+		180deg,
+		hsl(240deg 15% 3% / 0.1) 0%,
+		hsl(240deg 14% 5% / 0.2) 11%,
+		hsl(240deg 12% 7% / 0.5) 22%,
+		hsl(240deg 12% 9% / 0.6) 33%,
+		hsl(236deg 10% 11% / 0.7) 44%,
+		hsl(236deg 9% 12% / 0.8) 56%,
+		hsl(240deg 12% 9% / 0.8) 67%,
+		hsl(240deg 12% 7% / 0.8) 78%,
+		hsl(240deg 14% 5% / 0.9) 89%,
+		hsl(240deg 15% 3% / 0.9) 100%
+	);
+	position: relative;
+	height: min-content;
+	top: 90vh;
+  border: 1px solid blue;
+}
+
+.sticky {
+	position: sticky;
+	top: 0;
+}
+
+#intro > * {
+	font-family: 'Rubik', sans-serif;
+	color: hsl(200deg 80% 90%);
+}
+
+#intro > h2 {
+	position: sticky;
+	top: 1rem;
+	padding-block-start: 1.8rem;
+	margin: 0;
+	margin-inline-start: 1.25rem;
+	line-height: 10rem;
+	font-size: 10rem;
+}
+
+.intro-text {
+	position: relative;
+	top: -8rem;
+	max-width: 55ch;
+	min-width: 40ch;
+	left: 6.5rem;
+}
+
+.intro-text > p {
+	padding-inline: 2rem;
+	padding-block: 0.5rem;
+}
+
+.intro-text > p:last-of-type {
+	padding-block-end: 2rem;
+}
+
+.sub-text {
+	position: relative;
+	top: -9rem;
+	left: 8rem;
+	font-size: 8rem;
+}
