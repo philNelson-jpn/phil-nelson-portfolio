@@ -4,7 +4,7 @@ import './App.css'
 
 function LogoComponent() {
 	const logoRef = useRef(null)
-	const [active, setActive] = useState(false)
+	const [active, setActive] = useState(true)
 	const [textElements, setTextElements] = useState([])
 
 	const shiftText = (index, rangeX, rangeY) => {
