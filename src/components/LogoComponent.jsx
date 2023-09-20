@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
-import './App.css'
+import '../App.css'
 // import { styled } from 'styled-components'
 
 function LogoComponent() {
@@ -20,7 +20,7 @@ function LogoComponent() {
 	}
 
 	const shiftAllText = (rangeX, rangeY) => {
-		textElements.forEach((textElement, index) =>
+		textElements.forEach((textElements, index) =>
 			shiftText(index, rangeX, rangeY)
 		)
 	}
@@ -40,10 +40,10 @@ function LogoComponent() {
 
 	const resetLogo = () => {
 		setActive(false)
-		animateReset()
+		animateResetToOriginal()
 	}
 
-	const animateReset = () => {
+	const animateResetToOriginal = () => {
 		const textElements = logoRef.current.querySelectorAll('h1')
 		const animationDuration = 750 // milliseconds
 		const startTime = performance.now()
@@ -97,7 +97,7 @@ function LogoComponent() {
 			window.removeEventListener('mousemove', handleMouseMove)
 			document.body.removeEventListener('mouseleave', handleMouseLeave)
 		}
-	}, [active])
+	}, [active, resetLogo, shiftLogo])
 
 	useEffect(() => {
 		// Get references to the text elements when the component mounts

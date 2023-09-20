@@ -1,17 +1,6 @@
-body {
-	background-image: linear-gradient(
-		180deg,
-		hsl(240deg 15% 3%) 0%,
-		hsl(240deg 14% 5%) 11%,
-		hsl(240deg 12% 7%) 22%,
-		hsl(240deg 12% 9%) 33%,
-		hsl(236deg 10% 11%) 44%,
-		hsl(236deg 9% 12%) 56%,
-		hsl(236deg 8% 14%) 67%,
-		hsl(235deg 7% 16%) 78%,
-		hsl(235deg 6% 18%) 89%,
-		hsl(233deg 4% 20%) 100%
-	);
+.main-wrapper {
+	position: relative;
+	height: 400vh;
 }
 
 #logo {
@@ -30,6 +19,7 @@ body {
 	color: hsl(200deg 80% 50% / 0.7);
 	font-size: 10rem;
 	width: 100%;
+	height: 100vh;
 	min-height: 100%;
 	position: absolute;
 	left: 1rem;
@@ -45,71 +35,67 @@ body {
 }
 
 .letter-p {
+	font-family: 'Rubik', sans-serif;
 	color: white;
-	font-size: 72px;
+	border: 1px solid green;
+	margin-block-start: 40rem;
+	padding-inline-start: 1.25rem;
+	padding-block-start: 1.5rem;
+	font-size: 10rem;
+	position: sticky;
+	left: 0;
+	top: 0;
+	z-index: 1000;
 }
 
-/* 
-#intro {
+.intro {
 	background-image: linear-gradient(
 		180deg,
-		hsl(240deg 15% 3% / 0.1) 0%,
-		hsl(240deg 14% 5% / 0.2) 11%,
-		hsl(240deg 12% 7% / 0.5) 22%,
-		hsl(240deg 12% 9% / 0.6) 33%,
-		hsl(236deg 10% 11% / 0.7) 44%,
-		hsl(236deg 9% 12% / 0.8) 56%,
-		hsl(240deg 12% 9% / 0.8) 67%,
-		hsl(240deg 12% 7% / 0.8) 78%,
-		hsl(240deg 14% 5% / 0.9) 89%,
-		hsl(240deg 15% 3% / 0.9) 100%
+		hsl(240deg 15% 3% / 0.2) 0%,
+		hsl(240deg 14% 3% / 0.3) 11%,
+		hsl(240deg 12% 3% / 0.6) 22%,
+		hsl(240deg 12% 3% / 0.7) 33%,
+		hsl(240deg 10% 3% / 0.8) 44%,
+		hsl(240deg 9% 3% / 0.8) 56%,
+		hsl(240deg 12% 3% / 0.7) 67%,
+		hsl(240deg 12% 3% / 0.6) 78%,
+		hsl(240deg 14% 3% / 0.3) 89%,
+		hsl(240deg 15% 3% / 0.2) 100%
 	);
 	position: relative;
 	height: min-content;
-	top: 90vh;
-	border: 1px solid blue;
-}
-
-.sticky {
-	position: sticky;
 	top: 0;
+	border: 1px solid blue;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: 10rem 35rem;
 }
 
-#intro > * {
+.intro {
 	font-family: 'Rubik', sans-serif;
 	color: hsl(200deg 80% 90%);
 }
 
-#intro > h2 {
-	position: sticky;
-	top: 1rem;
-	padding-block-start: 1.8rem;
-	margin: 0;
-	margin-inline-start: 1.25rem;
-	line-height: 10rem;
-	font-size: 10rem;
-}
-
 .intro-text {
 	position: relative;
-	top: -8rem;
+	top: 10rem;
+	right: 0;
 	max-width: 55ch;
 	min-width: 40ch;
-	left: 6.5rem;
+	grid-column: 2;
+	grid-row: 2;
 }
 
 .intro-text > p {
+	font-size: calc(36 / 16 * 1rem);
 	padding-inline: 2rem;
 	padding-block: 0.5rem;
-}
-
-.intro-text > p:last-of-type {
-	padding-block-end: 2rem;
+	padding-block-end: 8rem;
 }
 
 .sub-text {
-	position: relative;
-	top: -9rem;
+	position: sticky;
+	top: 2rem;
 	left: 8rem;
-	font-size: 8rem;
-} */
+	font-size: 10rem;
+}
