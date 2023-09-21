@@ -4,10 +4,11 @@ export default function Passion() {
 			<span className='sub-text'>hluid</span>
 			<div className='intro-text'>
 				<p>
-					I love creating phluid and dynamic layouts with CSS to phashion
+					I love creating phluid and dynamic layouts with CSS.</p>
+					<p>I phashion
 					visually stunning interfaces, and utilize React to deliver engaging
-					user experiences.
-				</p>
+					user experiences.</p>
+				
 			</div>
 		</div>
 	)

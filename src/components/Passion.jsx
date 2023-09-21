@@ -3,9 +3,10 @@ export default function Passion() {
 		<div className='intro'>
 			<span className='sub-text'>assion</span>
 			<div className='intro-text'>
+				<p>Hi there! I’m Phil. </p>
 				<p>
-					Hi there! I’m Phil. I’m a passionate introvert who loves building
-					things with React and Styled Components!
+					I’m a passionate introvert who loves building things with React and
+					Styled Components!
 				</p>
 			</div>
 		</div>
