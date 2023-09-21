@@ -3,9 +3,11 @@ export default function Mac() {
 		<div className='iMac-wrapper'>
 			<div className='iMac'>
 				<div className='screen'>
-					<div className='item one'>1</div>
-					<div className='item two'>2</div>
-					<div className='item three'>3</div>
+					<div className='item one'>Styled Components</div>
+					<div className='item two'>
+						React 18
+					</div>
+					<div className='item three'><div>💅🏼</div><div>⚛️</div><div>😁</div></div>
 				</div>
 				<svg
 					xmlns='http://www.w3.org/2000/svg'

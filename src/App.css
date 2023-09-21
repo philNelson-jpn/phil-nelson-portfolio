@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700;900&family=Just+Another+Hand&display=swap');
+
 :root {
 	--pn-text-clr-base: hsl(220deg 80% 60% / 0.5);
 	--pn-text-clr-dark: hsl(220deg 80% 40% / 0.9);
@@ -8,7 +10,6 @@
 
 .main-wrapper {
 	position: relative;
-	/* height: 400vh; */
 }
 
 #logo {
@@ -45,8 +46,8 @@
 	width: 450px;
 	height: 600px;
 	position: fixed;
-	top: 0;
-	right: 7rem;
+	top: -1.5rem;
+	margin-left: 60%;
 	overflow: hidden;
 	/* background-color: var(--pn-text-clr-base);  */
 }
@@ -130,6 +131,29 @@
 	grid-row: 2;
 }
 
+.hover-me {
+	display: grid;
+	place-content: left;
+	position: relative;
+}
+
+.hover-me > span {
+	position: absolute;
+	left: 68px;
+	top: -36px;
+	font-family: 'Just Another Hand';
+	font-size: 64px;
+	transform: rotate(-15deg);
+}
+
+.hover-me > img {
+	position: absolute;
+	left: -20px;
+	top: 30px;
+	width: 250px;
+	transform: rotate(-5deg);
+}
+
 .intro-text > p {
 	font-size: calc(36 / 16 * 1rem);
 	padding-inline: 2rem;
@@ -146,13 +170,8 @@
 	top: 2rem;
 	left: 8rem;
 	font-size: 10rem;
+	margin-bottom: -8rem;
 }
-
-/* .wrapper {
-	display: grid;
-	place-content: center;
-	min-height: 100%;
-} */
 
 .iMac-wrapper {
 	perspective: 750px;
@@ -245,7 +264,7 @@ svg {
 	border-radius: 2px;
 	display: grid;
 	place-content: center;
-	color: transparent;
+	font-size: calc(24 / 16 * 1rem);
 }
 
 .item.one {
@@ -260,6 +279,7 @@ svg {
 	border-color: hsl(343, 100%, 50%);
 	transition: transform 1200ms ease-in-out, background-color 1500ms ease-in-out,
 		color 2000ms ease-in-out;
+	font-size: calc(64 / 16 * 1rem);
 }
 
 .item.three {
@@ -267,6 +287,11 @@ svg {
 	border-color: hsl(240, 100%, 69%);
 	transition: transform 1500ms ease-in-out, background-color 2000ms ease-in-out,
 		color 2500ms ease-in-out;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-around;
+	font-size: calc(36 / 16 * 1rem);
 }
 
 .iMac-wrapper:hover .iMac {

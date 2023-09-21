@@ -9,6 +9,10 @@ export default function Passion() {
 					I’m a passionate introvert who loves building things with React and
 					Styled Components!
 				</p>
+				<div className='hover-me'>
+					<span>Hover Me!</span>
+					<img src='src/assets/HoverMePNG.png' alt='left-pointing arrow' />
+				</div>
 			</div>
 			<Mac />
 		</div>
