@@ -8,6 +8,7 @@ import Liphelong from './components/Liphelong'
 import Phriendly from './components/Phriendly'
 import PhilPhoto from './components/PhilPhoto'
 
+
 function App() {
 	return (
 		<div className='main-wrapper'>

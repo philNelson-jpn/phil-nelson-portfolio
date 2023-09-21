@@ -1,3 +1,4 @@
+import Mac from '../components/Mac'
 export default function Passion() {
 	return (
 		<div className='intro'>
@@ -9,6 +10,7 @@ export default function Passion() {
 					Styled Components!
 				</p>
 			</div>
+			<Mac />
 		</div>
 	)
 }
