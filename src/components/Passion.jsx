@@ -1,6 +1,7 @@
 import Mac from '../components/Mac'
 export default function Passion() {
 	return (
+		<div className="intro-wrapper">
 		<div className='intro'>
 			<span className='sub-text'>assion</span>
 			<div className='intro-text'>
@@ -15,6 +16,7 @@ export default function Passion() {
 				</div>
 			</div>
 			<Mac />
+		</div>
 		</div>
 	)
 }
