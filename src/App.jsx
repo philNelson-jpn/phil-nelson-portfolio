@@ -19,8 +19,8 @@ function App() {
 			<MainWrapper>
 				<LetterP />
 				<Passion />
-				<Phlair />
 				<Phluid />
+				<Phlair />
 				<Liphelong />
 				<Phriendly />
 			</MainWrapper>
