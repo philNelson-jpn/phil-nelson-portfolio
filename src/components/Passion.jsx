@@ -7,7 +7,7 @@ export default function Passion() {
 			<div className='intro-text'>
 				<p>Hi there! I’m Phil. </p>
 				<p>
-					I’m a passionate introvert who loves building things with React and
+					I’m a <span className="passion">passionate</span> introvert who loves building things with React and
 					Styled Components!
 				</p>
 				<div className='hover-me'>

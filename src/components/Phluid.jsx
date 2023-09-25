@@ -4,9 +4,9 @@ export default function Phluid() {
 			<div className='intro'>
 				<span className='sub-text'>hluid</span>
 				<div className='intro-text'>
-					<p>I love creating phluid and dynamic layouts with CSS.</p>
+					<p>I love creating <span className="phluid">phluid</span> and dynamic layouts with CSS.</p>
 					<p>
-						I phashion visually stunning interfaces, and utilize React to
+						I <span className="phashion">phashion</span> visually stunning interfaces, and utilize React to
 						deliver engaging user experiences.
 					</p>
 				</div>

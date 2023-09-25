@@ -5,8 +5,9 @@ export default function Phlair() {
 				<span className='sub-text'>hlair</span>
 				<div className='intro-text'>
 					<p>
-						My phlair for interactive design, collaborative nature, insatiable
-						love for learning, and caring disposition make me an ideal phit for
+						My <span className='phlair'>phlair</span> for interactive design,
+						collaborative nature, insatiable love for learning, and caring
+						disposition make me an ideal <span className='phit'>phit</span> for
 						your team.
 					</p>
 				</div>

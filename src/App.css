@@ -82,8 +82,8 @@
 	font-family: 'Rubik', sans-serif;
 	color: hsl(200deg 80% 90%);
 	/* border: 1px solid green; */
-	padding-inline-start: 1rem;
-	padding-block-start: 1rem;
+	/* padding-inline-start: 1rem;
+	padding-block-start: 1rem; */
 	font-size: 10rem;
 	position: sticky;
 	left: 0;
@@ -114,6 +114,7 @@
 }
 
 .intro {
+	position: relative;
 	font-family: 'Rubik', sans-serif;
 	color: hsl(200deg 80% 90%);
 	grid-column: 2/4;
@@ -167,10 +168,56 @@
 	padding-block-end: 1rem;
 }
 
+.intro-text > p > span {
+	font-style: italic;
+	font-weight: bold;
+}
+
+.passion {
+	color: rgb(255, 0, 81);
+}
+
+.phlair {
+	color: rgb(255, 234, 0);
+}
+
+.phit {
+	color: rgb(0, 234, 255);
+}
+
+.phluid {
+	color: rgb(111, 164, 255);
+}
+
+.phashion {
+	color: rgb(250, 99, 218);
+}
+
+.phast {
+	color: rgb(99, 250, 124);
+}
+
+.phoster {
+	color: rgb(250, 104, 99);
+}
+
+.phriendly {
+	color: rgb(230, 250, 99);
+}
+
+.phruitful {
+	color: rgb(99, 250, 122);
+}
+
+.philanthropic {
+	color: rgb(99, 184, 250);
+}
+
 .sub-text {
 	position: sticky;
-	top: 2rem;
-	left: 8rem;
+	top: 0;
+	left: 0;
+	padding-inline-start: 7rem;
 	font-size: 10rem;
 	margin-bottom: -8rem;
 }
