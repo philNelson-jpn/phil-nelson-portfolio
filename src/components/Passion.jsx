@@ -15,7 +15,17 @@ export default function Passion() {
 					</p>
 					<p>
 						I’m a <span className='passion'>passionate</span> introvert who
-						loves building things with React and Styled Components!
+						loves building things with{' '}
+						<span className='react-underline'>
+							React
+							<img src='src/assets/RedUnderLinePNPortfolio.png' alt='' />
+						</span>{' '}
+						and{' '}
+						<span className='style-underline'>
+							Styled Components
+							<img src='src/assets/PurpleUnderLinePNPortfolio.png' alt='' />
+						</span>
+						!
 					</p>
 					<div className='hover-me'>
 						<span>Hover Me!</span>

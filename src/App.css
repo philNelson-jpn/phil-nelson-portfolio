@@ -129,13 +129,11 @@
 	position: relative;
 	top: 10rem;
 	right: 0;
-	max-width: 65ch;
+	max-width: 70ch;
 	min-width: 40ch;
 	grid-column: 2;
 	grid-row: 2;
 }
-
-
 
 .hover-me {
 	display: grid;
@@ -193,6 +191,36 @@
 .phil-name > img {
 	position: absolute;
 	top: 16px;
+}
+
+.intro-text > p > .react-underline {
+	display: inline-block;
+	font-family: 'Rubik';
+	position: relative;
+	font-size: revert;
+	font-weight: revert;
+	letter-spacing: revert;
+}
+
+.react-underline > img {
+	position: absolute;
+	top: 12px;
+}
+
+.intro-text > p > .style-underline {
+	display: inline-block;
+	font-family: 'Rubik';
+	position: relative;
+	font-size: revert;
+	font-weight: revert;
+	letter-spacing: revert;
+}
+
+.style-underline > img {
+	position: absolute;
+	top: 12px;
+	height: 15px;
+	width: 350px;
 }
 
 .passion {
