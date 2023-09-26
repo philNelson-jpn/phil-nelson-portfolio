@@ -407,26 +407,28 @@ svg {
 		hsl(240deg 14% 3% / 0.2) 89%,
 		hsl(240deg 15% 3% / 0) 100%
 	);
+	border-radius: 8px;
 }
 .box {
 	border: 1px solid hsl(0deg 0% 100% / 0.2);
-	background: transparent;
+	background: hsl(240deg 15% 3%);
 	display: flex;
 	flex-wrap: wrap;
 	gap: 8px;
 	justify-content: center;
 	align-items: center;
 	align-content: center;
-	padding: 16px;
+	padding: 8px;
 	cursor: pointer;
 	transition: background 800ms;
+	border-radius: 4px;
 }
 .box:hover {
-	background: hsla(210, 86%, 72%, 0.07);
+	background: hsla(210, 86%, 12%);
 	transition: background 100ms;
 }
 .box.selected {
-	background: hsla(210, 86%, 72%, 0.431);
+	background: hsla(210, 86%, 12%);
 	transition: background 200ms;
 }
 .box:nth-of-type(1) {
@@ -445,9 +447,27 @@ svg {
 	grid-column: 2;
 	grid-row: 3;
 }
-.coin {
-	width: 32px;
-	height: 32px;
+.tile {
+	display: grid;
+	place-content: center;
+	font-weight: bold;
+	width: 42px;
+	height: 42px;
 	background: hsl(214, 22%, 44%);
-	border-radius: 1000px;
+	border-radius: 4px;
+	z-index: 1;
+}
+
+.box {
+	position: relative;
+}
+
+.phluid-box-text {
+	position: absolute;
+	z-index: 0;
+	color: hsla(210, 86%, 82%, 0.5);
+}
+
+.box.selected .phluid-box-text{
+	color: hsla(210, 86%, 12%);
 }

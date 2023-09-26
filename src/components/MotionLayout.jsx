@@ -6,7 +6,8 @@ const NUM_OF_BOXES = 5
 
 function CoinSorter() {
 	const id = React.useId()
-	const numOfCoins = 5
+	// const numOfCoins = 5
+	const content = ['P', 'H', 'L', 'E', 'X', 'Y']
 
 	const [selectedBox, setSelectedBox] = React.useState(0)
 
@@ -20,22 +21,25 @@ function CoinSorter() {
 						onClick={() => setSelectedBox(boxIndex)}
 					>
 						{selectedBox === boxIndex &&
-							range(numOfCoins).map((coinIndex) => {
-								const layoutId = `${id}-${coinIndex}`
+							range(content.length).map((tileIndex) => {
+								const layoutId = `${id}-${tileIndex}`
 
 								return (
 									<motion.div
 										layoutId={layoutId}
 										key={layoutId}
-										className='coin'
+										className='tile'
 										transition={{
 											type: 'spring',
 											stiffness: 400,
-											damping: 40 + coinIndex * 5,
+											damping: 40 + tileIndex * 5,
 										}}
-									/>
+									>
+										{content[tileIndex]}
+									</motion.div>
 								)
 							})}
+						<span className='phluid-box-text'>Click Me</span>
 					</button>
 				))}
 			</div>
