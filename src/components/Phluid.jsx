@@ -12,7 +12,7 @@ export default function Phluid() {
 					</p>
 					<p>
 						I <span className='phashion'>phashion</span> visually stunning
-						interfaces, and utilize React to deliver engaging user experiences.
+						interfaces with React and Framer Motion to deliver engaging user experiences.
 					</p>
 				</div>
 				<MotionLayout />

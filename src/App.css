@@ -135,6 +135,8 @@
 	grid-row: 2;
 }
 
+
+
 .hover-me {
 	display: grid;
 	place-content: left;
@@ -152,9 +154,9 @@
 
 .hover-me > img {
 	position: absolute;
-	left: -20px;
-	top: 30px;
-	width: 250px;
+	left: 30px;
+	top: 60px;
+	width: 150px;
 	transform: rotate(-5deg);
 }
 
@@ -163,6 +165,10 @@
 	padding-inline: 2rem;
 	padding-block: 0.5rem;
 	padding-block-end: 8rem;
+}
+
+.intro-text > .greeting {
+	font-size: 3.25rem;
 }
 
 .intro-text > p:first-of-type {
@@ -174,6 +180,19 @@
 	font-weight: bold;
 	font-family: 'Just Another Hand';
 	font-size: 3.25rem;
+	letter-spacing: 2px;
+	line-height: 0;
+}
+
+.intro-text > p > .phil-name {
+	display: inline-block;
+	font-family: 'Rubik';
+	position: relative;
+}
+
+.phil-name > img {
+	position: absolute;
+	top: 16px;
 }
 
 .passion {
@@ -223,154 +242,6 @@
 	padding-inline-start: 7rem;
 	font-size: 10rem;
 	margin-bottom: -8rem;
-}
-
-.iMac-wrapper {
-	perspective: 750px;
-	cursor: pointer;
-	padding-block-start: 10rem;
-	padding-block-end: 10rem;
-	grid-column: 1;
-	grid-row: 2;
-	position: sticky;
-	top: 6rem;
-	z-index: 10001;
-	background-image: linear-gradient(
-		180deg,
-		hsl(240deg 15% 3% / 0) 0%,
-		hsl(240deg 14% 3% / 0.2) 11%,
-		hsl(240deg 12% 3% / 0.6) 22%,
-		hsl(240deg 12% 3% / 0.7) 33%,
-		hsl(240deg 10% 3% / 0.8) 44%,
-		hsl(240deg 9% 3% / 0.8) 56%,
-		hsl(240deg 12% 3% / 0.7) 67%,
-		hsl(240deg 12% 3% / 0.6) 78%,
-		hsl(240deg 14% 3% / 0.2) 89%,
-		hsl(240deg 15% 3% / 0) 100%
-	);
-}
-
-.iMac {
-	position: relative;
-	height: 350px;
-	width: 520px;
-	left: 2rem;
-
-	background-image: linear-gradient(
-		90deg,
-		hsl(240deg 2% 90%) 0%,
-		hsl(240deg 4% 89%) 17%,
-		hsl(240deg 5% 88%) 25%,
-		hsl(240deg 6% 86%) 31%,
-		hsl(240deg 6% 85%) 37%,
-		hsl(231deg 8% 83%) 42%,
-		hsl(233deg 9% 82%) 47%,
-		hsl(228deg 1% 80%) 53%,
-		hsl(224deg 1% 74%) 58%,
-		hsl(223deg 2% 68%) 63%,
-		hsl(224deg 2% 66%) 69%,
-		hsl(220deg 4% 65%) 75%,
-		hsl(219deg 5% 63%) 83%,
-		hsl(217deg 6% 62%) 100%
-	);
-	border-radius: 4px;
-	transform: rotateY(0deg);
-	transition: transform 600ms ease-in-out;
-	transform-style: preserve-3d;
-	border-left: 5px solid hsl(217deg 6% 72%);
-}
-
-svg {
-	position: absolute;
-	width: 25px;
-	left: 50%;
-	right: 50%;
-	bottom: 20px;
-}
-
-.screen {
-	display: grid;
-	grid-template-areas:
-		'header header header'
-		'main main sidebar'
-		'main main sidebar';
-	grid-template-rows: 25% 1fr;
-	grid-template-columns: 1fr 2fr 1fr;
-	perspective: 750px;
-	gap: 5px;
-	position: absolute;
-	border: 4px solid transparent;
-	inset: 10px 10px 60px 10px;
-	background-color: hsl(0, 2%, 10%);
-	transform: translate3D(0px, 0, 0px);
-	border-radius: 3px 3px 0px 0px;
-	transition: transform 600ms ease-in-out, border 600ms ease-in-out;
-	transform-style: inherit;
-}
-
-.item {
-	border: 4px solid;
-	transform: translate3D(0px, 0, 0px);
-	transform-style: inherit;
-	background-color: hsl(0, 2%, 10%);
-	border-radius: 2px;
-	display: grid;
-	place-content: center;
-	font-size: calc(24 / 16 * 1rem);
-}
-
-.item.one {
-	grid-area: header;
-	border-color: hsl(113, 85%, 74%);
-	transition: transform 800ms ease-in-out, background-color 1000ms ease-in-out,
-		color 1000ms ease-in-out;
-}
-
-.item.two {
-	grid-area: main;
-	border-color: hsl(343, 100%, 50%);
-	transition: transform 1200ms ease-in-out, background-color 1500ms ease-in-out,
-		color 2000ms ease-in-out;
-	font-size: calc(64 / 16 * 1rem);
-}
-
-.item.three {
-	grid-area: sidebar;
-	border-color: hsl(240, 100%, 69%);
-	transition: transform 1500ms ease-in-out, background-color 2000ms ease-in-out,
-		color 2500ms ease-in-out;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: space-around;
-	font-size: calc(36 / 16 * 1rem);
-}
-
-.iMac-wrapper:hover .iMac {
-	transform: rotateY(40deg);
-}
-
-.iMac-wrapper:hover .screen {
-	transform: translate3D(30px, -10px, 100px);
-	border-color: white;
-}
-
-.iMac-wrapper:hover .item.one {
-	transform: translate3D(60px, -10px, 40px);
-	background-color: hsl(113, 85%, 74%);
-	color: hsl(240, 5%, 21%);
-}
-
-.iMac-wrapper:hover .item.two {
-	transform: translate3D(0px, 30px, 60px);
-	background-color: hsl(343, 100%, 50%);
-	color: hsl(240, 5%, 21%);
-}
-
-.iMac-wrapper:hover .item.three {
-	transform: translate3D(30px, -20px, 90px);
-	background-color: hsl(240, 100%, 69%);
-	color: hsl(240, 5%, 21%);
 }
 
 /* Smooth Layout Styles */
@@ -468,6 +339,6 @@ svg {
 	color: hsla(210, 86%, 82%, 0.5);
 }
 
-.box.selected .phluid-box-text{
+.box.selected .phluid-box-text {
 	color: hsla(210, 86%, 12%);
 }
