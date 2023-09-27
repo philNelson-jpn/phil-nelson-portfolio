@@ -1,6 +1,7 @@
 import React from 'react'
 import range from '../utils/range'
 import { LayoutGroup, motion } from 'framer-motion'
+import { ArrowLeft, ArrowRight, RotateCw } from 'react-feather'
 
 const NUM_OF_BOXES = 5
 
@@ -14,6 +15,17 @@ function CoinSorter() {
 	return (
 		<LayoutGroup>
 			<div className='layout-wrapper'>
+				<div className='browser-circle-group'>
+					<div className='red-circle'></div>
+					<div className='yellow-circle'></div>
+					<div className='green-circle'></div>
+				</div>
+				<div className='browser-nav-group'>
+					<ArrowLeft />
+					<ArrowRight />
+					<RotateCw />
+					<div className='address-bar'></div>
+				</div>
 				{range(NUM_OF_BOXES).map((boxIndex) => (
 					<button
 						key={boxIndex}
