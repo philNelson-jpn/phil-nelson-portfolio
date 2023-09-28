@@ -7,7 +7,10 @@ export default function Phlair() {
 				<span className='sub-text'>hlair</span>
 				<div className='intro-text'>
 					<p>
-						My <span className='phlair'>phlair</span> for interactive design,
+						My <span className='phlair'>phlair</span> for interactive <span className='style-underline'>
+							design
+							<img src='src/assets/GreenLinePNProfile.png' alt='' />
+						</span>,
 						collaborative nature, insatiable{' '}
 						<span className='style-underline'>
 							love for learning

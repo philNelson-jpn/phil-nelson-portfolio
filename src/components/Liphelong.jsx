@@ -1,4 +1,4 @@
-import StickerClicker from './StickerClicker'
+
 
 export default function Liphelong() {
 	return (
@@ -15,7 +15,6 @@ export default function Liphelong() {
 						developer and challenge myself.
 					</p>
 				</div>
-				<StickerClicker />
 			</div>
 		</div>
 	)

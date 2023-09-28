@@ -1,13 +1,18 @@
+import StickerClicker from './StickerClicker'
 export default function Passion() {
 	return (
 		<div className='intro-wrapper'>
 			<div className='intro'>
-				<span className='sub-text'>hriendly</span>
+				<span className='sub-text'>hun</span>
 				<div className='intro-text'>
 					<p>
-						I&apos;m thrilled to contribute my skills and <span className="phoster">phoster</span> a <span className="phriendly">phriendly</span>, <span className="phruitful">phruitful</span>, and <span className="philanthropic">philanthropic</span> environment within your projects.
+						I&apos;m thrilled to contribute my skills within your projects to
+						help create a <span className='phlair'>phun</span> and{' '}
+						<span className='phast'>phriendly</span> environment.
 					</p>
 				</div>
+
+				<StickerClicker />
 			</div>
 		</div>
 	)
