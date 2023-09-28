@@ -430,7 +430,7 @@
 .phluid-box-text {
 	position: absolute;
 	z-index: 0;
-	color: hsla(210, 86%, 82%, 0.5);
+	color: hsla(210, 86%, 92%, 0.7);
 }
 
 .box.selected .phluid-box-text {

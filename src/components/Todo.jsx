@@ -1,20 +1,18 @@
 import React from 'react'
-import { X } from 'react-feather'
+import { Delete } from 'react-feather'
 import { styled } from 'styled-components'
 
 export default function Todo() {
 	const [todos, setTodos] = React.useState([
 		{ value: 'Learn Japanese', id: 'Japanese is fun', isCompleted: true },
-		{ value: 'Learn HTML and CSS', id: 'Webdev is fun', isCompleted: true },
 		{
-			value: 'Learn JavaScript',
-			id: 'This stuff is hard, man!',
+			value: 'Learn HTML, CSS, and JavaScript',
+			id: 'Webdev is fun',
 			isCompleted: true,
 		},
-		{ value: 'Learn React', id: 'Hey, this is pretty cool', isCompleted: true },
 		{
-			value: 'Learn More React!',
-			id: "I'm starting to get the hang of this!",
+			value: 'Get better at React & Styled-Components',
+			id: 'Hey, this is pretty cool',
 			isCompleted: false,
 		},
 		{ value: 'Work with you!', id: "Let's do this!", isCompleted: false },
@@ -22,6 +20,10 @@ export default function Todo() {
 	const [value, setValue] = React.useState('')
 
 	function handleCreateTodo(value) {
+		if (todos.length >= 6) {
+			window.alert('Sorry, there is a limit of 6 todos in this demo.')
+			return
+		}
 		setTodos([
 			...todos,
 			{
@@ -74,7 +76,11 @@ export default function Todo() {
 									setValue(event.target.value)
 								}}
 							/>
-							<button>Add</button>
+							<AddToDo>
+								<span className='shadow'></span>
+								<span className='edge'></span>
+								<span className='front'>Add Todo!</span>
+							</AddToDo>
 						</Row>
 					</form>
 				</CreateNewTodoWrapper>
@@ -97,7 +103,7 @@ export default function Todo() {
 								handleDeleteTodo(id)
 							}}
 						>
-							<X />
+							<Delete />
 						</button>
 					</li>
 				))}
@@ -126,13 +132,137 @@ const Row = styled.div`
 		border-bottom: 3px solid grey;
 		width: 300px;
 	}
+`
 
-	& button {
-		background-color: transparent;
-		border: solid 3px grey;
-		border-radius: 6px;
-		padding: 4px 8px;
+const AddToDo = styled.button`
+	position: relative;
+	border: none;
+	background: transparent;
+	padding: 0;
+	cursor: pointer;
+	outline-offset: 4px;
+	transition: filter 250ms;
+
+	& .shadow {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		border-radius: 12px;
+		background: hsl(0deg 0% 0% / 0.25);
+		will-change: transform;
+		transform: translateY(2px);
+		transition: transform 600ms cubic-bezier(0.3, 0.7, 0.4, 1);
+	}
+
+	& .edge {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		border-radius: 8px;
+		background: linear-gradient(
+			to left,
+			rgb(0, 82, 14) 0%,
+			rgb(19, 163, 0) 8%,
+			rgb(0, 163, 49) 92%,
+			rgb(14, 82, 0) 100%
+		);
+	}
+
+	& .front {
+		display: block;
+		position: relative;
+		padding: 6px 12px;
+		border-radius: 8px;
+		font-size: 1rem;
+		color: white;
+		background: rgb(31, 165, 91);
+		will-change: transform;
+		transform: translateY(-4px);
+		transition: transform 600ms cubic-bezier(0.3, 0.7, 0.4, 1);
+	}
+
+	&:hover {
+		filter: brightness(110%);
+	}
+	&:hover .front {
+		transform: translateY(-6px);
+		transition: transform 250ms cubic-bezier(0.3, 0.7, 0.4, 1.5);
+	}
+	&:active .front {
+		transform: translateY(-2px);
+		transition: transform 34ms;
+	}
+	&:hover .shadow {
+		transform: translateY(4px);
+		transition: transform 250ms cubic-bezier(0.3, 0.7, 0.4, 1.5);
+	}
+	&:active .shadow {
+		transform: translateY(1px);
+		transition: transform 34ms;
+	}
+	&:focus:not(:focus-visible) {
+		outline: none;
 	}
 `
 
-const TodoList = styled.ol``
+const TodoList = styled.ol`
+	margin-inline: 24px;
+	display: flex;
+	flex-direction: column;
+	list-style-type: none;
+	padding: 0;
+	--breathing-room: 6px;
+
+	& li {
+		display: flex;
+		border: 1px solid grey;
+		gap: var(--breathing-room);
+		margin-block-start: var(--breathing-room);
+		border-radius: 4px;
+		justify-content: space-between;
+	}
+
+	& button {
+		background-color: transparent;
+		border: none;
+		cursor: pointer;
+	}
+
+	& button:first-of-type {
+		position: relative;
+		padding: 8px;
+		flex: 1;
+		text-align: left;
+	}
+
+	& .delete-btn {
+		background-color: transparent;
+		padding: 8px;
+		overflow: hidden;
+		color: hsl(280, 15%, 65%);
+		width: 40px;
+	}
+
+	& .delete-btn:hover {
+		background-color: hsla(280, 10%, 35%, 0.5);
+		color: hsl(0, 100%, 100%);
+	}
+
+	& .toggle.completed::after {
+		content: '';
+		position: absolute;
+		left: 0;
+		right: 20px;
+		top: 0;
+		bottom: 0;
+		margin: auto;
+		height: 5px;
+		background: hsl(270deg 70% 60% / 0.6);
+		border-radius: 100px;
+		transform: translateY(1.5px) rotate(-0.4deg);
+	}
+`
