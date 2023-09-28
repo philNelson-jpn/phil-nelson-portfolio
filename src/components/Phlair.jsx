@@ -1,3 +1,5 @@
+import GradientGenerator from './GradientGenerator'
+
 export default function Phlair() {
 	return (
 		<div className='intro-wrapper'>
@@ -6,11 +8,16 @@ export default function Phlair() {
 				<div className='intro-text'>
 					<p>
 						My <span className='phlair'>phlair</span> for interactive design,
-						collaborative nature, insatiable love for learning, and caring
-						disposition make me an ideal <span className='phit'>phit</span> for
-						your team.
+						collaborative nature, insatiable{' '}
+						<span className='style-underline'>
+							love for learning
+							<img src='src/assets/PurpleUnderLinePNPortfolio.png' alt='' />
+						</span>
+						, and caring disposition make me an ideal{' '}
+						<span className='phit'>phit</span> for your team.
 					</p>
 				</div>
+				<GradientGenerator />
 			</div>
 		</div>
 	)

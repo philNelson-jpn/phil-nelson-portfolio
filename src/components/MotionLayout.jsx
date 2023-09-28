@@ -24,7 +24,7 @@ function CoinSorter() {
 					<ArrowLeft />
 					<ArrowRight />
 					<RotateCw />
-					<div className='address-bar'></div>
+					<div className='address-bar'>your-awesome-website.com</div>
 				</div>
 				{range(NUM_OF_BOXES).map((boxIndex) => (
 					<button
