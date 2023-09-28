@@ -1,4 +1,4 @@
-
+import Todo from './Todo'
 
 export default function Liphelong() {
 	return (
@@ -15,6 +15,7 @@ export default function Liphelong() {
 						developer and challenge myself.
 					</p>
 				</div>
+				<Todo />
 			</div>
 		</div>
 	)

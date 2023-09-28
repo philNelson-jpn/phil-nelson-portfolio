@@ -1,9 +1,12 @@
 import React from 'react'
+import { styled } from 'styled-components'
 
 export default function StickerClicker() {
 	return (
 		<div className='sticker-clicker-wrapper'>
-			<h1>Click Anywhere!</h1>
+			<ClickAnywhere>
+				<h1>Click Anywhere!</h1>
+			</ClickAnywhere>
 			<RandomImage />
 		</div>
 	)
@@ -18,8 +21,8 @@ const RandomImage = () => {
 		const clickY = event.clientY - container.offsetTop
 
 		// Calculate the adjusted position for centering the image
-		const centerX = clickX - 60 // Adjust for half of the image width (100 / 2 = 50)
-		const centerY = clickY - 200 // Adjust for half of the image height (100 / 2 = 50)
+		const centerX = clickX - 100 // Adjust for half of the image width (100 / 2 = 50)
+		const centerY = clickY - 280 // Adjust for half of the image height (100 / 2 = 50)
 
 		// Simulate fetching a random image URL (replace with your logic)
 		const randomImageUrl = getRandomImageUrl()
@@ -29,6 +32,7 @@ const RandomImage = () => {
 			url: randomImageUrl,
 			x: centerX,
 			y: centerY,
+			rotation: getRandomRotation(),
 		}
 
 		// Add the new image to the images array
@@ -49,29 +53,55 @@ const RandomImage = () => {
 		return imageUrls[randomIndex]
 	}
 
+	const getRandomRotation = () => {
+		// Generate a random rotation between -5 and 5 degrees
+		return Math.random() * 30 - 15
+	}
+
 	return (
-		<div
-			style={{
-				width: '500px',
-				height: '600px',
-				overflow: 'hidden',
-				position: 'relative',
-			}}
-			onClick={handleGenerateImage}
-		>
+		<StickerContainer onClick={handleGenerateImage}>
 			{images.map((image, index) => (
 				<img
 					key={index}
 					src={image.url}
 					alt={`Random Image ${index}`}
-					width='100'
+					width='160'
 					style={{
+                        pointerEvents: "none",
 						position: 'absolute',
 						top: image.y,
 						left: image.x,
+						transform: `rotate(${image.rotation}deg)`,
 					}}
 				/>
 			))}
-		</div>
+		</StickerContainer>
 	)
 }
+
+const StickerContainer = styled.div`
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	position: relative;
+	top: 0;
+	border-radius: 6px;
+`
+
+const ClickAnywhere = styled.div`
+	display: grid;
+	place-content: center;
+	border-radius: 6px;
+	position: absolute;
+	inset: 0;
+	background-color: royalblue;
+
+	& > h1 {
+		color: hsla(
+			224.68085106382978,
+			55.29411764705884%,
+			83.33333333333334%,
+			0.816
+		);
+	}
+`
