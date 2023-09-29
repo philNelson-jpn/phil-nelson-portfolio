@@ -1,8 +1,9 @@
 import React from 'react'
 import { styled } from 'styled-components'
+import { CornerLeftDown, CornerRightDown } from 'react-feather'
 
 const INITIAL_STATE = {
-	colors: ['#00ffaa', '#00b7ff', '#0055ff', '#0000ff', '#8000ff'],
+	colors: ['#35fdcb', '#5bc5fb', '#526fff', '#7733ff', '#af2ff4'],
 	numOfVisibleColors: 2,
 }
 
@@ -45,7 +46,9 @@ export default function GradientGenerator() {
 
 	function addColor() {
 		if (numOfVisibleColors >= 5) {
-			window.alert('There is a maximum of 5 colors')
+			window.alert(
+				'Sorry! There is a maximum of 5 colors on this gradient generator.'
+			)
 			return
 		}
 
@@ -54,7 +57,7 @@ export default function GradientGenerator() {
 
 	function removeColor() {
 		if (numOfVisibleColors <= 2) {
-			window.alert('There is a minimum of 2 colors')
+			window.alert('You need at least two colors to form a gradient.')
 			return
 		}
 
@@ -64,6 +67,11 @@ export default function GradientGenerator() {
 	return (
 		<div className='gradient-wrapper'>
 			<Wrapper>
+				<div className='change-me'>
+					<CornerLeftDown />
+					<p>Change me!</p>
+					<CornerRightDown />
+				</div>
 				<Colors>
 					{visibleColors.map((color, index) => {
 						const colorId = `color-${index}`
@@ -92,8 +100,16 @@ export default function GradientGenerator() {
 				/>
 
 				<Actions>
-					<button onClick={removeColor}>Remove color</button>
-					<button onClick={addColor}>Add color</button>
+					<RemoveColor onClick={removeColor}>
+						<span className='shadow'></span>
+						<span className='edge'></span>
+						<span className='front'>Remove Color</span>
+					</RemoveColor>
+					<AddColor onClick={addColor}>
+						<span className='shadow'></span>
+						<span className='edge'></span>
+						<span className='front'>Add Color</span>
+					</AddColor>
 				</Actions>
 			</Wrapper>
 		</div>
@@ -101,10 +117,28 @@ export default function GradientGenerator() {
 }
 
 const Wrapper = styled.div`
+	position: relative;
 	max-width: 550px;
 	display: flex;
 	flex-direction: column;
 	gap: 16px;
+	padding-block-start: 12px;
+
+	& .change-me {
+		display: flex;
+		justify-content: space-around;
+		position: absolute;
+		top: -20px;
+		width: 100%;
+		text-align: center;
+		color: hsl(270, 0%, 100%, 0.8);
+	}
+
+	& .change-me p {
+		position: absolute;
+		top: -4px;
+		color: hsl(270, 0%, 100%, 0.6);
+	}
 `
 
 const Input = styled.input`
@@ -133,12 +167,154 @@ const Actions = styled.div`
 	display: flex;
 	justify-content: center;
 	gap: 16px;
+`
 
-	& button {
+const AddColor = styled.button`
+	position: relative;
+	border: none;
+	background: transparent;
+	padding: 0;
+	cursor: pointer;
+	outline-offset: 4px;
+	transition: filter 250ms;
+
+	& .shadow {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		border-radius: 12px;
+		background: hsl(0deg 0% 0% / 0.25);
+		will-change: transform;
+		transform: translateY(2px);
+		transition: transform 600ms cubic-bezier(0.3, 0.7, 0.4, 1);
+	}
+
+	& .edge {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		border-radius: 8px;
+		background: linear-gradient(
+			to left,
+			hsl(147, 68%, 18%) 0%,
+			hsl(147, 68%, 28%) 8%,
+			hsl(147, 68%, 28%) 92%,
+			hsl(147, 68%, 8%) 100%
+		);
+	}
+
+	& .front {
+		display: block;
+		position: relative;
+		padding: 6px 12px;
+		border-radius: 8px;
 		font-size: 1rem;
-		padding: 8px 16px;
-		background-color: black;
-		border: 2px solid grey;
-		border-radius: 4px;
+		color: white;
+		background: hsl(147, 68%, 38%);
+		will-change: transform;
+		transform: translateY(-4px);
+		transition: transform 600ms cubic-bezier(0.3, 0.7, 0.4, 1);
+	}
+
+	&:hover {
+		filter: brightness(110%);
+	}
+	&:hover .front {
+		transform: translateY(-6px);
+		transition: transform 250ms cubic-bezier(0.3, 0.7, 0.4, 1.5);
+	}
+	&:active .front {
+		transform: translateY(-2px);
+		transition: transform 34ms;
+	}
+	&:hover .shadow {
+		transform: translateY(4px);
+		transition: transform 250ms cubic-bezier(0.3, 0.7, 0.4, 1.5);
+	}
+	&:active .shadow {
+		transform: translateY(1px);
+		transition: transform 34ms;
+	}
+	&:focus:not(:focus-visible) {
+		outline: none;
+	}
+`
+
+const RemoveColor = styled.button`
+	position: relative;
+	border: none;
+	background: transparent;
+	padding: 0;
+	cursor: pointer;
+	outline-offset: 4px;
+	transition: filter 250ms;
+
+	& .shadow {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		border-radius: 12px;
+		background: hsl(0deg 0% 0% / 0.25);
+		will-change: transform;
+		transform: translateY(2px);
+		transition: transform 600ms cubic-bezier(0.3, 0.7, 0.4, 1);
+	}
+
+	& .edge {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		border-radius: 8px;
+		background: linear-gradient(
+			to left,
+			hsl(0, 82%, 25%) 0%,
+			hsl(0, 82%, 38%) 8%,
+			hsl(0, 82%, 38%) 92%,
+			hsl(0, 82%, 12%) 100%
+		);
+	}
+
+	& .front {
+		display: block;
+		position: relative;
+		padding: 6px 12px;
+		border-radius: 8px;
+		font-size: 1rem;
+		color: white;
+		background: hsl(0, 82%, 55%);
+		will-change: transform;
+		transform: translateY(-4px);
+		transition: transform 600ms cubic-bezier(0.3, 0.7, 0.4, 1);
+	}
+
+	&:hover {
+		filter: brightness(110%);
+	}
+	&:hover .front {
+		transform: translateY(-6px);
+		transition: transform 250ms cubic-bezier(0.3, 0.7, 0.4, 1.5);
+	}
+	&:active .front {
+		transform: translateY(-2px);
+		transition: transform 34ms;
+	}
+	&:hover .shadow {
+		transform: translateY(4px);
+		transition: transform 250ms cubic-bezier(0.3, 0.7, 0.4, 1.5);
+	}
+	&:active .shadow {
+		transform: translateY(1px);
+		transition: transform 34ms;
+	}
+	&:focus:not(:focus-visible) {
+		outline: none;
 	}
 `

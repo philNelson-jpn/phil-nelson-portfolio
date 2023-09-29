@@ -6,8 +6,18 @@ export default function Passion() {
 				<span className='sub-text'>hun</span>
 				<div className='intro-text'>
 					<p>
-						I&apos;m thrilled to contribute my skills within your projects to
-						help create a <span className='phlair'>phun</span> and{' '}
+						I&apos;m thrilled to{' '}
+						<span className='style-underline'>
+							contribute
+							<img src='src/assets/PurpleUnderLinePNPortfolio.png' alt='' />
+						</span>{' '}
+						my{' '}
+						<span className='style-underline'>
+							skills
+							<img src='src/assets/RedUnderLinePNPortfolio.png' alt='' />
+						</span>{' '}
+						within your projects to help create a{' '}
+						<span className='phlair'>phun</span> and{' '}
 						<span className='phast'>phriendly</span> environment.
 					</p>
 				</div>

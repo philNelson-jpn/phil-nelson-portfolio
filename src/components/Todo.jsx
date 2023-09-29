@@ -165,10 +165,10 @@ const AddToDo = styled.button`
 		border-radius: 8px;
 		background: linear-gradient(
 			to left,
-			rgb(0, 82, 14) 0%,
-			rgb(19, 163, 0) 8%,
-			rgb(0, 163, 49) 92%,
-			rgb(14, 82, 0) 100%
+			hsl(268, 76%, 18%) 0%,
+			hsl(268, 76%, 38%) 8%,
+			hsl(268, 76%, 38%) 92%,
+			hsl(268, 76%, 8%) 100%
 		);
 	}
 
@@ -179,7 +179,7 @@ const AddToDo = styled.button`
 		border-radius: 8px;
 		font-size: 1rem;
 		color: white;
-		background: rgb(31, 165, 91);
+		background: hsl(268, 76%, 58%);
 		will-change: transform;
 		transform: translateY(-4px);
 		transition: transform 600ms cubic-bezier(0.3, 0.7, 0.4, 1);
@@ -231,6 +231,10 @@ const TodoList = styled.ol`
 		border: none;
 		cursor: pointer;
 	}
+
+    & li:hover {
+        background-color: #ffffff13;
+    }
 
 	& button:first-of-type {
 		position: relative;

@@ -67,7 +67,7 @@ const RandomImage = () => {
 					alt={`Random Image ${index}`}
 					width='160'
 					style={{
-                        pointerEvents: "none",
+						pointerEvents: 'none',
 						position: 'absolute',
 						top: image.y,
 						left: image.x,
@@ -94,14 +94,9 @@ const ClickAnywhere = styled.div`
 	border-radius: 6px;
 	position: absolute;
 	inset: 0;
-	background-color: royalblue;
+	background-color: hsla(237, 97%, 74%, 0.8);
 
 	& > h1 {
-		color: hsla(
-			224.68085106382978,
-			55.29411764705884%,
-			83.33333333333334%,
-			0.816
-		);
+		color: hsla(224, 55%, 93%, 0.8);
 	}
 `

@@ -56,31 +56,62 @@ const IMac = styled.div`
 	height: 350px;
 	width: 520px;
 	left: 2rem;
+	outline: 2px solid hsl(0deg 0% 100% / 0.3);
 	background-image: linear-gradient(
 		90deg,
-		hsl(240deg 2% 90%) 0%,
-		hsl(240deg 4% 89%) 17%,
-		hsl(240deg 5% 88%) 25%,
-		hsl(240deg 6% 86%) 31%,
-		hsl(240deg 6% 85%) 37%,
-		hsl(231deg 8% 83%) 42%,
-		hsl(233deg 9% 82%) 47%,
-		hsl(228deg 1% 80%) 53%,
-		hsl(224deg 1% 74%) 58%,
-		hsl(223deg 2% 68%) 63%,
-		hsl(224deg 2% 66%) 69%,
-		hsl(220deg 4% 65%) 75%,
-		hsl(219deg 5% 63%) 83%,
-		hsl(217deg 6% 62%) 100%
+		hsl(240deg 2% 90% / 0.2) 0%,
+		hsl(240deg 4% 89% / 0.2) 17%,
+		hsl(240deg 5% 88% / 0.2) 25%,
+		hsl(240deg 6% 86% / 0.2) 31%,
+		hsl(240deg 6% 85% / 0.2) 37%,
+		hsl(231deg 8% 83% / 0.2) 42%,
+		hsl(233deg 9% 82% / 0.2) 47%,
+		hsl(228deg 1% 80% / 0.2) 53%,
+		hsl(224deg 1% 74% / 0.2) 58%,
+		hsl(223deg 2% 68% / 0.2) 63%,
+		hsl(224deg 2% 66% / 0.2) 69%,
+		hsl(220deg 4% 65% / 0.2) 75%,
+		hsl(219deg 5% 63% / 0.2) 83%,
+		hsl(217deg 6% 62% / 0.2) 100%
 	);
 	border-radius: 4px;
 	transform: rotateY(0deg);
-	transition: transform 600ms ease-in-out;
+	transition: transform 600ms ease-in-out, opacity 600ms ease-in-out;
 	transform-style: preserve-3d;
-	border-left: 5px solid hsl(217deg 6% 72%);
+	border-left: 5px solid hsl(217deg 6% 72% / 0.2);
 
 	${IMacWrapper}:hover & {
 		transform: rotateY(40deg);
+	}
+
+	${IMacWrapper} &::before {
+		content: '';
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		opacity: 0;
+		transition: opacity 600ms ease-in-out;
+		background-image: linear-gradient(
+			90deg,
+			hsl(240deg 2% 90%) 0%,
+			hsl(240deg 4% 89%) 17%,
+			hsl(240deg 5% 88%) 25%,
+			hsl(240deg 6% 86%) 31%,
+			hsl(240deg 6% 85%) 37%,
+			hsl(231deg 8% 83%) 42%,
+			hsl(233deg 9% 82%) 47%,
+			hsl(228deg 1% 80%) 53%,
+			hsl(224deg 1% 74%) 58%,
+			hsl(223deg 2% 68%) 63%,
+			hsl(224deg 2% 66%) 69%,
+			hsl(220deg 4% 65%) 75%,
+			hsl(219deg 5% 63%) 83%,
+			hsl(217deg 6% 62%) 100%
+		);
+	}
+
+	${IMacWrapper}:hover &::before {
+		opacity: 1;
 	}
 `
 
@@ -118,7 +149,7 @@ const SVG = styled.svg`
 `
 
 const Item = styled.div`
-	border: 4px solid;
+	border: 2px solid;
 	transform: translate3D(0px, 0, 0px);
 	transform-style: inherit;
 	background-color: hsl(0, 2%, 10%);
