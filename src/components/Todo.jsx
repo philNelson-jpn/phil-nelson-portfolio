@@ -17,7 +17,7 @@ export default function Todo() {
 		},
 		{ value: 'Work with you!', id: "Let's do this!", isCompleted: false },
 	])
-	const [value, setValue] = React.useState('')
+	const [value, setValue] = React.useState("Let's do this!")
 
 	function handleCreateTodo(value) {
 		if (todos.length >= 6) {
@@ -69,6 +69,8 @@ export default function Todo() {
 
 						<Row>
 							<input
+								onClick={() => setValue('')}
+								onFocus={() => setValue('')}
 								id='new-list-form-input'
 								type='text'
 								value={value}
@@ -232,9 +234,9 @@ const TodoList = styled.ol`
 		cursor: pointer;
 	}
 
-    & li:hover {
-        background-color: #ffffff13;
-    }
+	& li:hover {
+		background-color: #ffffff13;
+	}
 
 	& button:first-of-type {
 		position: relative;

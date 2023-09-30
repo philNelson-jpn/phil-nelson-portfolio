@@ -22,10 +22,10 @@ const RandomImage = () => {
 		const clickY = event.clientY - containerRect.top // Adjust for container's position
 
 		// Calculate the adjusted position for centering the image
-		const centerX = clickX - 80 // Adjust for half of the image width (100 / 2 = 50)
-		const centerY = clickY - 80 // Adjust for half of the image height (100 / 2 = 50)
+		const centerX = clickX - 80 // Adjust for half of the image width (160 / 2 = 80)
+		const centerY = clickY - 80 // Adjust for half of the image height (160 / 2 = 80)
 
-		// Simulate fetching a random image URL (replace with your logic)
+		// Fetch a random image URL
 		const randomImageUrl = getRandomImageUrl()
 
 		// Create a new image object with adjusted position and rotation
@@ -33,10 +33,9 @@ const RandomImage = () => {
 			url: randomImageUrl,
 			x: centerX,
 			y: centerY,
-			rotation: getRandomRotation(), // Random rotation between -5 and 5 degrees
+			rotation: getRandomRotation(),
 		}
 
-		// Add the new image to the images array
 		setImages([...images, newImage])
 	}
 
@@ -55,7 +54,6 @@ const RandomImage = () => {
 	}
 
 	const getRandomRotation = () => {
-		// Generate a random rotation between -5 and 5 degrees
 		return Math.random() * 30 - 15
 	}
 
