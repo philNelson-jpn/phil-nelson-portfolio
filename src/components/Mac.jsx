@@ -36,7 +36,7 @@ const IMacWrapper = styled.div`
 	position: sticky;
 	top: 6rem;
 	z-index: 10001;
-	background-image: linear-gradient(
+	/* background-image: linear-gradient(
 		180deg,
 		hsl(240deg 15% 3% / 0) 0%,
 		hsl(240deg 14% 3% / 0.2) 11%,
@@ -48,7 +48,7 @@ const IMacWrapper = styled.div`
 		hsl(240deg 12% 3% / 0.6) 78%,
 		hsl(240deg 14% 3% / 0.2) 89%,
 		hsl(240deg 15% 3% / 0) 100%
-	);
+	); */
 `
 
 const IMac = styled.div`
