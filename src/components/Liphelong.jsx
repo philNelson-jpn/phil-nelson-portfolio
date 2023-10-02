@@ -4,7 +4,7 @@ export default function Liphelong() {
 	return (
 		<div className='intro-wrapper'>
 			<div className='intro'>
-				<span className='sub-text phorever'>hast</span>
+				<span className='sub-text phorever'>ast</span>
 				<div className='intro-text'>
 					<p>
 						As a{' '}

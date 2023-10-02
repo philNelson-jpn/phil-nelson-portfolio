@@ -4,7 +4,7 @@ export default function Phlair() {
 	return (
 		<div className='intro-wrapper'>
 			<div className='intro'>
-				<span className='sub-text'>hlair</span>
+				<span className='sub-text'>lair</span>
 				<div className='intro-text'>
 					<p>
 						My <span className='phlair'>phlair</span> for interactive <span className='style-underline'>

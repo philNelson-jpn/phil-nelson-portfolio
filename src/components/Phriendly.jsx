@@ -3,7 +3,7 @@ export default function Passion() {
 	return (
 		<div className='intro-wrapper'>
 			<div className='intro'>
-				<span className='sub-text'>hun</span>
+				<span className='sub-text'>un</span>
 				<div className='intro-text'>
 					<p>
 						I&apos;m thrilled to{' '}

@@ -4,7 +4,7 @@ export default function Passion() {
 	return (
 		<div className='intro-wrapper'>
 			<div className='intro'>
-				<span className='sub-text'>assion</span>
+				<span className='sub-text'>lame</span>
 				<div className='intro-text'>
 					<p className='greeting'>
 						Hi there! I’m{' '}
@@ -15,8 +15,7 @@ export default function Passion() {
 						.{' '}
 					</p>
 					<p>
-						I’m a <span className='passion'>passionate</span> introvert who
-						loves building things with{' '}
+						I’m a passionate introvert who loves building with{' '}
 						<span className='react-underline'>
 							React
 							<img src='src/assets/RedUnderLinePNPortfolio.png' alt='' />
@@ -25,8 +24,9 @@ export default function Passion() {
 						<span className='style-underline'>
 							Styled Components
 							<img src='src/assets/PurpleUnderLinePNPortfolio.png' alt='' />
-						</span>
-						!
+						</span>{' '}
+						to turn <span className='lame'>lame design</span> into{' '}
+						<span className='passion'>phlame design</span>!
 					</p>
 					<div className='hover-me-wrapper'>
 						<div className='hover-me'>

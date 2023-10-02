@@ -1,7 +1,7 @@
 import { styled } from 'styled-components'
 
 export default function LetterP() {
-	return <PStyles className='letter-p'>P</PStyles>
+	return <PStyles className='letter-p'>Ph</PStyles>
 }
 
 const PStyles = styled.h1`
