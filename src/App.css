@@ -122,7 +122,7 @@
 
 .intro-text {
 	position: relative;
-	font-family: "Rubik";
+	font-family: 'Rubik';
 	top: 10rem;
 	right: 0;
 	max-width: 70ch;
@@ -142,7 +142,7 @@
 	align-items: center;
 	position: absolute;
 	left: 60px;
-	top: 45px;
+	top: -25px;
 }
 
 .hover-me > span {
@@ -232,21 +232,93 @@
 }
 
 .intro-text > p .lame {
-	color: hsl(341, 10%, 63%);
-	font-family: revert;
-	font-size: revert;
+	color: hsl(341, 10%, 68%);
+	font-family: 'Times New Roman', Times, serif;
+	font-size: 42px;
 	font-style: revert;
 	font-weight: revert;
-	letter-spacing: 0;
+	letter-spacing: -1px;
 }
 
-.passion {
+@keyframes floaty {
+	0% {
+		top: 0px;
+	}
+	100% {
+		top: -6px;
+	}
+}
+
+.float {
+	position: relative;
 	color: hsl(41, 100%, 50%);
-	font-weight: bold;
+	letter-spacing: -1px;
+	animation: floaty 1000ms ease-in-out alternate infinite;
+}
+
+.float.one {
+	animation-delay: 200ms;
+	color: hsl(41, 100%, 60%);
+}
+
+.float.two {
+	animation-delay: 500ms;
+	color: hsl(31, 100%, 50%);
+}
+
+.float.three {
+	color: hsl(34, 100%, 50%);
+	animation-delay: 200ms;
+}
+
+.float.four {
+	color: hsl(39, 100%, 50%);
+	animation-delay: 400ms;
+}
+
+.float.five {
+	color: hsl(36, 100%, 50%);
+	animation-delay: 300ms;
+}
+
+.float.six {
+	color: hsl(25, 100%, 50%);
+	animation-delay: 700ms;
+}
+
+.float.seven {
+	color: hsl(21, 100%, 50%);
+	animation-delay: 200ms;
+}
+
+.float.eight {
+	color: hsl(35, 100%, 50%);
+	animation-delay: 500ms;
+}
+
+.float.nine {
+	color: hsl(31, 100%, 50%);
+	animation-delay: 200ms;
+}
+
+.float.ten {
+	color: hsl(38, 100%, 50%);
+	animation-delay: 400ms;
+}
+
+.float.eleven {
+	color: hsl(34, 100%, 50%);
+	animation-delay: 100ms;
+}
+
+.float.twelve {
+	color: hsl(37, 100%, 50%);
+	animation-delay: 600ms;
 }
 
 .phlair {
 	color: rgb(255, 234, 0);
+	font-size: 35px;
 }
 
 .phit {
@@ -289,6 +361,12 @@
 	font-size: 10rem;
 	margin-bottom: -8rem;
 	font-weight: bold;
+
+	font-family: 'Rubik', sans-serif;
+	-webkit-text-stroke: 2px hsl(240deg 30% 70% / 0.9);
+	color: hsl(0deg 0% 0% / 0.8);
+	font-size: 10rem;
+	position: sticky;
 }
 
 /* Smooth Layout Styles */

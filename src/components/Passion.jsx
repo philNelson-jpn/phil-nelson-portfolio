@@ -26,7 +26,21 @@ export default function Passion() {
 							<img src='src/assets/PurpleUnderLinePNPortfolio.png' alt='' />
 						</span>{' '}
 						to turn <span className='lame'>lame design</span> into{' '}
-						<span className='passion'>phlame design</span>!
+						<span className='float'>
+							<span className='float one'>p</span>
+							<span className='float two'>h</span>
+							<span className='float three'>l</span>
+							<span className='float four'>a</span>
+							<span className='float five'>m</span>
+							<span className='float six'>e</span>{' '}
+							<span className='float seven'>d</span>
+							<span className='float eight'>e</span>
+							<span className='float nine'>s</span>
+							<span className='float ten'>i</span>
+							<span className='float eleven'>g</span>
+							<span className='float twelve'>n</span>
+						</span>
+						!
 					</p>
 					<div className='hover-me-wrapper'>
 						<div className='hover-me'>

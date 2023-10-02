@@ -6,8 +6,8 @@ export default function LetterP() {
 
 const PStyles = styled.h1`
 	font-family: 'Rubik', sans-serif;
-	-webkit-text-stroke: 4px white;
-	color: #0000006f;
+	-webkit-text-stroke: 2px hsl(0deg 0% 100% / 0.8);
+	color: hsl(0deg 0% 0% / 0.8);
 	font-size: 10rem;
 	position: sticky;
 	left: 0;
