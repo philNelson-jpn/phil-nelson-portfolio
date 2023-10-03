@@ -66,8 +66,8 @@ const LayoutWrapper = styled.div`
 	padding: 4px;
 	/* margin: 0 auto; */
 	width: 100%;
-	min-width: 320px;
 	max-width: 600px;
+	height: 420px;
 	/* aspect-ratio: 1 / 1; */
 	grid-template-columns: 2fr 3fr 4fr;
 	grid-template-rows: 20px 20px 2fr 4fr 5fr;
@@ -76,20 +76,20 @@ const LayoutWrapper = styled.div`
 	grid-column: 1;
 	grid-row: 2;
 	position: sticky;
-	top: 13rem;
+	top: 12.5rem;
 	z-index: 10001;
 	background-image: linear-gradient(
 		180deg,
-		hsl(240deg 15% 3% / 0.5) 0%,
-		hsl(240deg 14% 3% / 0.6) 11%,
-		hsl(240deg 12% 3% / 0.7) 22%,
-		hsl(240deg 12% 3% / 0.8) 33%,
-		hsl(240deg 10% 3% / 0.9) 44%,
-		hsl(240deg 9% 3% / 0.9) 56%,
-		hsl(240deg 12% 3% / 0.8) 67%,
-		hsl(240deg 12% 3% / 0.7) 78%,
-		hsl(240deg 14% 3% / 0.6) 89%,
-		hsl(240deg 15% 3% / 0.5) 100%
+		hsl(240deg 15% 3% / 0.85) 0%,
+		hsl(240deg 14% 3% / 0.87) 11%,
+		hsl(240deg 12% 3% / 0.9) 22%,
+		hsl(240deg 12% 3% / 0.95) 33%,
+		hsl(240deg 10% 3%) 44%,
+		hsl(240deg 9% 3%) 56%,
+		hsl(240deg 12% 3% / 0.95) 67%,
+		hsl(240deg 12% 3% / 0.9) 78%,
+		hsl(240deg 14% 3% / 0.87) 89%,
+		hsl(240deg 15% 3% / 0.85) 100%
 	);
 	border-radius: 8px;
 `
@@ -174,7 +174,7 @@ const Box = styled.button`
 		transition: background 100ms;
 	}
 	&.selected {
-		background: hsla(237, 97%, 74%, 0.372);
+		background: hsla(237, 37%, 34%, 0.972);
 		transition: background 200ms;
 	}
 	&:nth-of-type(1) {

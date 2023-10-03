@@ -3,7 +3,7 @@ import { styled } from 'styled-components'
 import { CornerLeftDown, CornerRightDown } from 'react-feather'
 
 const INITIAL_STATE = {
-	colors: ['#35fdcb', '#5bc5fb', '#526fff', '#7733ff', '#af2ff4'],
+	colors: ['#35befd', '#af2ff4', '#fb5beb', '#ff52c2', '#ff334b'],
 	numOfVisibleColors: 2,
 }
 
@@ -65,7 +65,7 @@ export default function GradientGenerator() {
 	}
 
 	return (
-		<div className='gradient-wrapper'>
+		<GradientWrapper>
 			<Wrapper>
 				<div className='change-me'>
 					<CornerLeftDown />
@@ -112,9 +112,38 @@ export default function GradientGenerator() {
 					</AddColor>
 				</Actions>
 			</Wrapper>
-		</div>
+		</GradientWrapper>
 	)
 }
+
+const GradientWrapper = styled.div`
+	border: 2px solid hsl(0deg 0% 100% / 0.3);
+	padding: 32px;
+	height: 420px;
+	max-width: 600px;
+	/* aspect-ratio: 1 / 1; */
+	margin-block-start: 6rem;
+	margin-block-end: 4rem;
+	grid-column: 1;
+	grid-row: 2;
+	position: sticky;
+	top: 12.5rem;
+	z-index: 10001;
+	background-image: linear-gradient(
+		180deg,
+		hsl(240deg 15% 3% / 0.85) 0%,
+		hsl(240deg 14% 3% / 0.87) 11%,
+		hsl(240deg 12% 3% / 0.9) 22%,
+		hsl(240deg 12% 3% / 0.95) 33%,
+		hsl(240deg 10% 3%) 44%,
+		hsl(240deg 9% 3%) 56%,
+		hsl(240deg 12% 3% / 0.95) 67%,
+		hsl(240deg 12% 3% / 0.9) 78%,
+		hsl(240deg 14% 3% / 0.87) 89%,
+		hsl(240deg 15% 3% / 0.85) 100%
+	);
+	border-radius: 8px;
+`
 
 const Wrapper = styled.div`
 	position: relative;
@@ -169,16 +198,45 @@ const Actions = styled.div`
 	gap: 16px;
 `
 
-const AddColor = styled.button`
+const Button = styled.button`
 	position: relative;
 	border: none;
+	width: 130px;
 	background: transparent;
+	top: 4px;
 	padding: 0;
 	cursor: pointer;
 	outline-offset: 4px;
-	transition: filter 250ms;
 
-	& .shadow {
+	& .front {
+		display: block;
+		position: relative;
+		padding: 10px 12px;
+		border-radius: 8px;
+		font-size: 1rem;
+		color: white;
+		will-change: transform;
+		transform: translateY(-7px);
+		transition: transform 600ms cubic-bezier(0.3, 0.7, 0.4, 1);
+	}
+
+	&:hover {
+		filter: brightness(110%);
+	}
+	&:hover .front {
+		transform: translateY(-9px);
+		transition: transform 250ms cubic-bezier(0.3, 0.7, 0.4, 1.5);
+	}
+	&:active .front {
+		transform: translateY(-1px);
+		transition: transform 34ms;
+	}
+
+	&:focus:not(:focus-visible) {
+		outline: none;
+	}
+
+	/* & .shadow {
 		position: absolute;
 		top: 0;
 		left: 0;
@@ -189,7 +247,20 @@ const AddColor = styled.button`
 		will-change: transform;
 		transform: translateY(2px);
 		transition: transform 600ms cubic-bezier(0.3, 0.7, 0.4, 1);
+	} */
+
+	/* &:hover .shadow {
+		transform: translateY(4px);
+		transition: transform 250ms cubic-bezier(0.3, 0.7, 0.4, 1.5);
 	}
+	&:active .shadow {
+		transform: translateY(1px);
+		transition: transform 34ms;
+	} */
+`
+
+const AddColor = styled(Button)`
+	transition: filter 250ms;
 
 	& .edge {
 		position: absolute;
@@ -208,63 +279,12 @@ const AddColor = styled.button`
 	}
 
 	& .front {
-		display: block;
-		position: relative;
-		padding: 6px 12px;
-		border-radius: 8px;
-		font-size: 1rem;
-		color: white;
 		background: hsl(147, 68%, 38%);
-		will-change: transform;
-		transform: translateY(-4px);
-		transition: transform 600ms cubic-bezier(0.3, 0.7, 0.4, 1);
-	}
-
-	&:hover {
-		filter: brightness(110%);
-	}
-	&:hover .front {
-		transform: translateY(-6px);
-		transition: transform 250ms cubic-bezier(0.3, 0.7, 0.4, 1.5);
-	}
-	&:active .front {
-		transform: translateY(-2px);
-		transition: transform 34ms;
-	}
-	&:hover .shadow {
-		transform: translateY(4px);
-		transition: transform 250ms cubic-bezier(0.3, 0.7, 0.4, 1.5);
-	}
-	&:active .shadow {
-		transform: translateY(1px);
-		transition: transform 34ms;
-	}
-	&:focus:not(:focus-visible) {
-		outline: none;
 	}
 `
 
-const RemoveColor = styled.button`
-	position: relative;
-	border: none;
-	background: transparent;
-	padding: 0;
-	cursor: pointer;
-	outline-offset: 4px;
+const RemoveColor = styled(Button)`
 	transition: filter 250ms;
-
-	& .shadow {
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		border-radius: 12px;
-		background: hsl(0deg 0% 0% / 0.25);
-		will-change: transform;
-		transform: translateY(2px);
-		transition: transform 600ms cubic-bezier(0.3, 0.7, 0.4, 1);
-	}
 
 	& .edge {
 		position: absolute;
@@ -283,38 +303,6 @@ const RemoveColor = styled.button`
 	}
 
 	& .front {
-		display: block;
-		position: relative;
-		padding: 6px 12px;
-		border-radius: 8px;
-		font-size: 1rem;
-		color: white;
 		background: hsl(0, 82%, 55%);
-		will-change: transform;
-		transform: translateY(-4px);
-		transition: transform 600ms cubic-bezier(0.3, 0.7, 0.4, 1);
-	}
-
-	&:hover {
-		filter: brightness(110%);
-	}
-	&:hover .front {
-		transform: translateY(-6px);
-		transition: transform 250ms cubic-bezier(0.3, 0.7, 0.4, 1.5);
-	}
-	&:active .front {
-		transform: translateY(-2px);
-		transition: transform 34ms;
-	}
-	&:hover .shadow {
-		transform: translateY(4px);
-		transition: transform 250ms cubic-bezier(0.3, 0.7, 0.4, 1.5);
-	}
-	&:active .shadow {
-		transform: translateY(1px);
-		transition: transform 34ms;
-	}
-	&:focus:not(:focus-visible) {
-		outline: none;
 	}
 `

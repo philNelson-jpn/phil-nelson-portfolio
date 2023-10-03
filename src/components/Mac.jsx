@@ -34,54 +34,43 @@ const IMacWrapper = styled.div`
 	grid-column: 1;
 	grid-row: 2;
 	position: sticky;
-	top: 6rem;
+	top: 3rem;
 	z-index: 10001;
-	/* background-image: linear-gradient(
-		180deg,
-		hsl(240deg 15% 3% / 0) 0%,
-		hsl(240deg 14% 3% / 0.2) 11%,
-		hsl(240deg 12% 3% / 0.6) 22%,
-		hsl(240deg 12% 3% / 0.7) 33%,
-		hsl(240deg 10% 3% / 0.8) 44%,
-		hsl(240deg 9% 3% / 0.8) 56%,
-		hsl(240deg 12% 3% / 0.7) 67%,
-		hsl(240deg 12% 3% / 0.6) 78%,
-		hsl(240deg 14% 3% / 0.2) 89%,
-		hsl(240deg 15% 3% / 0) 100%
-	); */
 `
 
 const IMac = styled.div`
 	position: relative;
-	height: 350px;
-	width: 520px;
-	left: 2rem;
+	height: 420px;
+	max-width: 600px;
+	left: 0;
 	outline: 2px solid hsl(0deg 0% 100% / 0.3);
 	background-image: linear-gradient(
 		90deg,
-		hsl(240deg 2% 90% / 0.2) 0%,
-		hsl(240deg 4% 89% / 0.2) 17%,
-		hsl(240deg 5% 88% / 0.2) 25%,
-		hsl(240deg 6% 86% / 0.2) 31%,
-		hsl(240deg 6% 85% / 0.2) 37%,
-		hsl(231deg 8% 83% / 0.2) 42%,
-		hsl(233deg 9% 82% / 0.2) 47%,
-		hsl(228deg 1% 80% / 0.2) 53%,
-		hsl(224deg 1% 74% / 0.2) 58%,
-		hsl(223deg 2% 68% / 0.2) 63%,
-		hsl(224deg 2% 66% / 0.2) 69%,
-		hsl(220deg 4% 65% / 0.2) 75%,
-		hsl(219deg 5% 63% / 0.2) 83%,
-		hsl(217deg 6% 62% / 0.2) 100%
+		hsl(240deg 2% 14% / 1) 0%,
+		hsl(240deg 4% 12% / 1) 17%,
+		hsl(240deg 5% 10% / 1) 25%,
+		hsl(240deg 6% 11% / 1) 31%,
+		hsl(240deg 6% 9% / 1) 37%,
+		hsl(231deg 8% 8% / 1) 42%,
+		hsl(233deg 9% 8% / 1) 47%,
+		hsl(228deg 1% 8% / 1) 53%,
+		hsl(224deg 1% 7% / 1) 58%,
+		hsl(223deg 2% 6% / 1) 63%,
+		hsl(224deg 2% 6% / 1) 69%,
+		hsl(220deg 4% 6% / 1) 75%,
+		hsl(219deg 5% 6% / 1) 83%,
+		hsl(217deg 6% 8% / 1) 100%
 	);
 	border-radius: 4px;
 	transform: rotateY(0deg);
-	transition: transform 600ms ease-in-out, opacity 600ms ease-in-out;
+	transition: transform 600ms ease-in-out, opacity 600ms ease-in-out,
+		border-left 600ms ease-in-out;
 	transform-style: preserve-3d;
-	border-left: 5px solid hsl(217deg 6% 72% / 0.2);
+	border-left: 4px solid hsl(217deg 6% 72% / 0.2);
 
 	${IMacWrapper}:hover & {
 		transform: rotateY(40deg);
+		border-left: 4px solid hsl(217deg 6% 72% / 1);
 	}
 
 	${IMacWrapper} &::before {
@@ -136,7 +125,7 @@ const Screen = styled.div`
 
 	${IMacWrapper}:hover & {
 		transform: translate3D(30px, -10px, 100px);
-		border-color: white;
+		border-color: hsla(0, 0%, 100%, 0.676);
 	}
 `
 
@@ -146,6 +135,7 @@ const SVG = styled.svg`
 	left: 50%;
 	right: 50%;
 	bottom: 20px;
+	fill: #ffffff6d;
 `
 
 const Item = styled.div`

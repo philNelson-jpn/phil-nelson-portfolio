@@ -1,6 +1,6 @@
 import Todo from './Todo'
 
-export default function Liphelong() {
+export default function Phast() {
 	return (
 		<div className='intro-wrapper'>
 			<div className='intro'>

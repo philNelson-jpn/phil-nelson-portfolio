@@ -53,7 +53,7 @@ export default function Todo() {
 	}
 
 	return (
-		<div className='todo-wrapper'>
+		<TodoWrapper>
 			<ListWrapper>
 				<CreateNewTodoWrapper>
 					<form
@@ -110,9 +110,38 @@ export default function Todo() {
 					</li>
 				))}
 			</TodoList>
-		</div>
+		</TodoWrapper>
 	)
 }
+
+const TodoWrapper = styled.div`
+	border: 2px solid hsl(0deg 0% 100% / 0.3);
+	padding: 4px;
+	width: 600px;
+	height: 420px;
+	/* aspect-ratio: 1 / 1; */
+	margin-block-start: 6rem;
+	margin-block-end: 4rem;
+	grid-column: 1;
+	grid-row: 2;
+	position: sticky;
+	top: 12.5rem;
+	z-index: 10001;
+	background-image: linear-gradient(
+		180deg,
+		hsl(240deg 15% 3% / 0.85) 0%,
+		hsl(240deg 14% 3% / 0.87) 11%,
+		hsl(240deg 12% 3% / 0.9) 22%,
+		hsl(240deg 12% 3% / 0.95) 33%,
+		hsl(240deg 10% 3%) 44%,
+		hsl(240deg 9% 3%) 56%,
+		hsl(240deg 12% 3% / 0.95) 67%,
+		hsl(240deg 12% 3% / 0.9) 78%,
+		hsl(240deg 14% 3% / 0.87) 89%,
+		hsl(240deg 15% 3% / 0.85) 100%
+	);
+	border-radius: 8px;
+`
 
 const ListWrapper = styled.div``
 

@@ -1,5 +1,5 @@
 import StickerClicker from './StickerClicker'
-export default function Passion() {
+export default function Phun() {
 	return (
 		<div className='intro-wrapper'>
 			<div className='intro'>

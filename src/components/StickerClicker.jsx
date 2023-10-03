@@ -3,12 +3,12 @@ import { styled } from 'styled-components'
 
 export default function StickerClicker() {
 	return (
-		<div className='sticker-clicker-wrapper'>
+		<StickerClickerWrapper>
 			<ClickAnywhere>
 				<h1>Click Anywhere!</h1>
 			</ClickAnywhere>
 			<RandomImage />
-		</div>
+		</StickerClickerWrapper>
 	)
 }
 
@@ -77,6 +77,35 @@ const RandomImage = () => {
 		</StickerContainer>
 	)
 }
+
+const StickerClickerWrapper = styled.div`
+	border: 2px solid hsl(0deg 0% 100% / 0.3);
+	padding: 4px;
+	width: 600px;
+	height: 420px;
+	/* aspect-ratio: 1 / 1; */
+	margin-block-start: 6rem;
+	margin-block-end: 4rem;
+	grid-column: 1;
+	grid-row: 2;
+	position: sticky;
+	top: 12.5rem;
+	z-index: 10001;
+	background-image: linear-gradient(
+		180deg,
+		hsl(240deg 15% 3% / 0.5) 0%,
+		hsl(240deg 14% 3% / 0.6) 11%,
+		hsl(240deg 12% 3% / 0.7) 22%,
+		hsl(240deg 12% 3% / 0.8) 33%,
+		hsl(240deg 10% 3% / 0.9) 44%,
+		hsl(240deg 9% 3% / 0.9) 56%,
+		hsl(240deg 12% 3% / 0.8) 67%,
+		hsl(240deg 12% 3% / 0.7) 78%,
+		hsl(240deg 14% 3% / 0.6) 89%,
+		hsl(240deg 15% 3% / 0.5) 100%
+	);
+	border-radius: 8px;
+`
 
 const StickerContainer = styled.div`
 	width: 100%;

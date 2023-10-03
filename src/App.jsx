@@ -4,8 +4,8 @@ import LogoComponent from './components/LogoComponent'
 import Phlame from './components/Phlame'
 import Phlair from './components/Phlair'
 import Phluid from './components/Phluid'
-import Liphelong from './components/Liphelong'
-import Phriendly from './components/Phriendly'
+import Phast from './components/Phast'
+import Phun from './components/Phun'
 import PhilPhoto from './components/PhilPhoto'
 import { styled } from 'styled-components'
 
@@ -21,8 +21,8 @@ function App() {
 				<Phlame />
 				<Phluid />
 				<Phlair />
-				<Liphelong />
-				<Phriendly />
+				<Phast />
+				<Phun />
 			</MainWrapper>
 		</>
 	)

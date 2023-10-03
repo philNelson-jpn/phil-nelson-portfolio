@@ -194,6 +194,6 @@ const HoverMe = styled.div`
 
 	& .arrow-left {
 		animation: ${bouncy} 1300ms ease-in-out infinite both;
-		z-index: 99999;
+		/* z-index: 1; */
 	}
 `
