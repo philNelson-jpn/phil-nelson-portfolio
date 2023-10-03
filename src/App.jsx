@@ -7,6 +7,7 @@ import Phluid from './components/Phluid'
 import Phast from './components/Phast'
 import Phun from './components/Phun'
 import PhilPhoto from './components/PhilPhoto'
+import DownArrow from './components/DownArrow'
 import { styled } from 'styled-components'
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
 				<LogoComponent />
 				<PhilPhoto />
 			</FixedWrapper>
+			<DownArrow />
 			<MainWrapper>
 				<LetterP />
 				<Phlame />
