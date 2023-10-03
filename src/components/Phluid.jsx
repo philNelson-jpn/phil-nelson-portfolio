@@ -1,4 +1,4 @@
-import MotionLayout from './MotionLayout'
+import MotionBrowser from './MotionBrowser'
 
 export default function Phluid() {
 	return (
@@ -30,7 +30,7 @@ export default function Phluid() {
 						to deliver engaging user experiences.
 					</p>
 				</div>
-				<MotionLayout />
+				<MotionBrowser />
 			</div>
 		</div>
 	)
