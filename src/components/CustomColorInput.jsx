@@ -1,6 +1,6 @@
 import React from 'react'
 import { styled } from 'styled-components'
-import { CornerLeftDown, CornerRightDown, Plus } from 'react-feather'
+import { CornerLeftDown, CornerRightDown } from 'react-feather'
 
 const INITIAL_STATE = {
 	colors: ['#35befd', '#af2ff4', '#fb5beb', '#ff52c2', '#ff334b'],
@@ -38,7 +38,6 @@ function reducer(state, action) {
 export default function GradientGenerator() {
 	const [state, dispatch] = React.useReducer(reducer, INITIAL_STATE)
 	const { colors, numOfVisibleColors } = state
-	const inputRef = React.useRef(null)
 
 	const visibleColors = colors.slice(0, numOfVisibleColors)
 
@@ -77,36 +76,21 @@ export default function GradientGenerator() {
 					{visibleColors.map((color, index) => {
 						const colorId = `color-${index}`
 						return (
-							<CustomColorInput
+							<Input
 								key={colorId}
-								onClick={() => {
-									// Trigger the click event on the hidden input
-									if (inputRef.current) {
-										inputRef.current.click()
-									}
+								id={colorId}
+								type='color'
+								value={color}
+								onChange={(event) => {
+									dispatch({
+										type: 'change-color',
+										value: event.target.value,
+										index,
+									})
 								}}
-								style={{ backgroundColor: `${color}` }}
-							>
-								<Input
-									id={colorId}
-									type='color'
-									value={color}
-									ref={inputRef}
-									onChange={(event) => {
-										dispatch({
-											type: 'change-color',
-											value: event.target.value,
-											index,
-										})
-									}}
-									style={{ display: 'none' }}
-								/>
-							</CustomColorInput>
+							/>
 						)
 					})}
-					<AddColorButton onClick={addColor}>
-						<Plus />
-					</AddColorButton>
 				</Colors>
 
 				<GradientPreview
@@ -171,13 +155,12 @@ const Wrapper = styled.div`
 
 	& .change-me {
 		display: flex;
-		justify-content: center;
-		gap: 100px;
+		justify-content: space-around;
 		position: absolute;
 		top: -20px;
 		width: 100%;
 		text-align: center;
-		color: hsl(270, 0%, 100%, 0.5);
+		color: hsl(270, 0%, 100%, 0.8);
 	}
 
 	& .change-me p {
@@ -187,34 +170,8 @@ const Wrapper = styled.div`
 	}
 `
 
-const CustomColorInput = styled.div`
-	display: inline-block;
-	width: 50px;
-	height: 50px;
-	border: 2px solid grey;
-	border-radius: 5000px;
-	cursor: pointer;
-`
-
 const Input = styled.input`
 	flex: 1;
-`
-
-const AddColorButton = styled.button`
-	display: grid;
-	place-content: center;
-	padding: 0;
-	margin: 0;
-	border: none;
-	background-color: transparent;
-	width: 50px;
-	height: 50px;
-	border: 2px solid grey;
-	border-radius: 5000px;
-	cursor: pointer;
-
-	& svg {
-	}
 `
 
 const GradientPreview = styled.div`
