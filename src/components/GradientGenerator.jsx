@@ -1,10 +1,11 @@
 import React from 'react'
+import { motion, LayoutGroup } from 'framer-motion'
 import { styled } from 'styled-components'
-import { CornerLeftDown, CornerRightDown, Plus } from 'react-feather'
+import { CornerLeftDown, CornerRightDown, Plus, Minus } from 'react-feather'
 
 const INITIAL_STATE = {
-	colors: ['#35befd', '#af2ff4', '#fb5beb', '#ff52c2', '#ff334b'],
-	numOfVisibleColors: 2,
+	colors: ['#35c4fd', '#da2ff4', '#fb5b5b', '#ff7552', '#ffdd33', '#01ff51'],
+	numOfVisibleColors: 3,
 }
 
 function reducer(state, action) {
@@ -39,6 +40,7 @@ export default function GradientGenerator() {
 	const [state, dispatch] = React.useReducer(reducer, INITIAL_STATE)
 	const { colors, numOfVisibleColors } = state
 	const inputRef = React.useRef(null)
+	const id = React.useId()
 
 	const visibleColors = colors.slice(0, numOfVisibleColors)
 
@@ -46,9 +48,9 @@ export default function GradientGenerator() {
 	const backgroundImage = `linear-gradient(${colorStops})`
 
 	function addColor() {
-		if (numOfVisibleColors >= 5) {
+		if (numOfVisibleColors >= 6) {
 			window.alert(
-				'Sorry! There is a maximum of 5 colors on this gradient generator.'
+				'Sorry! There is a maximum of 6 colors on this gradient generator.'
 			)
 			return
 		}
@@ -66,69 +68,101 @@ export default function GradientGenerator() {
 	}
 
 	return (
-		<GradientWrapper>
-			<Wrapper>
-				<div className='change-me'>
-					<CornerLeftDown />
-					<p>Change me!</p>
-					<CornerRightDown />
-				</div>
-				<Colors>
-					{visibleColors.map((color, index) => {
-						const colorId = `color-${index}`
-						return (
-							<CustomColorInput
-								key={colorId}
-								onClick={() => {
-									// Trigger the click event on the hidden input
-									if (inputRef.current) {
-										inputRef.current.click()
-									}
+		<LayoutGroup>
+			<GradientWrapper>
+				<Wrapper>
+					<div className='change-me'>
+						<CornerLeftDown />
+						<p>Make your own Gradient!</p>
+						<CornerRightDown />
+					</div>
+
+					<GradientPreview
+						style={{
+							backgroundImage,
+						}}
+					/>
+					<Colors>
+						{numOfVisibleColors >= 3 && (
+							<RemoveColorButton
+								onClick={removeColor}
+								layout={'position'}
+								transition={{
+									type: 'spring',
+									stiffness: 500,
+									damping: 30,
 								}}
-								style={{ backgroundColor: `${color}` }}
 							>
-								<Input
-									id={colorId}
-									type='color'
-									value={color}
-									ref={inputRef}
-									onChange={(event) => {
-										dispatch({
-											type: 'change-color',
-											value: event.target.value,
-											index,
-										})
+								<Minus />
+							</RemoveColorButton>
+						)}
+						{visibleColors.map((color, index) => {
+							const colorId = `color-${index}`
+							const layoutId = `${id}-${index}`
+							return (
+								<CustomColorInput
+									layoutId={layoutId}
+									key={colorId}
+									onClick={() => {
+										// Trigger the click event on the hidden input
+										if (inputRef.current) {
+											inputRef.current.click()
+										}
 									}}
-									style={{ display: 'none' }}
-								/>
-							</CustomColorInput>
-						)
-					})}
-					<AddColorButton onClick={addColor}>
-						<Plus />
-					</AddColorButton>
-				</Colors>
+									style={{ backgroundColor: `${color}` }}
+									transition={{
+										type: 'spring',
+										stiffness: 300,
+										damping: 40,
+										restDelta: 0.05,
+									}}
+								>
+									<Input
+										type='color'
+										value={color}
+										ref={inputRef}
+										onChange={(event) => {
+											dispatch({
+												type: 'change-color',
+												value: event.target.value,
+												index,
+											})
+										}}
+										style={{ opacity: 0 }}
+									/>
+								</CustomColorInput>
+							)
+						})}
+						{numOfVisibleColors <= 5 && (
+							<AddColorButton
+								onClick={addColor}
+								layout={'position'}
+								transition={{
+									type: 'spring',
+									stiffness: 500,
+									damping: 30,
+								}}
+							>
+								<Plus />
+							</AddColorButton>
+						)}
+					</Colors>
 
-				<GradientPreview
-					style={{
-						backgroundImage,
-					}}
-				/>
-
-				<Actions>
-					<RemoveColor onClick={removeColor}>
-						<span className='shadow'></span>
-						<span className='edge'></span>
-						<span className='front'>Remove Color</span>
-					</RemoveColor>
-					<AddColor onClick={addColor}>
-						<span className='shadow'></span>
-						<span className='edge'></span>
-						<span className='front'>Add Color</span>
-					</AddColor>
-				</Actions>
-			</Wrapper>
-		</GradientWrapper>
+					{/* <Actions>
+						<RemoveColor onClick={removeColor}>
+							<span className='shadow'></span>
+							<span className='edge'></span>
+							<span className='front'>Remove Color</span>
+						</RemoveColor>
+						<AddColor onClick={addColor}>
+							<span className='shadow'></span>
+							<span className='edge'></span>
+							<span className='front'>Add Color</span>
+						</AddColor>
+					</Actions> */}
+				</Wrapper>
+			</GradientWrapper>
+		</LayoutGroup>
 	)
 }
 
@@ -172,7 +206,7 @@ const Wrapper = styled.div`
 	& .change-me {
 		display: flex;
 		justify-content: center;
-		gap: 100px;
+		gap: 200px;
 		position: absolute;
 		top: -20px;
 		width: 100%;
@@ -187,39 +221,69 @@ const Wrapper = styled.div`
 	}
 `
 
-const CustomColorInput = styled.div`
+const CustomColorInput = styled(motion.button)`
 	display: inline-block;
 	width: 50px;
 	height: 50px;
-	border: 2px solid grey;
+	border: 2px solid;
 	border-radius: 5000px;
 	cursor: pointer;
+	border-color: grey;
+	transition: border-color 500ms ease-in-out;
+
+	&:hover {
+		border-color: white;
+		transition: border-color 200ms ease-in-out;
+	}
 `
 
 const Input = styled.input`
 	flex: 1;
 `
 
-const AddColorButton = styled.button`
+const AddColorButton = styled(motion.button)`
 	display: grid;
 	place-content: center;
 	padding: 0;
 	margin: 0;
 	border: none;
-	background-color: transparent;
+	background-color: hsla(0, 0%, 0%, 0.756);
 	width: 50px;
 	height: 50px;
 	border: 2px solid grey;
 	border-radius: 5000px;
 	cursor: pointer;
+	filter: brightness(100%);
+	transition: filter 200ms ease-in-out;
 
-	& svg {
+	&:hover {
+		filter: brightness(150%);
+	}
+`
+
+const RemoveColorButton = styled(motion.button)`
+	display: grid;
+	place-content: center;
+	padding: 0;
+	margin: 0;
+	border: none;
+	background-color: hsla(0, 0%, 0%, 0.756);
+	width: 50px;
+	height: 50px;
+	border: 2px solid grey;
+	border-radius: 5000px;
+	cursor: pointer;
+	filter: brightness(100%);
+	transition: filter 200ms ease-in-out;
+
+	&:hover {
+		filter: brightness(150%);
 	}
 `
 
 const GradientPreview = styled.div`
 	aspect-ratio: 2 / 1;
-	height: 220px;
+	height: 280px;
 	border-radius: 4px;
 `
 
