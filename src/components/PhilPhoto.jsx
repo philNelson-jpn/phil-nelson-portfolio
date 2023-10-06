@@ -6,7 +6,7 @@ export default function PhilPhoto() {
 			<div className='image-container'>
 				<img
 					className='image'
-					src='src/assets/BestHeadShotPhilPNG.png'
+					src='/assets/BestHeadShotPhilPNG.png'
 					alt='Phil Nelson bust'
 				/>
 			</div>

@@ -42,11 +42,11 @@ const RandomImage = () => {
 	const getRandomImageUrl = () => {
 		// Replace this with your logic to get a random image URL
 		const imageUrls = [
-			'src/assets/arrowPhilSticker.png',
-			'src/assets/glassesPhilSticker.png',
-			'src/assets/sunglassesPhilSticker.png',
-			'src/assets/bwPhilSticker.png',
-			'src/assets/yellowPhilSticker.png',
+			'/assets/arrowPhilSticker.png',
+			'/assets/glassesPhilSticker.png',
+			'/assets/sunglassesPhilSticker.png',
+			'/assets/bwPhilSticker.png',
+			'/assets/yellowPhilSticker.png',
 			// Add more image URLs as needed
 		]
 		const randomIndex = Math.floor(Math.random() * imageUrls.length)

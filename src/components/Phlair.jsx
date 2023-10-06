@@ -10,12 +10,12 @@ export default function Phlair() {
 						My <span className='phlair'>phlair</span> for interactive{' '}
 						<span className='style-underline'>
 							design,
-							<img src='src/assets/GreenLinePNProfile.png' alt='' />
+							<img src='/assets/GreenLinePNProfile.png' alt='' />
 						</span>{' '}
 						collaborative nature, insatiable{' '}
 						<span className='style-underline'>
 							love for learning
-							<img src='src/assets/PurpleUnderLinePNPortfolio.png' alt='' />
+							<img src='/assets/PurpleUnderLinePNPortfolio.png' alt='' />
 						</span>
 						, and caring disposition make me an ideal{' '}
 						<span className='phit'>phit</span> for your team.

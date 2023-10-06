@@ -11,7 +11,7 @@ export default function Phlame() {
 						Hi there! I’m{' '}
 						<PhilName>
 							Phil
-							<img src='src/assets/GreenLinePNProfile.png' alt='' />
+							<img src='/assets/GreenLinePNProfile.png' alt='' />
 						</PhilName>
 						.{' '}
 					</p>
@@ -19,12 +19,12 @@ export default function Phlame() {
 						I’m a passionate introvert who loves building with{' '}
 						<span className='react-underline'>
 							React
-							<img src='src/assets/RedUnderLinePNPortfolio.png' alt='' />
+							<img src='/assets/RedUnderLinePNPortfolio.png' alt='' />
 						</span>{' '}
 						and{' '}
 						<span className='style-underline'>
 							Styled Components
-							<img src='src/assets/PurpleUnderLinePNPortfolio.png' alt='' />
+							<img src='/assets/PurpleUnderLinePNPortfolio.png' alt='' />
 						</span>{' '}
 						to turn
 						<br />

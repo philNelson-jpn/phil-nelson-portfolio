@@ -11,7 +11,7 @@ export default function Phluid() {
 						layouts with{' '}
 						<span className='style-underline'>
 							CSS
-							<img src='src/assets/PurpleUnderLinePNPortfolio.png' alt='' />
+							<img src='/assets/PurpleUnderLinePNPortfolio.png' alt='' />
 						</span>
 						.
 					</p>
@@ -20,12 +20,12 @@ export default function Phluid() {
 						interfaces with{' '}
 						<span className='react-underline'>
 							React
-							<img src='src/assets/RedUnderLinePNPortfolio.png' alt='' />
+							<img src='/assets/RedUnderLinePNPortfolio.png' alt='' />
 						</span>{' '}
 						and{' '}
 						<span className='style-underline'>
 							Framer Motion
-							<img src='src/assets/PurpleUnderLinePNPortfolio.png' alt='' />
+							<img src='/assets/PurpleUnderLinePNPortfolio.png' alt='' />
 						</span>{' '}
 						to deliver engaging user experiences.
 					</p>

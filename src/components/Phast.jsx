@@ -10,7 +10,7 @@ export default function Phast() {
 						As a{' '}
 						<span className='style-underline'>
 							lifelong learner
-							<img src='src/assets/PurpleUnderLinePNPortfolio.png' alt='' />
+							<img src='/assets/PurpleUnderLinePNPortfolio.png' alt='' />
 						</span>
 						, I can learn new skills <span className='phast'>phast</span>.
 					</p>
@@ -18,12 +18,12 @@ export default function Phast() {
 						I am constantly seeking to{' '}
 						<span className='style-underline'>
 							expand my expertise
-							<img src='src/assets/RedUnderLinePNPortfolio.png' alt='' />
+							<img src='/assets/RedUnderLinePNPortfolio.png' alt='' />
 						</span>{' '}
 						to become a better developer and{' '}
 						<span className='style-underline'>
 							challenge
-							<img src='src/assets/PurpleUnderLinePNPortfolio.png' alt='' />
+							<img src='/assets/PurpleUnderLinePNPortfolio.png' alt='' />
 						</span>{' '}
 						myself.
 					</p>
