@@ -108,7 +108,7 @@ const IMac = styled.div`
 
 	@media (max-width: 550px) {
 		height: 300px;
-		width: 400px;
+		width: 100%;
 	}
 
 	${IMacWrapper}:hover & {
@@ -179,7 +179,7 @@ const Screen = styled.div`
 		border-color: hsla(0, 0%, 100%, 0.676);
 
 		@media (max-width: 550px) {
-		transform: translate3D(8px, -3px, 16px);
+			transform: translate3D(8px, -3px, 6px);
 		}
 	}
 `
@@ -219,7 +219,13 @@ const ItemOne = styled(Item)`
 		transform: translate3D(60px, -10px, 40px);
 		background-color: hsl(113, 85%, 74%);
 		color: hsl(240, 5%, 21%);
+
+		@media (max-width: 550px) {
+			transform: translate3D(8px, -6px, 20px);
+		}
 	}
+
+
 `
 
 const ItemTwo = styled(Item)`
@@ -229,16 +235,18 @@ const ItemTwo = styled(Item)`
 		color 2000ms ease-in-out;
 	font-size: calc(64 / 16 * 1rem);
 
-
-	@media (max-width: 550px){
-
-	font-size: calc(42 / 16 * 1rem);
+	@media (max-width: 550px) {
+		font-size: calc(42 / 16 * 1rem);
 	}
 
 	${IMacWrapper}:hover & {
 		transform: translate3D(0px, 30px, 60px);
 		background-color: hsl(343, 100%, 50%);
 		color: hsl(240, 5%, 21%);
+
+		@media (max-width: 550px) {
+			transform: translate3D(-8px, 26px, 30px);
+		}
 	}
 `
 
@@ -257,5 +265,9 @@ const ItemThree = styled(Item)`
 		transform: translate3D(30px, -20px, 90px);
 		background-color: hsl(240, 100%, 69%);
 		color: hsl(240, 5%, 21%);
+
+		@media (max-width: 550px) {
+			transform: translate3D(8px, 6px, 20px);
+		}
 	}
 `

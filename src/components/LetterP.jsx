@@ -15,8 +15,8 @@ const PStyles = styled.h1`
 	z-index: 1000;
 	grid-column: 2;
 
-	@media (max-width: 550px){
-		font-size: 7rem;
+	@media (max-width: 550px) {
+		font-size: 6rem;
 		grid-column: 1;
 		padding-left: 16px;
 	}

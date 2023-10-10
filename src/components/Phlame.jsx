@@ -74,7 +74,7 @@ const Lame = styled.div`
 	display: inline;
 	color: hsl(341, 10%, 68%);
 	font-family: 'Helvetica', Times, serif;
-	font-size: 36px;
+	font-size: inherit;
 	font-style: revert;
 	font-weight: revert;
 	letter-spacing: -2px;

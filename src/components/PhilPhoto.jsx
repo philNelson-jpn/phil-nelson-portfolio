@@ -4,10 +4,7 @@ export default function PhilPhoto() {
 	return (
 		<Container>
 			<ImageContainer>
-				<Image
-					src='/assets/BestHeadShotPhilPNG.png'
-					alt='Phil Nelson bust'
-				/>
+				<Image src='/assets/BestHeadShotPhilPNG.png' alt='Phil Nelson bust' />
 			</ImageContainer>
 		</Container>
 	)
@@ -20,13 +17,13 @@ const Container = styled.div`
 	place-content: center;
 	overflow: hidden;
 
-	@media (max-width: 550px){
+	@media (max-width: 550px) {
 		width: 55%;
 		place-content: start;
 		position: absolute;
 		z-index: -1;
-		top: -35px;
-		right: -10px;
+		top: -25px;
+		right: -30px;
 		grid-column: 1;
 	}
 `

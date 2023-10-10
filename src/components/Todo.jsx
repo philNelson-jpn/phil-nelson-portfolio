@@ -160,6 +160,10 @@ const CreateNewTodoWrapper = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: center;
+
+	@media (max-width: 550px) {
+		padding: 16px;
+	}
 `
 
 const Row = styled.div`
@@ -172,6 +176,10 @@ const Row = styled.div`
 		color: grey;
 		border-bottom: 3px solid grey;
 		width: 300px;
+	}
+
+	@media (max-width: 550px) {
+		width: 295px;
 	}
 `
 
@@ -224,6 +232,12 @@ const AddToDo = styled.button`
 		will-change: transform;
 		transform: translateY(-4px);
 		transition: transform 600ms cubic-bezier(0.3, 0.7, 0.4, 1);
+
+		@media (max-width: 550px) {
+			width: 90px;
+			padding: 8px 8px;
+			font-size: 12px;
+	}
 	}
 
 	&:hover {
@@ -251,7 +265,7 @@ const AddToDo = styled.button`
 `
 
 const TodoList = styled.ol`
-	margin-inline: 24px;
+	margin-inline: 14px;
 	display: flex;
 	flex-direction: column;
 	list-style-type: none;

@@ -5,7 +5,8 @@ export default function StickerClicker() {
 	return (
 		<StickerClickerWrapper>
 			<ClickAnywhere>
-				<h1>Click Anywhere!</h1>
+				<h1 className='desktop'>Click Anywhere!</h1>
+				<h1 className='phone'>Tap Anywhere!</h1>
 			</ClickAnywhere>
 			<RandomImage />
 		</StickerClickerWrapper>
@@ -106,7 +107,7 @@ const StickerClickerWrapper = styled.div`
 	);
 	border-radius: 8px;
 
-	@media (max-width: 550px){
+	@media (max-width: 550px) {
 		grid-column: 1/-1;
 		grid-row: 3;
 		margin: 0;
@@ -135,5 +136,18 @@ const ClickAnywhere = styled.div`
 
 	& > h1 {
 		color: hsla(224, 55%, 93%, 0.8);
+	}
+
+	& > .phone {
+		display: none;
+	}
+
+	@media (max-width: 550px) {
+		& > .phone {
+			display: block;
+		}
+		& > h1 {
+			display: none;
+		}
 	}
 `

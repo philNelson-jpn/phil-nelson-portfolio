@@ -97,9 +97,10 @@ const LayoutWrapper = styled.div`
 	@media (max-width: 550px) {
 		grid-column: 1/-1;
 		grid-row: 3;
-		margin-top: 0;
+		margin-top: 20px;
 		padding: 0;
 		width: 100%;
+		height: 350px;
 	}
 `
 
@@ -227,6 +228,7 @@ const Box = styled.button`
 `
 
 const Tile = styled(motion.div)`
+	color: hsl(0, 0%, 98.4313725490196%);
 	display: grid;
 	place-content: center;
 	font-weight: bold;
@@ -235,4 +237,9 @@ const Tile = styled(motion.div)`
 	background: hsl(236, 91%, 68%);
 	border-radius: 4px;
 	z-index: 1;
+
+	@media (max-width: 550px) {
+		width: 32px;
+		height: 24px;
+	}
 `

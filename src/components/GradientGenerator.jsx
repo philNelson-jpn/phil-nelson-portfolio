@@ -195,7 +195,7 @@ const GradientWrapper = styled.div`
 	);
 	border-radius: 8px;
 
-	@media (max-width: 550px){
+	@media (max-width: 550px) {
 		grid-column: 1/-1;
 		grid-row: 3;
 		margin: 0;
@@ -223,10 +223,10 @@ const Wrapper = styled.div`
 		text-align: center;
 		color: hsl(270, 0%, 100%, 0.5);
 
-		@media (max-width: 550px){
+		@media (max-width: 550px) {
 			position: relative;
 			top: 0;
-	}
+		}
 	}
 
 	& .change-me p {
@@ -249,6 +249,11 @@ const CustomColorInput = styled(motion.button)`
 	&:hover {
 		border-color: white;
 		transition: border-color 200ms ease-in-out;
+	}
+
+	@media (max-width: 550px) {
+		height: 40px;
+		width: 40px;
 	}
 `
 
@@ -274,6 +279,11 @@ const AddColorButton = styled(motion.button)`
 	&:hover {
 		filter: brightness(150%);
 	}
+
+	@media (max-width: 550px) {
+		height: 40px;
+		width: 40px;
+	}
 `
 
 const RemoveColorButton = styled(motion.button)`
@@ -294,12 +304,21 @@ const RemoveColorButton = styled(motion.button)`
 	&:hover {
 		filter: brightness(150%);
 	}
+
+	@media (max-width: 550px) {
+		height: 40px;
+		width: 40px;
+	}
 `
 
 const GradientPreview = styled.div`
 	aspect-ratio: 2 / 1;
 	height: 280px;
 	border-radius: 4px;
+
+	@media (max-width: 550px) {
+		height: 275px;
+	}
 `
 
 const Colors = styled.div`
@@ -311,120 +330,124 @@ const Colors = styled.div`
 	& input[type='color'] {
 		flex: 1;
 		height: 50px;
+
+		@media (max-width: 550px) {
+		height: 25px;
+	}
 	}
 `
 
-const Actions = styled.div`
-	display: flex;
-	justify-content: center;
-	gap: 16px;
-`
+// const Actions = styled.div`
+// 	display: flex;
+// 	justify-content: center;
+// 	gap: 16px;
+// `
 
-const Button = styled.button`
-	position: relative;
-	border: none;
-	width: 130px;
-	background: transparent;
-	top: 4px;
-	padding: 0;
-	cursor: pointer;
-	outline-offset: 4px;
+// const Button = styled.button`
+// 	position: relative;
+// 	border: none;
+// 	width: 130px;
+// 	background: transparent;
+// 	top: 4px;
+// 	padding: 0;
+// 	cursor: pointer;
+// 	outline-offset: 4px;
 
-	& .front {
-		display: block;
-		position: relative;
-		padding: 10px 12px;
-		border-radius: 8px;
-		font-size: 1rem;
-		color: white;
-		will-change: transform;
-		transform: translateY(-7px);
-		transition: transform 600ms cubic-bezier(0.3, 0.7, 0.4, 1);
-	}
+// 	& .front {
+// 		display: block;
+// 		position: relative;
+// 		padding: 10px 12px;
+// 		border-radius: 8px;
+// 		font-size: 1rem;
+// 		color: white;
+// 		will-change: transform;
+// 		transform: translateY(-7px);
+// 		transition: transform 600ms cubic-bezier(0.3, 0.7, 0.4, 1);
+// 	}
 
-	&:hover {
-		filter: brightness(110%);
-	}
-	&:hover .front {
-		transform: translateY(-9px);
-		transition: transform 250ms cubic-bezier(0.3, 0.7, 0.4, 1.5);
-	}
-	&:active .front {
-		transform: translateY(-1px);
-		transition: transform 34ms;
-	}
+// 	&:hover {
+// 		filter: brightness(110%);
+// 	}
+// 	&:hover .front {
+// 		transform: translateY(-9px);
+// 		transition: transform 250ms cubic-bezier(0.3, 0.7, 0.4, 1.5);
+// 	}
+// 	&:active .front {
+// 		transform: translateY(-1px);
+// 		transition: transform 34ms;
+// 	}
 
-	&:focus:not(:focus-visible) {
-		outline: none;
-	}
+// 	&:focus:not(:focus-visible) {
+// 		outline: none;
+// 	}
 
-	/* & .shadow {
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		border-radius: 12px;
-		background: hsl(0deg 0% 0% / 0.25);
-		will-change: transform;
-		transform: translateY(2px);
-		transition: transform 600ms cubic-bezier(0.3, 0.7, 0.4, 1);
-	} */
+// 	/* & .shadow {
+// 		position: absolute;
+// 		top: 0;
+// 		left: 0;
+// 		width: 100%;
+// 		height: 100%;
+// 		border-radius: 12px;
+// 		background: hsl(0deg 0% 0% / 0.25);
+// 		will-change: transform;
+// 		transform: translateY(2px);
+// 		transition: transform 600ms cubic-bezier(0.3, 0.7, 0.4, 1);
+// 	} */
 
-	/* &:hover .shadow {
-		transform: translateY(4px);
-		transition: transform 250ms cubic-bezier(0.3, 0.7, 0.4, 1.5);
-	}
-	&:active .shadow {
-		transform: translateY(1px);
-		transition: transform 34ms;
-	} */
-`
+// 	/* &:hover .shadow {
+// 		transform: translateY(4px);
+// 		transition: transform 250ms cubic-bezier(0.3, 0.7, 0.4, 1.5);
+// 	}
+// 	&:active .shadow {
+// 		transform: translateY(1px);
+// 		transition: transform 34ms;
+// 	} */
+// `
 
-const AddColor = styled(Button)`
-	transition: filter 250ms;
+// const AddColor = styled(Button)`
+// 	transition: filter 250ms;
 
-	& .edge {
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		border-radius: 8px;
-		background: linear-gradient(
-			to left,
-			hsl(147, 68%, 18%) 0%,
-			hsl(147, 68%, 28%) 8%,
-			hsl(147, 68%, 28%) 92%,
-			hsl(147, 68%, 8%) 100%
-		);
-	}
+// 	& .edge {
+// 		position: absolute;
+// 		top: 0;
+// 		left: 0;
+// 		width: 100%;
+// 		height: 100%;
+// 		border-radius: 8px;
+// 		background: linear-gradient(
+// 			to left,
+// 			hsl(147, 68%, 18%) 0%,
+// 			hsl(147, 68%, 28%) 8%,
+// 			hsl(147, 68%, 28%) 92%,
+// 			hsl(147, 68%, 8%) 100%
+// 		);
+// 	}
 
-	& .front {
-		background: hsl(147, 68%, 38%);
-	}
-`
+// 	& .front {
+// 		background: hsl(147, 68%, 38%);
+// 	}
+// `
 
-const RemoveColor = styled(Button)`
-	transition: filter 250ms;
+// const RemoveColor = styled(Button)`
+// 	transition: filter 250ms;
 
-	& .edge {
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		border-radius: 8px;
-		background: linear-gradient(
-			to left,
-			hsl(0, 82%, 25%) 0%,
-			hsl(0, 82%, 38%) 8%,
-			hsl(0, 82%, 38%) 92%,
-			hsl(0, 82%, 12%) 100%
-		);
-	}
+// 	& .edge {
+// 		position: absolute;
+// 		top: 0;
+// 		left: 0;
+// 		width: 100%;
+// 		height: 100%;
+// 		border-radius: 8px;
+// 		background: linear-gradient(
+// 			to left,
+// 			hsl(0, 82%, 25%) 0%,
+// 			hsl(0, 82%, 38%) 8%,
+// 			hsl(0, 82%, 38%) 92%,
+// 			hsl(0, 82%, 12%) 100%
+// 		);
+// 	}
 
-	& .front {
-		background: hsl(0, 82%, 55%);
-	}
-`
+// 	& .front {
+// 		background: hsl(0, 82%, 55%);
+// 	}
+// `
