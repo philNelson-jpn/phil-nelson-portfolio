@@ -51,7 +51,8 @@ export default function MotionBrowser() {
 									</Tile>
 								)
 							})}
-						<PhluidBoxText>Click Me</PhluidBoxText>
+						<PhluidBoxTextWide>Click Me</PhluidBoxTextWide>
+						<PhluidBoxTextPhone>Tap Me</PhluidBoxTextPhone>
 					</Box>
 				))}
 			</LayoutWrapper>
@@ -65,8 +66,8 @@ const LayoutWrapper = styled.div`
 	border: 2px solid hsl(0deg 0% 100% / 0.3);
 	padding: 4px;
 	/* margin: 0 auto; */
-	width: 100%;
-	max-width: 600px;
+	min-width: 100%;
+	width: 600px;
 	height: 420px;
 	/* aspect-ratio: 1 / 1; */
 	grid-template-columns: 2fr 3fr 4fr;
@@ -92,6 +93,14 @@ const LayoutWrapper = styled.div`
 		hsl(240deg 15% 3% / 0.85) 100%
 	);
 	border-radius: 8px;
+
+	@media (max-width: 550px) {
+		grid-column: 1/-1;
+		grid-row: 3;
+		margin-top: 0;
+		padding: 0;
+		width: 100%;
+	}
 `
 
 const BrowserCircleGroup = styled.div`
@@ -146,12 +155,29 @@ const AddressBar = styled.div`
 	padding-inline-start: 8px;
 `
 
-const PhluidBoxText = styled.span`
+const PhluidBoxTextWide = styled.span`
 	position: absolute;
 	z-index: 0;
 	color: hsla(210, 86%, 92%, 0.7);
 	opacity: 1;
 	transition: opacity 200ms ease-in-out;
+
+	@media (max-width: 550px) {
+		display: none;
+	}
+`
+
+const PhluidBoxTextPhone = styled.span`
+	display: none;
+	position: absolute;
+	z-index: 0;
+	color: hsla(210, 86%, 92%, 0.7);
+	opacity: 1;
+	transition: opacity 200ms ease-in-out;
+
+	@media (max-width: 550px) {
+		display: block;
+	}
 `
 
 const Box = styled.button`
@@ -194,7 +220,7 @@ const Box = styled.button`
 		grid-row: 5;
 	}
 
-	&.selected ${PhluidBoxText} {
+	&.selected ${PhluidBoxTextWide}, &.selected ${PhluidBoxTextPhone} {
 		color: hsla(237, 97%, 74%, 0.7);
 		opacity: 0;
 	}

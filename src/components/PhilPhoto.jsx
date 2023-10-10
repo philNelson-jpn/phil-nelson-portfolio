@@ -2,22 +2,33 @@ import { styled } from 'styled-components'
 
 export default function PhilPhoto() {
 	return (
-		<div className='container'>
-			<div className='image-container'>
-				<img
-					className='image'
+		<Container>
+			<ImageContainer>
+				<Image
 					src='/assets/BestHeadShotPhilPNG.png'
 					alt='Phil Nelson bust'
 				/>
-			</div>
-		</div>
+			</ImageContainer>
+		</Container>
 	)
 }
 
 const Container = styled.div`
-	width: 450px;
-	height: 600px;
+	width: 100%;
+	height: 650px;
+	display: grid;
+	place-content: center;
 	overflow: hidden;
+
+	@media (max-width: 550px){
+		width: 55%;
+		place-content: start;
+		position: absolute;
+		z-index: -1;
+		top: -35px;
+		right: -10px;
+		grid-column: 1;
+	}
 `
 
 const ImageContainer = styled.div`

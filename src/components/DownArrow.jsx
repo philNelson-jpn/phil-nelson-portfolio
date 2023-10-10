@@ -60,6 +60,7 @@ const pulsate = keyframes`
 `
 
 const DownArrowWrapper = styled.div`
+	grid-column: 2 / -2;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -85,5 +86,9 @@ const DownArrowWrapper = styled.div`
 	& .three {
 		top: 50px;
 		animation: ${pulsate} 1.8s infinite 0.6s;
+	}
+
+	@media (max-width: 550px) {
+		grid-column: 2 / -2;
 	}
 `

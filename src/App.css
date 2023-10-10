@@ -10,8 +10,6 @@
 }
 
 #logo {
-	/* position: fixed; */
-	/* top: 8rem; */
 	padding: 0;
 	margin: 0;
 	width: 100%;
@@ -27,12 +25,17 @@
 	font-family: 'Rubik', sans-serif;
 	color: var(--pn-text-clr-base);
 	font-size: 10rem;
-	/* width: 100%; */
+	width: 100%;
 	/* height: 100vh; */
 	min-height: 100%;
 	position: absolute;
 	/* left: 1rem; */
 	/* top: -6.5rem; */
+
+	@media (max-width: 550px) {
+		font-size: 7rem;
+		width: 550px;
+	}
 }
 
 #logo > h1:first-of-type {
@@ -42,42 +45,7 @@
 #logo > h1:last-of-type {
 	color: var(--pn-text-clr-dark);
 }
-.container {
-	width: 100%;
-	height: 650px;
-	display: grid;
-	place-content: center;
-	overflow: hidden;
-	/* background-color: var(--pn-text-clr-base);  */
-}
-
-.image-container {
-	width: 100%;
-	height: 100%;
-	position: relative;
-}
-
-.image-container::before {
-	content: '';
-	position: absolute;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	background: linear-gradient(
-		hsla(0, 0%, 100%, 0) 0%,
-		hsla(0, 0%, 100%, 0) 50%,
-		var(--bg-color) 95%
-	); /* Feather effect */
-	pointer-events: none; /* Ensure the pseudo-element doesn't interfere with interactions */
-}
-
-.image {
-	width: 100%;
-	height: 100%;
-	object-fit: cover; /* Ensure the image covers the container */
-	border-radius: 50%;
-}
+/* Phil image went here*/
 
 .intro-wrapper {
 	background-image: linear-gradient(
@@ -109,15 +77,49 @@
 	margin-block-end: 10rem;
 }
 
+@media screen and (max-width: 550px) {
+	.intro-wrapper {
+		grid-template-columns: 1fr;
+		grid-column: 1 / -1;
+	}
+
+	#logo {
+		/* position: fixed; */
+		/* top: 8rem; */
+		padding: 0;
+		margin: 0;
+		width: 100%;
+		height: 0;
+		user-select: none;
+		/* max-width: 500px; */
+		/* start messing with styles */
+		grid-column: 1 / -1;
+		position: sticky;
+	}
+}
+
 .intro {
 	position: relative;
 	font-family: 'Rubik', sans-serif;
 	color: hsl(200deg 80% 90%);
-	grid-column: 2/4;
+	grid-column: 2 / -2;
 	grid-row: 1/3;
 	display: grid;
-	grid-template-columns: 600px 600px;
+	gap: 16px;
+	/* grid-template-columns: 1fr 600px 600px 1fr; */
 	grid-template-rows: 10rem 35rem 20rem;
+}
+
+@media screen and (max-width: 550px) {
+	.intro {
+		grid-column: 1;
+		gap: 0;
+		padding: 0;
+		margin: 0;
+		grid-template-columns: 1fr;
+		grid-template-rows: 10rem 1fr 1fr;
+		z-index: 99999999;
+	}
 }
 
 .intro-text {
@@ -125,10 +127,45 @@
 	font-family: 'Rubik';
 	top: 10rem;
 	right: 0;
-	max-width: 70ch;
-	min-width: 40ch;
+	max-width: 30ch;
+	/* min-width: 30ch; */
 	grid-column: 2;
 	grid-row: 2;
+	font-size: calc(36 / 16 * 1rem);
+}
+
+@media screen and (max-width: 550px) {
+	.intro-text {
+		/* grid-template-columns: 16px 1fr 16px; */
+		grid-column: 1;
+		grid-row: 2;
+		font-size: calc(28 / 16 * 1rem);
+		max-width: 27ch;
+		min-width: 25ch;
+		padding-inline: 16px;
+
+		background-image: linear-gradient(
+			180deg,
+			hsl(240deg 15% 3% / 0) 0%,
+			hsl(240deg 15% 3% / 0.1) 5%,
+			hsl(240deg 15% 3% / 0.3) 10%,
+			hsl(240deg 15% 3% / 0.6) 15%,
+			hsl(240deg 15% 3% / 0.7) 20%,
+			hsl(240deg 15% 3% / 0.8) 25%,
+			hsl(240deg 15% 3% / 0.85) 30%,
+			hsl(240deg 15% 3% / 0.9) 40%,
+			hsl(240deg 15% 3% / 0.95) 50%,
+			hsl(240deg 15% 3% / 0.95) 60%,
+			hsl(240deg 15% 3% / 0.9) 65%,
+			hsl(240deg 15% 3% / 0.85) 70%,
+			hsl(240deg 15% 3% / 0.8) 75%,
+			hsl(240deg 15% 3% / 0.7) 80%,
+			hsl(240deg 15% 3% / 0.6) 85%,
+			hsl(240deg 15% 3% / 0.3) 90%,
+			hsl(240deg 15% 3% / 0.1) 95%,
+			hsl(240deg 15% 3% / 0) 100%
+		);
+	}
 }
 
 /* Hover-me styles went here */
@@ -136,8 +173,7 @@
 /* Intro Text */
 
 .intro-text > p {
-	font-size: calc(36 / 16 * 1rem);
-	padding-inline: 2rem;
+	/* padding-inline: 2rem; */
 	padding-block: 0.5rem;
 	padding-block-end: 8rem;
 }
@@ -242,6 +278,14 @@
 	color: hsl(0deg 0% 0% / 0.8);
 	font-size: 10rem;
 	position: sticky;
+}
+
+@media screen and (max-width: 550px) {
+	.sub-text {
+		font-size: 7rem;
+		padding-inline-start: 10.25rem;
+		z-index: -1;
+	}
 }
 
 /* Interactive Browser (Motion Layout) styles went here */

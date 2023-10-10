@@ -14,4 +14,10 @@ const PStyles = styled.h1`
 	top: 0;
 	z-index: 1000;
 	grid-column: 2;
+
+	@media (max-width: 550px){
+		font-size: 7rem;
+		grid-column: 1;
+		padding-left: 16px;
+	}
 `

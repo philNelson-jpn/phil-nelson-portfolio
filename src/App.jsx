@@ -12,7 +12,7 @@ import { styled } from 'styled-components'
 
 function App() {
 	return (
-		<>
+		<AppWrapper>
 			<FixedWrapper>
 				<LogoComponent />
 				<PhilPhoto />
@@ -26,22 +26,47 @@ function App() {
 				<Phast />
 				<Phun />
 			</MainWrapper>
-		</>
+		</AppWrapper>
 	)
 }
 
-const FixedWrapper = styled.div`
+const AppWrapper = styled.div`
 	display: grid;
 	grid-template-columns: 1fr 600px 600px 1fr;
+
+	@media (max-width: 550px) {
+		grid-template-columns: 16px 1fr 16px;
+	}
+`
+
+const FixedWrapper = styled.div`
+	display: grid;
 	position: sticky;
 	height: 100vh;
 	overflow: hidden;
 	top: 0;
+	left: 0;
+	right: 0;
+	grid-column: 2/-2;
+	grid-template-columns: 1fr 600px 600px 1fr;
+
+	@media (max-width: 550px) {
+		grid-template-columns: 16px 1fr 16px;
+		grid-column: 2/-2;
+	}
 `
 
 const MainWrapper = styled.div`
 	display: grid;
 	grid-template-columns: 1fr 600px 600px 1fr;
+	grid-column: 1/-1;
+
+	@media (max-width: 550px) {
+		/* grid-template-columns: 16px 1fr 16px;
+ */
+		display: block;
+		grid-column: 1 / -1;
+	}
 `
 
 export default App

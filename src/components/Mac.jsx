@@ -1,4 +1,5 @@
 import { styled } from 'styled-components'
+import { CornerRightDown } from 'react-feather'
 
 export default function Mac() {
 	return (
@@ -22,6 +23,11 @@ export default function Mac() {
 					<path d='M979.042 925.188c-17.954 41.477-39.206 79.657-63.828 114.759-33.563 47.853-61.044 80.976-82.222 99.37-32.83 30.192-68.006 45.654-105.672 46.533-27.041 0-59.652-7.694-97.611-23.303-38.085-15.536-73.084-23.23-105.086-23.23-33.563 0-69.56 7.694-108.061 23.23-38.561 15.609-69.625 23.743-93.376 24.55-36.12 1.538-72.123-14.364-108.06-47.78-22.938-20.006-51.627-54.302-85.997-102.888-36.875-51.883-67.191-112.047-90.942-180.639C12.751 781.703 0 709.96 0 640.504c0-79.562 17.192-148.183 51.627-205.687 27.063-46.19 63.066-82.625 108.127-109.373 45.06-26.748 93.749-40.378 146.182-41.25 28.69 0 66.312 8.874 113.066 26.315 46.622 17.5 76.557 26.374 89.682 26.374 9.812 0 43.068-10.376 99.443-31.064 53.313-19.185 98.307-27.129 135.168-24 99.883 8.062 174.923 47.436 224.828 118.372-89.33 54.126-133.52 129.936-132.64 227.188.806 75.751 28.287 138.788 82.295 188.84 24.476 23.23 51.81 41.183 82.222 53.934-6.595 19.127-13.557 37.447-20.958 55.035zM749.964 23.75c0 59.374-21.692 114.81-64.928 166.122-52.176 61-115.286 96.248-183.724 90.686a184.836 184.836 0 01-1.378-22.497c0-56.999 24.813-117.998 68.878-167.874 21.999-25.253 49.978-46.25 83.907-63 33.856-16.5 65.88-25.625 95.999-27.187.88 7.937 1.246 15.875 1.246 23.75z'></path>
 				</SVG>
 			</IMac>
+			<TapMe>
+				<span>Tap</span>
+				<span>Me</span>
+				<CornerRightDown />
+			</TapMe>
 		</IMacWrapper>
 	)
 }
@@ -36,6 +42,38 @@ const IMacWrapper = styled.div`
 	position: sticky;
 	top: 3rem;
 	z-index: 10001;
+
+	@media (max-width: 550px) {
+		grid-column: 1/-1;
+		grid-row: 3;
+		margin: 0;
+		padding: 0;
+		top: 0;
+		margin-top: 50px;
+	}
+`
+
+const TapMe = styled.div`
+	z-index: -1;
+	display: none;
+	position: absolute;
+	right: 26px;
+	top: 16px;
+
+	@media (max-width: 550px) {
+		display: block;
+	}
+
+	& span {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	& SVG {
+		margin-top: 12px;
+		transform: rotate(65deg);
+	}
 `
 
 const IMac = styled.div`
@@ -68,9 +106,18 @@ const IMac = styled.div`
 	transform-style: preserve-3d;
 	border-left: 4px solid hsl(217deg 6% 72% / 0.2);
 
+	@media (max-width: 550px) {
+		height: 300px;
+		width: 400px;
+	}
+
 	${IMacWrapper}:hover & {
 		transform: rotateY(40deg);
 		border-left: 4px solid hsl(217deg 6% 72% / 1);
+
+		@media (max-width: 550px) {
+			transform: rotateY(20deg);
+		}
 	}
 
 	${IMacWrapper} &::before {
@@ -123,9 +170,17 @@ const Screen = styled.div`
 	transition: transform 600ms ease-in-out, border 600ms ease-in-out;
 	transform-style: inherit;
 
+	@media (max-width: 550px) {
+		inset: 10px 10px 40px 10px;
+	}
+
 	${IMacWrapper}:hover & {
 		transform: translate3D(30px, -10px, 100px);
 		border-color: hsla(0, 0%, 100%, 0.676);
+
+		@media (max-width: 550px) {
+		transform: translate3D(8px, -3px, 16px);
+		}
 	}
 `
 
@@ -136,6 +191,11 @@ const SVG = styled.svg`
 	right: 50%;
 	bottom: 20px;
 	fill: #ffffff6d;
+
+	@media (max-width: 550px) {
+		width: 20px;
+		bottom: 12px;
+	}
 `
 
 const Item = styled.div`
@@ -168,6 +228,12 @@ const ItemTwo = styled(Item)`
 	transition: transform 1200ms ease-in-out, background-color 1500ms ease-in-out,
 		color 2000ms ease-in-out;
 	font-size: calc(64 / 16 * 1rem);
+
+
+	@media (max-width: 550px){
+
+	font-size: calc(42 / 16 * 1rem);
+	}
 
 	${IMacWrapper}:hover & {
 		transform: translate3D(0px, 30px, 60px);

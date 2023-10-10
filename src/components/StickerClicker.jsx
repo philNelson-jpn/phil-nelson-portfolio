@@ -105,6 +105,15 @@ const StickerClickerWrapper = styled.div`
 		hsl(240deg 15% 3% / 0.5) 100%
 	);
 	border-radius: 8px;
+
+	@media (max-width: 550px){
+		grid-column: 1/-1;
+		grid-row: 3;
+		margin: 0;
+		padding: 0;
+		top: 0;
+		width: 100%;
+	}
 `
 
 const StickerContainer = styled.div`

@@ -117,6 +117,7 @@ export default function Todo() {
 const TodoWrapper = styled.div`
 	border: 2px solid hsl(0deg 0% 100% / 0.3);
 	padding: 4px;
+	min-width: 100%;
 	width: 600px;
 	height: 420px;
 	/* aspect-ratio: 1 / 1; */
@@ -141,6 +142,15 @@ const TodoWrapper = styled.div`
 		hsl(240deg 15% 3% / 0.85) 100%
 	);
 	border-radius: 8px;
+
+	@media (max-width: 550px){
+		grid-column: 1/-1;
+		grid-row: 3;
+		margin-top: 0;
+		padding: 0;
+		top: 0;
+		width: 100%;
+	}
 `
 
 const ListWrapper = styled.div``

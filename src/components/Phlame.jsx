@@ -167,6 +167,10 @@ const HoverMeWrapper = styled.div`
 	display: flex;
 	align-items: center;
 	position: relative;
+
+	@media screen and (max-width: 550px){
+		display: none;
+	}
 `
 
 const bouncy = keyframes`

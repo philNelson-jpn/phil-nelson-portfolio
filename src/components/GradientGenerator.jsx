@@ -170,6 +170,7 @@ const GradientWrapper = styled.div`
 	border: 2px solid hsl(0deg 0% 100% / 0.3);
 	padding: 32px;
 	height: 420px;
+	min-width: 100%;
 	max-width: 600px;
 	/* aspect-ratio: 1 / 1; */
 	margin-block-start: 6rem;
@@ -193,6 +194,15 @@ const GradientWrapper = styled.div`
 		hsl(240deg 15% 3% / 0.85) 100%
 	);
 	border-radius: 8px;
+
+	@media (max-width: 550px){
+		grid-column: 1/-1;
+		grid-row: 3;
+		margin: 0;
+		padding: 0;
+		top: 0;
+		max-width: 100%;
+	}
 `
 
 const Wrapper = styled.div`
@@ -212,6 +222,11 @@ const Wrapper = styled.div`
 		width: 100%;
 		text-align: center;
 		color: hsl(270, 0%, 100%, 0.5);
+
+		@media (max-width: 550px){
+			position: relative;
+			top: 0;
+	}
 	}
 
 	& .change-me p {
