@@ -24,8 +24,7 @@ export default function Mac() {
 				</SVG>
 			</IMac>
 			<TapMe>
-				<span>Tap</span>
-				<span>Me</span>
+				<span>Tap Me!</span>
 				<CornerRightDown />
 			</TapMe>
 		</IMacWrapper>
@@ -48,8 +47,7 @@ const IMacWrapper = styled.div`
 		grid-row: 3;
 		margin: 0;
 		padding: 0;
-		top: 0;
-		margin-top: 50px;
+		margin-top: 75px;
 	}
 `
 
@@ -58,21 +56,18 @@ const TapMe = styled.div`
 	display: none;
 	position: absolute;
 	right: 26px;
-	top: 16px;
+	top: -46px;
 
 	@media (max-width: 550px) {
 		display: block;
+		display: flex;
+		flex-direction: row;
 	}
 
-	& span {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-	}
 
 	& SVG {
 		margin-top: 12px;
-		transform: rotate(65deg);
+		transform: rotate(35deg);
 	}
 `
 

@@ -285,6 +285,7 @@ const TodoList = styled.ol`
 		background-color: transparent;
 		border: none;
 		cursor: pointer;
+		color: #e8e9ee;
 	}
 
 	& li:hover {

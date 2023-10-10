@@ -112,7 +112,7 @@ const StickerClickerWrapper = styled.div`
 		grid-row: 3;
 		margin: 0;
 		padding: 0;
-		top: 0;
+		margin-top: -20px;
 		width: 100%;
 	}
 `

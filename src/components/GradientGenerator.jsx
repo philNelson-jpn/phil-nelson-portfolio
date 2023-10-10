@@ -264,6 +264,7 @@ const Input = styled.input`
 const AddColorButton = styled(motion.button)`
 	display: grid;
 	place-content: center;
+	color: hsl(120, 100%, 89.01960784313725%);
 	padding: 0;
 	margin: 0;
 	border: none;
@@ -289,6 +290,7 @@ const AddColorButton = styled(motion.button)`
 const RemoveColorButton = styled(motion.button)`
 	display: grid;
 	place-content: center;
+	color: hsl(0, 100%, 89%);
 	padding: 0;
 	margin: 0;
 	border: none;
