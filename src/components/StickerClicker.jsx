@@ -15,41 +15,75 @@ export default function StickerClicker() {
 
 const RandomImage = () => {
 	const [images, setImages] = React.useState([])
+	const [imagesLoaded, setImagesLoaded] = React.useState(false)
 
-	const handleGenerateImage = (event) => {
-		const container = event.currentTarget
-		const containerRect = container.getBoundingClientRect() // Get container's position
-		const clickX = event.clientX - containerRect.left // Adjust for container's position
-		const clickY = event.clientY - containerRect.top // Adjust for container's position
-
-		// Calculate the adjusted position for centering the image
-		const centerX = clickX - 80 // Adjust for half of the image width (160 / 2 = 80)
-		const centerY = clickY - 80 // Adjust for half of the image height (160 / 2 = 80)
-
-		// Fetch a random image URL
-		const randomImageUrl = getRandomImageUrl()
-
-		// Create a new image object with adjusted position and rotation
-		const newImage = {
-			url: randomImageUrl,
-			x: centerX,
-			y: centerY,
-			rotation: getRandomRotation(),
-		}
-
-		setImages([...images, newImage])
-	}
-
-	const getRandomImageUrl = () => {
-		// Replace this with your logic to get a random image URL
-		const imageUrls = [
+	// List of image URLs to preload
+	const imageUrls = React.useMemo(
+		() => [
 			'/assets/arrowPhilSticker.png',
 			'/assets/glassesPhilSticker.png',
 			'/assets/sunglassesPhilSticker.png',
 			'/assets/bwPhilSticker.png',
 			'/assets/yellowPhilSticker.png',
-			// Add more image URLs as needed
-		]
+		],
+		[]
+	)
+
+	React.useEffect(() => {
+		const preloadedImages = []
+		let loadedCount = 0
+
+		const preloadImages = () => {
+			imageUrls.forEach((imageUrl) => {
+				const img = new Image()
+				img.src = imageUrl
+				img.onload = () => {
+					loadedCount++
+					if (loadedCount === imageUrls.length) {
+						// All images are loaded
+						setImagesLoaded(true)
+					}
+				}
+				preloadedImages.push(img)
+			})
+		}
+
+		preloadImages()
+
+		// Cleanup function
+		return () => {
+			preloadedImages.forEach((img) => (img.onload = null))
+		}
+	}, [imageUrls])
+
+	const handleGenerateImage = (event) => {
+		if (imagesLoaded) {
+			const container = event.currentTarget
+			const containerRect = container.getBoundingClientRect() // Get container's position
+			const clickX = event.clientX - containerRect.left // Adjust for container's position
+			const clickY = event.clientY - containerRect.top // Adjust for container's position
+
+			// Calculate the adjusted position for centering the image
+			const centerX = clickX - 80 // Adjust for half of the image width (160 / 2 = 80)
+			const centerY = clickY - 80 // Adjust for half of the image height (160 / 2 = 80)
+
+			// Fetch a random image URL
+			const randomImageUrl = getRandomImageUrl()
+
+			// Create a new image object with adjusted position and rotation
+			const newImage = {
+				url: randomImageUrl,
+				x: centerX,
+				y: centerY,
+				rotation: getRandomRotation(),
+			}
+
+			setImages([...images, newImage])
+		}
+	}
+
+	const getRandomImageUrl = () => {
+		// Replace this with your logic to get a random image URL
 		const randomIndex = Math.floor(Math.random() * imageUrls.length)
 		return imageUrls[randomIndex]
 	}
