@@ -314,13 +314,10 @@ const RemoveColorButton = styled(motion.button)`
 `
 
 const GradientPreview = styled.div`
-	aspect-ratio: 2 / 1;
+	/* aspect-ratio: 2 / 1; */
+	width: 100%;
 	height: 280px;
 	border-radius: 4px;
-
-	@media (max-width: 550px) {
-		height: 275px;
-	}
 `
 
 const Colors = styled.div`
@@ -334,8 +331,8 @@ const Colors = styled.div`
 		height: 50px;
 
 		@media (max-width: 550px) {
-		height: 25px;
-	}
+			height: 25px;
+		}
 	}
 `
 
