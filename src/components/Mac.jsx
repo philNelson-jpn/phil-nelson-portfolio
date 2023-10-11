@@ -64,7 +64,6 @@ const TapMe = styled.div`
 		flex-direction: row;
 	}
 
-
 	& SVG {
 		margin-top: 12px;
 		transform: rotate(35deg);
@@ -219,8 +218,6 @@ const ItemOne = styled(Item)`
 			transform: translate3D(8px, -6px, 20px);
 		}
 	}
-
-
 `
 
 const ItemTwo = styled(Item)`

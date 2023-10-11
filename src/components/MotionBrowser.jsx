@@ -67,7 +67,7 @@ const LayoutWrapper = styled.div`
 	padding: 4px;
 	/* margin: 0 auto; */
 	min-width: 100%;
-	width: 600px;
+	width: 586px;
 	height: 420px;
 	/* aspect-ratio: 1 / 1; */
 	grid-template-columns: 2fr 3fr 4fr;

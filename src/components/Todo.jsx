@@ -118,7 +118,7 @@ const TodoWrapper = styled.div`
 	border: 2px solid hsl(0deg 0% 100% / 0.3);
 	padding: 4px;
 	min-width: 100%;
-	width: 600px;
+	width: 588px;
 	height: 420px;
 	/* aspect-ratio: 1 / 1; */
 	margin-block-start: 6rem;
@@ -143,7 +143,7 @@ const TodoWrapper = styled.div`
 	);
 	border-radius: 8px;
 
-	@media (max-width: 550px){
+	@media (max-width: 550px) {
 		grid-column: 1/-1;
 		grid-row: 3;
 		margin-top: 0;
@@ -237,7 +237,7 @@ const AddToDo = styled.button`
 			width: 90px;
 			padding: 8px 8px;
 			font-size: 12px;
-	}
+		}
 	}
 
 	&:hover {

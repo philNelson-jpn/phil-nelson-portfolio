@@ -171,7 +171,7 @@ const GradientWrapper = styled.div`
 	padding: 32px;
 	height: 420px;
 	min-width: 100%;
-	max-width: 600px;
+	max-width: 588px;
 	/* aspect-ratio: 1 / 1; */
 	margin-block-start: 6rem;
 	margin-block-end: 4rem;

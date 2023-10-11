@@ -24,10 +24,14 @@ export default function PhilPhoto() {
 
 const Container = styled.div`
 	width: 100%;
-	height: 650px;
+	height: 850px;
 	display: grid;
 	place-content: center;
 	overflow: hidden;
+
+	grid-column: 3;
+	position: absolute;
+	top: -75px;
 
 	@media (max-width: 550px) {
 		width: 55%;

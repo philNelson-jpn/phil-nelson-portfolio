@@ -168,7 +168,7 @@ const HoverMeWrapper = styled.div`
 	align-items: center;
 	position: relative;
 
-	@media screen and (max-width: 550px){
+	@media screen and (max-width: 550px) {
 		display: none;
 	}
 `

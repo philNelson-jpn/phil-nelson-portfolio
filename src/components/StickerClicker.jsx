@@ -116,7 +116,7 @@ const RandomImage = () => {
 const StickerClickerWrapper = styled.div`
 	border: 2px solid hsl(0deg 0% 100% / 0.3);
 	padding: 4px;
-	width: 600px;
+	width: 588px;
 	height: 420px;
 	/* aspect-ratio: 1 / 1; */
 	margin-block-start: 6rem;

@@ -31,7 +31,6 @@ function App() {
 }
 
 const AppWrapper = styled.div`
-
 	display: grid;
 	grid-template-columns: 1fr 600px 600px 1fr;
 
@@ -41,7 +40,6 @@ const AppWrapper = styled.div`
 `
 
 const FixedWrapper = styled.div`
-
 	display: grid;
 	position: sticky;
 	height: 100vh;
