@@ -215,7 +215,7 @@
 	top: 12px;
 }
 
-@media (max-width: 550px){
+@media (max-width: 550px) {
 	.react-underline > img {
 		top: 8px;
 	}
@@ -237,7 +237,7 @@
 	width: 350px;
 }
 
-@media (max-width: 550px){
+@media (max-width: 550px) {
 	.style-underline > img {
 		top: 6px;
 	}
@@ -286,7 +286,7 @@
 	top: 0;
 	left: 0;
 	right: 0;
-	padding-inline-start: 13.25rem;
+	padding-inline-start: 12.75rem;
 	font-size: 10rem;
 	margin-bottom: -8rem;
 	font-weight: bold;

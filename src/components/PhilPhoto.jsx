@@ -1,12 +1,21 @@
+import { useState } from 'react'
 import { styled } from 'styled-components'
 
 export default function PhilPhoto() {
+	const [loaded, setLoaded] = useState(false)
+
+	const handleImageLoad = () => {
+		setLoaded(true)
+	}
+
 	return (
 		<Container>
 			<ImageContainer>
 				<Image
 					src='/assets/BestHeadShotPhilPNG-min.png'
 					alt='Phil Nelson bust'
+					onLoad={handleImageLoad}
+					loaded={loaded}
 				/>
 			</ImageContainer>
 		</Container>
@@ -35,26 +44,32 @@ const ImageContainer = styled.div`
 	width: 100%;
 	height: 100%;
 	position: relative;
+	border-radius: 50%;
+	overflow: hidden;
 
 	&::before {
+		z-index: 1;
 		content: '';
 		position: absolute;
 		top: 0;
 		left: 0;
-		right: 0;
-		bottom: 0;
+		width: 100%;
+		height: 100%;
 		background: linear-gradient(
 			hsla(0, 0%, 100%, 0) 0%,
 			hsla(0, 0%, 100%, 0) 50%,
 			var(--bg-color) 95%
-		); /* Feather effect */
+		);
 		pointer-events: none;
 	}
 `
 
 const Image = styled.img`
+	z-index: -1;
 	width: 100%;
 	height: 100%;
-	object-fit: cover; /* Ensure the image covers the container */
+	object-fit: cover;
 	border-radius: 50%;
+	opacity: ${(props) => (props.loaded ? '1' : '0')};
+	transition: opacity 0.9s;
 `
