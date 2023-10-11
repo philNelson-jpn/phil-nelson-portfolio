@@ -4,7 +4,10 @@ export default function PhilPhoto() {
 	return (
 		<Container>
 			<ImageContainer>
-				<Image src='/assets/BestHeadShotPhilPNG.png' alt='Phil Nelson bust' />
+				<Image
+					src='/assets/BestHeadShotPhilPNG-min.png'
+					alt='Phil Nelson bust'
+				/>
 			</ImageContainer>
 		</Container>
 	)
