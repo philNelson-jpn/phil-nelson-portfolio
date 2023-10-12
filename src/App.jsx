@@ -9,6 +9,7 @@ import Phun from './components/Phun'
 import PhilPhoto from './components/PhilPhoto'
 import DownArrow from './components/DownArrow'
 import { styled } from 'styled-components'
+import Projects from './components/Projects'
 
 function App() {
 	return (
@@ -26,6 +27,7 @@ function App() {
 				<Phast />
 				<Phun />
 			</MainWrapper>
+			<Projects />
 		</AppWrapper>
 	)
 }
