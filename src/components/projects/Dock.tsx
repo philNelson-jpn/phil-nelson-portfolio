@@ -7,7 +7,7 @@ import {
 } from 'framer-motion'
 import React, { useRef } from 'react'
 import { styled } from 'styled-components'
-import { Link, NavLink } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import { Context } from '../Projects'
 
 export default function Dock() {
@@ -24,8 +24,12 @@ export default function Dock() {
 			<AppIcon mouseX={mouseX}>
 				<GradientAppIconWrapper />
 			</AppIcon>
-			<AppIcon mouseX={mouseX}>Todo</AppIcon>
-			<AppIcon mouseX={mouseX}>Sticker</AppIcon>
+			<AppIcon mouseX={mouseX}>
+				<TodoAppIconWrapper />
+			</AppIcon>
+			<AppIcon mouseX={mouseX}>
+				<StickerAppIconWrapper />
+			</AppIcon>
 		</DockWrapper>
 	)
 }
@@ -74,34 +78,33 @@ const AppIconWrapper = styled(motion.div)`
 `
 
 function BrowserAppIconWrapper() {
-
 	return (
-			<NavLink to='/phire-phox' className={({isActive}) => isActive ? "activated" : undefined}>
-				<BrowserAppIcon>
-					<img src='/assets/PhirePhoxBest.png' />
-				</BrowserAppIcon>
-			</NavLink>
+		<NavLink
+			to='/phire-phox'
+			className={({ isActive }) => (isActive ? 'activated' : undefined)}
+		>
+			<BrowserAppIcon>
+				<img src='/assets/PhirePhoxBest.png' />
+			</BrowserAppIcon>
+		</NavLink>
 	)
 }
-
 
 const BrowserAppIcon = styled.button`
 	position: relative;
 	background-color: hsl(240deg 50% 23%);
 	border: 1px solid hsl(240deg 50% 20%);
-	border-radius: 10px;
+	border-radius: 17%;
 	width: 100%;
 	height: 100%;
 	overflow: hidden;
 
 	& img {
 		position: absolute;
-		border-radius: 10px;
-		inset: 0;
-		width: 100%;
-		height: 115%;
-		top: -5px;
-		object-fit: cover;
+		top: -8%;
+		left: -6%;
+		min-width: 110%;
+		min-height: 110%;
 	}
 `
 
@@ -114,7 +117,10 @@ function GradientAppIconWrapper() {
 	const backgroundImage = `linear-gradient(${colorStops})`
 
 	return (
-		<NavLink to='/gradient-generator' className={({isActive}) => isActive ? "activated" : undefined}>
+		<NavLink
+			to='/gradient-generator'
+			className={({ isActive }) => (isActive ? 'activated' : undefined)}
+		>
 			<GradientPreview
 				style={{
 					backgroundImage,
@@ -128,4 +134,66 @@ const GradientPreview = styled.div`
 	width: 100%;
 	height: 100%;
 	border-radius: 10px;
+`
+
+function TodoAppIconWrapper() {
+	return (
+		<NavLink
+			to='/todo-list'
+			className={({ isActive }) => (isActive ? 'activated' : undefined)}
+		>
+			<TodoAppIcon>
+				<img src='/assets/TodoListIcon.png' />
+			</TodoAppIcon>
+		</NavLink>
+	)
+}
+
+const TodoAppIcon = styled.button`
+	position: relative;
+	background-color: white;
+	border: 1px solid white;
+	border-radius: 17%;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+
+	& img {
+		position: absolute;
+		top: -10%;
+		left: -10%;
+		min-width: 120%;
+		min-height: 120%;
+	}
+`
+
+function StickerAppIconWrapper() {
+	return (
+		<NavLink
+			to='/sticker-clicker'
+			className={({ isActive }) => (isActive ? 'activated' : undefined)}
+		>
+			<StickerAppIcon>
+				<img src='/assets/PhilPurpleProfilePic.png' />
+			</StickerAppIcon>
+		</NavLink>
+	)
+}
+
+const StickerAppIcon = styled.button`
+	position: relative;
+	background-color: white;
+	border: 1px solid white;
+	border-radius: 17%;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+
+	& img {
+		position: absolute;
+		top: -10%;
+		left: -10%;
+		min-width: 120%;
+		min-height: 120%;
+	}
 `

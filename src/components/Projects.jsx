@@ -4,6 +4,8 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
 import Layout from './projects/Layout'
 import ProjectMotionBrowser from './projects/ProjectMotionBrowser'
 import ProjectGradientGenerator from './projects/ProjectGradientGenerator'
+import ProjectTodo from './projects/ProjectTodo'
+import ProjectStickerClicker from './projects/ProjectStickerClicker'
 
 export const Context = React.createContext()
 
@@ -51,6 +53,14 @@ export default function Projects() {
 							<Route
 								path='/gradient-generator'
 								element={<ProjectGradientGenerator />}
+							/>
+                            <Route
+								path='/todo-list'
+								element={<ProjectTodo />}
+							/>
+                            <Route
+								path='/sticker-clicker'
+								element={<ProjectStickerClicker />}
 							/>
 						</Route>
 					</Routes>
