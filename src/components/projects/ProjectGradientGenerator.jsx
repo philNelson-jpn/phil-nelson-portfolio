@@ -2,11 +2,10 @@ import React from 'react'
 import { motion, LayoutGroup } from 'framer-motion'
 import { styled } from 'styled-components'
 import { CornerLeftDown, CornerRightDown, Plus, Minus } from 'react-feather'
-import {Context} from '../Projects'
+import { Context } from '../Projects'
 
 export default function ProjectGradientGenerator() {
-
-    const {INITIAL_STATE, reducer} = React.useContext(Context)
+	const { INITIAL_STATE, reducer } = React.useContext(Context)
 	const [state, dispatch] = React.useReducer(reducer, INITIAL_STATE)
 	const { colors, numOfVisibleColors } = state
 	const inputRef = React.useRef(null)
@@ -125,9 +124,8 @@ export default function ProjectGradientGenerator() {
 
 const GradientWrapper = styled.div`
 	border: 2px solid hsl(0deg 0% 100% / 0.3);
-	padding: 32px;
-    margin-block: 8px;
-    margin-inline: 8px;
+	margin-block: 8px;
+	margin-inline: 8px;
 	grid-column: 1/-1;
 	grid-row: 1;
 	background-image: linear-gradient(
@@ -156,19 +154,20 @@ const GradientWrapper = styled.div`
 `
 
 const Wrapper = styled.div`
+	min-height: 100%;
+	padding-block-start: 16px;
+	padding-inline: 2rem;
 	position: relative;
-	display: flex;
-	flex-direction: column;
+	display: grid;
+	grid-template-rows: 3em 4fr 1fr;
 	gap: 16px;
-	padding-block-start: 12px;
 
 	& .change-me {
+		grid-row: 1;
 		display: flex;
+		align-items: center;
 		justify-content: center;
-		gap: 200px;
-		position: absolute;
-		top: -20px;
-		width: 100%;
+		gap: 1rem;
 		text-align: center;
 		color: hsl(270, 0%, 100%, 0.5);
 
@@ -179,8 +178,7 @@ const Wrapper = styled.div`
 	}
 
 	& .change-me p {
-		position: absolute;
-		top: -4px;
+		font-size: 1.5rem;
 		color: hsl(270, 0%, 100%, 0.6);
 	}
 `
@@ -263,7 +261,7 @@ const RemoveColorButton = styled(motion.button)`
 `
 
 const GradientPreview = styled.div`
-	height: 380px;
+	grid-row: 2;
 	border-radius: 4px;
 
 	@media (max-width: 550px) {
@@ -273,9 +271,12 @@ const GradientPreview = styled.div`
 `
 
 const Colors = styled.div`
+	grid-row: 3;
 	display: flex;
 	flex-direction: row;
+	align-items: center;
 	justify-content: center;
+	padding-block-end: 16px;
 	gap: 16px;
 
 	& input[type='color'] {
