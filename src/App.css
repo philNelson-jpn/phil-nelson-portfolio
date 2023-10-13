@@ -10,7 +10,7 @@
 }
 
 .activated::after {
-	content: "・";
+	content: '・';
 	position: absolute;
 	left: 1px;
 	width: 100%;
@@ -19,6 +19,25 @@
 	font-size: 24px;
 	z-index: 32;
 	color: white;
+}
+
+.content {
+	z-index: 10000;
+	padding: 2px 12px;
+	border: 1px solid hsla(0, 0%, 40%);
+	background-color: hsla(0, 0%, 16%);
+	border-radius: 6px;
+	color: white;
+	font-size: 0.875rem;
+	text-align: center;
+	filter: drop-shadow(0px 4px 8px hsl(245deg 100% 40% / 0.2));
+}
+
+.content SVG {
+	fill: hsla(0, 0%, 16%);
+	filter: 
+	drop-shadow(-1px 1px 0px hsla(0, 0%, 40%))
+    drop-shadow(1px 1px 0px hsla(0, 0%, 40%));
 }
 
 #logo {

@@ -2,10 +2,42 @@ import React from 'react'
 import { motion, LayoutGroup } from 'framer-motion'
 import { styled } from 'styled-components'
 import { CornerLeftDown, CornerRightDown, Plus, Minus } from 'react-feather'
-import { Context } from '../Projects'
+
+
+const INITIAL_STATE = {
+	colors: ['#35c4fd', '#da2ff4', '#fb5b5b', '#ff7552', '#ffdd33', '#01ff51'],
+	numOfVisibleColors: 3,
+}
+
+function reducer(state, action) {
+	switch (action.type) {
+		case 'add-color': {
+			return {
+				...state,
+				numOfVisibleColors: state.numOfVisibleColors + 1,
+			}
+		}
+
+		case 'remove-color': {
+			return {
+				...state,
+				numOfVisibleColors: state.numOfVisibleColors - 1,
+			}
+		}
+
+		case 'change-color': {
+			const nextColors = [...state.colors]
+			nextColors[action.index] = action.value
+
+			return {
+				...state,
+				colors: nextColors,
+			}
+		}
+	}
+}
 
 export default function ProjectGradientGenerator() {
-	const { INITIAL_STATE, reducer } = React.useContext(Context)
 	const [state, dispatch] = React.useReducer(reducer, INITIAL_STATE)
 	const { colors, numOfVisibleColors } = state
 	const inputRef = React.useRef(null)
@@ -37,88 +69,88 @@ export default function ProjectGradientGenerator() {
 	}
 
 	return (
-		<LayoutGroup>
-			<GradientWrapper>
-				<Wrapper>
-					<div className='change-me'>
-						<CornerLeftDown />
-						<p>Make your own Gradient!</p>
-						<CornerRightDown />
-					</div>
+			<LayoutGroup>
+				<GradientWrapper>
+					<Wrapper>
+						<div className='change-me'>
+							<CornerLeftDown />
+							<p>Make your own Gradient!</p>
+							<CornerRightDown />
+						</div>
 
-					<GradientPreview
-						style={{
-							backgroundImage,
-						}}
-					/>
-					<Colors>
-						{numOfVisibleColors >= 3 && (
-							<RemoveColorButton
-								onClick={removeColor}
-								layout={'position'}
-								transition={{
-									type: 'spring',
-									stiffness: 500,
-									damping: 30,
-								}}
-							>
-								<Minus />
-							</RemoveColorButton>
-						)}
-						{visibleColors.map((color, index) => {
-							const colorId = `color-${index}`
-							const layoutId = `${id}-${index}`
-							return (
-								<CustomColorInput
-									layoutId={layoutId}
-									key={colorId}
-									onClick={() => {
-										// Trigger the click event on the hidden input
-										if (inputRef.current) {
-											inputRef.current.click()
-										}
-									}}
-									style={{ backgroundColor: `${color}` }}
+						<GradientPreview
+							style={{
+								backgroundImage,
+							}}
+						/>
+						<Colors>
+							{numOfVisibleColors >= 3 && (
+								<RemoveColorButton
+									onClick={removeColor}
+									layout={'position'}
 									transition={{
 										type: 'spring',
-										stiffness: 300,
-										damping: 40,
-										restDelta: 0.05,
+										stiffness: 500,
+										damping: 30,
 									}}
 								>
-									<Input
-										type='color'
-										value={color}
-										ref={inputRef}
-										onChange={(event) => {
-											dispatch({
-												type: 'change-color',
-												value: event.target.value,
-												index,
-											})
+									<Minus />
+								</RemoveColorButton>
+							)}
+							{visibleColors.map((color, index) => {
+								const colorId = `color-${index}`
+								const layoutId = `${id}-${index}`
+								return (
+									<CustomColorInput
+										layoutId={layoutId}
+										key={colorId}
+										onClick={() => {
+											// Trigger the click event on the hidden input
+											if (inputRef.current) {
+												inputRef.current.click()
+											}
 										}}
-										style={{ opacity: 0 }}
-									/>
-								</CustomColorInput>
-							)
-						})}
-						{numOfVisibleColors <= 5 && (
-							<AddColorButton
-								onClick={addColor}
-								layout={'position'}
-								transition={{
-									type: 'spring',
-									stiffness: 500,
-									damping: 30,
-								}}
-							>
-								<Plus />
-							</AddColorButton>
-						)}
-					</Colors>
-				</Wrapper>
-			</GradientWrapper>
-		</LayoutGroup>
+										style={{ backgroundColor: `${color}` }}
+										transition={{
+											type: 'spring',
+											stiffness: 300,
+											damping: 40,
+											restDelta: 0.05,
+										}}
+									>
+										<Input
+											type='color'
+											value={color}
+											ref={inputRef}
+											onChange={(event) => {
+												dispatch({
+													type: 'change-color',
+													value: event.target.value,
+													index,
+												})
+											}}
+											style={{ opacity: 0 }}
+										/>
+									</CustomColorInput>
+								)
+							})}
+							{numOfVisibleColors <= 5 && (
+								<AddColorButton
+									onClick={addColor}
+									layout={'position'}
+									transition={{
+										type: 'spring',
+										stiffness: 500,
+										damping: 30,
+									}}
+								>
+									<Plus />
+								</AddColorButton>
+							)}
+						</Colors>
+					</Wrapper>
+				</GradientWrapper>
+			</LayoutGroup>
 	)
 }
 

@@ -8,29 +8,74 @@ import {
 import React, { useRef } from 'react'
 import { styled } from 'styled-components'
 import { NavLink } from 'react-router-dom'
-import { Context } from '../Projects'
+import * as Tooltip from '@radix-ui/react-tooltip'
 
 export default function Dock() {
 	let mouseX = useMotionValue(Infinity)
 
 	return (
-		<DockWrapper
-			onMouseMove={(e) => mouseX.set(e.pageX)}
-			onMouseLeave={() => mouseX.set(Infinity)}
-		>
-			<AppIcon mouseX={mouseX}>
-				<BrowserAppIconWrapper />
-			</AppIcon>
-			<AppIcon mouseX={mouseX}>
-				<GradientAppIconWrapper />
-			</AppIcon>
-			<AppIcon mouseX={mouseX}>
-				<TodoAppIconWrapper />
-			</AppIcon>
-			<AppIcon mouseX={mouseX}>
-				<StickerAppIconWrapper />
-			</AppIcon>
-		</DockWrapper>
+		<Tooltip.Provider delayDuration={0}>
+			<DockWrapper
+				onMouseMove={(e) => mouseX.set(e.pageX)}
+				onMouseLeave={() => mouseX.set(Infinity)}
+			>
+				<Tooltip.Root>
+					<Tooltip.Trigger className='trigger'>
+						<AppIcon mouseX={mouseX}>
+							<BrowserAppIconWrapper />
+						</AppIcon>
+					</Tooltip.Trigger>
+					<Tooltip.Portal>
+						<Tooltip.Content className='content'>
+							<Tooltip.Arrow />
+							Phire Phox
+						</Tooltip.Content>
+					</Tooltip.Portal>
+				</Tooltip.Root>
+
+				<Tooltip.Root>
+					<Tooltip.Trigger className='trigger'>
+						<AppIcon mouseX={mouseX}>
+							<GradientAppIconWrapper />
+						</AppIcon>
+					</Tooltip.Trigger>
+					<Tooltip.Portal>
+						<Tooltip.Content className='content'>
+							<Tooltip.Arrow />
+							Gradient Generator
+						</Tooltip.Content>
+					</Tooltip.Portal>
+				</Tooltip.Root>
+
+				<Tooltip.Root>
+					<Tooltip.Trigger className='trigger'>
+						<AppIcon mouseX={mouseX}>
+							<TodoAppIconWrapper />
+						</AppIcon>
+					</Tooltip.Trigger>
+					<Tooltip.Portal>
+						<Tooltip.Content className='content'>
+							<Tooltip.Arrow />
+							Create Todos
+						</Tooltip.Content>
+					</Tooltip.Portal>
+				</Tooltip.Root>
+
+				<Tooltip.Root>
+					<Tooltip.Trigger className='trigger'>
+						<AppIcon mouseX={mouseX}>
+							<StickerAppIconWrapper />
+						</AppIcon>
+					</Tooltip.Trigger>
+					<Tooltip.Portal>
+						<Tooltip.Content className='content'>
+							<Tooltip.Arrow />
+							Sticker Clicker
+						</Tooltip.Content>
+					</Tooltip.Portal>
+				</Tooltip.Root>
+			</DockWrapper>
+		</Tooltip.Provider>
 	)
 }
 
@@ -49,6 +94,14 @@ const DockWrapper = styled(motion.div)`
 	border: 1px solid hsla(0, 0%, 60%, 0.5);
 	border-radius: 10px;
 	background-color: hsla(0, 0%, 60%, 0.35);
+
+	& .trigger {
+		position: relative;
+		display: inline-block;
+		border: none;
+		background: transparent;
+		padding: 0px 2px;
+	}
 `
 
 function AppIcon({ mouseX, children }: { mouseX: MotionValue; children: any }) {
@@ -98,6 +151,7 @@ const BrowserAppIcon = styled.button`
 	width: 100%;
 	height: 100%;
 	overflow: hidden;
+	cursor: pointer;
 
 	& img {
 		position: absolute;
@@ -109,23 +163,22 @@ const BrowserAppIcon = styled.button`
 `
 
 function GradientAppIconWrapper() {
-	const { INITIAL_STATE } = React.useContext(Context)
-	const { colors, numOfVisibleColors } = INITIAL_STATE
-	const visibleColors = colors.slice(0, numOfVisibleColors)
-
-	const colorStops = visibleColors.join(', ')
+	const colors = [
+		'#35c4fd',
+		'#da2ff4',
+		'#fb5b5b',
+		'#ff7552',
+		'#ffdd33',
+		'#01ff51',
+	]
+	const colorStops = colors.join(', ')
 	const backgroundImage = `linear-gradient(${colorStops})`
-
 	return (
 		<NavLink
 			to='/gradient-generator'
 			className={({ isActive }) => (isActive ? 'activated' : undefined)}
 		>
-			<GradientPreview
-				style={{
-					backgroundImage,
-				}}
-			/>
+			<GradientPreview style={{ backgroundImage }} />
 		</NavLink>
 	)
 }
@@ -157,6 +210,7 @@ const TodoAppIcon = styled.button`
 	width: 100%;
 	height: 100%;
 	overflow: hidden;
+	cursor: pointer;
 
 	& img {
 		position: absolute;
@@ -188,6 +242,7 @@ const StickerAppIcon = styled.button`
 	width: 100%;
 	height: 100%;
 	overflow: hidden;
+	cursor: pointer;
 
 	& img {
 		position: absolute;
