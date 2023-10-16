@@ -1,5 +1,5 @@
 import { styled } from 'styled-components'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom'
 import Layout from './projects/Layout'
 import ProjectMotionBrowser from './projects/ProjectMotionBrowser'
 import ProjectGradientGenerator from './projects/ProjectGradientGenerator'
@@ -8,24 +8,19 @@ import ProjectStickerClicker from './projects/ProjectStickerClicker'
 
 export default function Projects() {
 	return (
-		<Router>
-			<ProjectsWrapper>
-				<Routes>
-					<Route path='/' element={<Layout />}>
-						<Route path='/phire-phox' element={<ProjectMotionBrowser />} />
-						<Route
-							path='/gradient-generator'
-							element={<ProjectGradientGenerator />}
-						/>
-						<Route path='/todo-list' element={<ProjectTodo />} />
-						<Route
-							path='/sticker-clicker'
-							element={<ProjectStickerClicker />}
-						/>
-					</Route>
-				</Routes>
-			</ProjectsWrapper>
-		</Router>
+		<ProjectsWrapper>
+			<Routes>
+				<Route path='/' element={<Layout />}>
+					<Route path='/phire-phox' element={<ProjectMotionBrowser />} />
+					<Route
+						path='/gradient-generator'
+						element={<ProjectGradientGenerator />}
+					/>
+					<Route path='/todo-list' element={<ProjectTodo />} />
+					<Route path='/sticker-clicker' element={<ProjectStickerClicker />} />
+				</Route>
+			</Routes>
+		</ProjectsWrapper>
 	)
 }
 

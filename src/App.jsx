@@ -10,25 +10,28 @@ import PhilPhoto from './components/PhilPhoto'
 import DownArrow from './components/DownArrow'
 import { styled } from 'styled-components'
 import Projects from './components/Projects'
+import { BrowserRouter as Router} from 'react-router-dom'
 
 function App() {
 	return (
-		<AppWrapper>
-			<FixedWrapper>
-				<LogoComponent />
-				<PhilPhoto />
-			</FixedWrapper>
-			<DownArrow />
-			<MainWrapper>
-				<LetterP />
-				<Phlame />
-				<Phluid />
-				<Phlair />
-				<Phast />
-				<Phun />
-			</MainWrapper>
-			<Projects />
-		</AppWrapper>
+		<Router>
+			<AppWrapper>
+				<FixedWrapper>
+					<LogoComponent />
+					<PhilPhoto />
+				</FixedWrapper>
+				<DownArrow />
+				<MainWrapper>
+					<LetterP />
+					<Phlame />
+					<Phluid />
+					<Phlair />
+					<Phast />
+					<Phun />
+				</MainWrapper>
+				<Projects />
+			</AppWrapper>
+		</Router>
 	)
 }
 
