@@ -117,9 +117,7 @@ export default function ProjectTodo() {
 const TodoWrapper = styled.div`
 	border: 2px solid hsl(0deg 0% 100% / 0.3);
 	padding: 4px;
-	margin-block-start: 8px;
-	margin-inline: 8px;
-	margin-block-end: 8px;
+	margin: 8px;
 	grid-column: 1/-1;
 	grid-row: 1;
 	background-image: linear-gradient(

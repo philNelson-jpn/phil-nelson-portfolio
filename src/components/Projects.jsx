@@ -5,12 +5,14 @@ import ProjectMotionBrowser from './projects/ProjectMotionBrowser'
 import ProjectGradientGenerator from './projects/ProjectGradientGenerator'
 import ProjectTodo from './projects/ProjectTodo'
 import ProjectStickerClicker from './projects/ProjectStickerClicker'
+import ProjectMac from './projects/ProjectMac'
 
 export default function Projects() {
 	return (
 		<ProjectsWrapper>
 			<Routes>
-				<Route path='/' element={<Layout />}>
+				<Route path="/" element={<Layout />}>
+					<Route index element={<ProjectMac />} />
 					<Route path='/phire-phox' element={<ProjectMotionBrowser />} />
 					<Route
 						path='/gradient-generator'
