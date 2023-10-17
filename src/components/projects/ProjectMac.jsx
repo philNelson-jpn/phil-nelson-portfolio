@@ -156,7 +156,7 @@ const SVG = styled.svg`
 	width: 25px;
 	left: 50%;
 	right: 50%;
-	bottom: 20px;
+	bottom: 30px;
 	fill: #ffffff6d;
 	transition: fill 300ms ease-in-out;
 
@@ -222,7 +222,7 @@ const ItemOne = styled(Item)`
 		color 1000ms ease-in-out;
 
 	${IMacWrapper}:hover & {
-		transform: translate3D(20px, -10px, 20px);
+		transform: translate3D(0px, -10px, 20px);
 	}
 `
 
@@ -281,7 +281,7 @@ const ItemFive = styled(Item)`
 	font-size: calc(36 / 16 * 1rem);
 
 	${IMacWrapper}:hover & {
-		transform: translate3D(10px, -10px, 20px);
+		transform: translate3D(0px, 20px, 20px);
 	}
 
 `
