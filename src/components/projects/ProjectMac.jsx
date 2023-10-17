@@ -1,6 +1,7 @@
 import { styled } from 'styled-components'
 import { Link } from 'react-router-dom'
 import '../../App.css'
+import ProjectMiniBrowser from './ProjectMiniBrowser'
 
 export default function Mac() {
 	return (
@@ -40,7 +41,9 @@ export default function Mac() {
 						<Link to='gradient-generator' />
 					</ItemTwo>
 					<ItemThree>
-						<Link to='phire-phox' />
+						<Link to='phire-phox'>
+							<ProjectMiniBrowser />
+						</Link>
 					</ItemThree>
 					<ItemFour>
 						<Link to='sticker-clicker' />
@@ -66,7 +69,6 @@ const IMacWrapper = styled.div`
 	grid-column: 1/-1;
 	grid-row: 1;
 	perspective: 1250px;
-	cursor: pointer;
 	margin: 8px;
 `
 
@@ -177,11 +179,11 @@ const SVG = styled.svg`
 `
 
 const Item = styled.div`
-	border: 2px solid;
+	border: 2px solid hsl(0deg 0% 70% / 1);
 	transform: translate3D(0px, 0, 0px);
 	transform-style: inherit;
 	background-color: hsl(0, 2%, 10%);
-	border-radius: 2px;
+	border-radius: 4px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -190,6 +192,8 @@ const Item = styled.div`
 	& a {
 		height: 100%;
 		width: 100%;
+		text-decoration: none;
+		cursor: pointer;
 	}
 `
 
@@ -245,7 +249,6 @@ const ItemOne = styled(Item)`
 	grid-area: playground;
 	display: flex;
 	justify-content: space-between;
-	border-color: hsla(113, 5%, 74%);
 	transition: transform 800ms ease-in-out;
 
 	${IMacWrapper}:hover & {
@@ -255,7 +258,7 @@ const ItemOne = styled(Item)`
 
 const ItemTwo = styled(Item)`
 	grid-area: gradient;
-	border-color: hsl(343, 100%, 50%);
+	border: 2px solid hsl(0deg 0% 70% / 1);
 	transition: transform 1200ms ease-in-out, filter 1200ms ease-in-out;
 	background-image: linear-gradient(
 		340deg,
@@ -280,7 +283,7 @@ const ItemTwo = styled(Item)`
 
 const ItemThree = styled(Item)`
 	grid-area: browser;
-	border-color: hsl(240, 100%, 69%);
+	border: 2px solid hsl(0deg 0% 70% / 1);
 	transition: transform 1500ms ease-in-out;
 	display: flex;
 	flex-direction: column;

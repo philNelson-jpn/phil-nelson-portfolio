@@ -163,30 +163,44 @@ const BrowserAppIcon = styled.button`
 `
 
 function GradientAppIconWrapper() {
-	const colors = [
-		'#35c4fd',
-		'#da2ff4',
-		'#fb5b5b',
-		'#ff7552',
-		'#ffdd33',
-		'#01ff51',
-	]
-	const colorStops = colors.join(', ')
-	const backgroundImage = `linear-gradient(${colorStops})`
+	// const colors = [
+	// 	'#35c4fd',
+	// 	'#da2ff4',
+	// 	'#fb5b5b',
+	// 	'#ff7552',
+	// 	'#ffdd33',
+	// 	'#01ff51',
+	// ]
+	// const colorStops = colors.join(', ')
+	// const backgroundImage = `linear-gradient(${colorStops})`
 	return (
 		<NavLink
 			to='/gradient-generator'
 			className={({ isActive }) => (isActive ? 'activated' : undefined)}
 		>
-			<GradientPreview style={{ backgroundImage }} />
+			<GradientPreview />
 		</NavLink>
 	)
 }
 
 const GradientPreview = styled.div`
+	border: none;
 	width: 100%;
 	height: 100%;
 	border-radius: 10px;
+	background-image: linear-gradient(
+		340deg,
+		hsl(240deg 100% 20%) 0%,
+		hsl(260deg 100% 23%) 9%,
+		hsl(279deg 100% 27%) 17%,
+		hsl(298deg 100% 30%) 25%,
+		hsl(318deg 100% 33%) 32%,
+		hsl(337deg 100% 37%) 41%,
+		hsl(357deg 100% 40%) 50%,
+		hsl(16deg 100% 43%) 60%,
+		hsl(36deg 100% 47%) 74%,
+		hsl(55deg 100% 50%) 100%
+	);
 `
 
 function TodoAppIconWrapper() {
@@ -196,7 +210,7 @@ function TodoAppIconWrapper() {
 			className={({ isActive }) => (isActive ? 'activated' : undefined)}
 		>
 			<TodoAppIcon>
-				<img src='/assets/TodoListIcon.png' />
+				<img src='/assets/TodoIconPurple.png' />
 			</TodoAppIcon>
 		</NavLink>
 	)
@@ -205,7 +219,7 @@ function TodoAppIconWrapper() {
 const TodoAppIcon = styled.button`
 	position: relative;
 	background-color: white;
-	border: 1px solid white;
+	border: none;
 	border-radius: 17%;
 	width: 100%;
 	height: 100%;
@@ -237,7 +251,7 @@ function StickerAppIconWrapper() {
 const StickerAppIcon = styled.button`
 	position: relative;
 	background-color: white;
-	border: 1px solid white;
+	border: none;
 	border-radius: 17%;
 	width: 100%;
 	height: 100%;
