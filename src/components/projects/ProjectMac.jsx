@@ -1,5 +1,6 @@
 import { styled } from 'styled-components'
 import { Link } from 'react-router-dom'
+import '../../App.css'
 
 export default function Mac() {
 	return (
@@ -27,7 +28,12 @@ export default function Mac() {
 								</Link>
 							</ol>
 						</PlaygroundNav>
-						<div></div>
+						<PlaygroundProfilePic>
+							<img
+								src='public/assets/sunglassesPhilSticker.png'
+								alt='phil nelson with sunglasses'
+							/>
+						</PlaygroundProfilePic>
 					</ItemOne>
 					<ItemTwo>Gradient</ItemTwo>
 					<ItemThree>Browser</ItemThree>
@@ -85,7 +91,7 @@ const IMac = styled.div`
 	border-left: 4px solid hsl(217deg 6% 72% / 0.2);
 
 	${IMacWrapper}:hover & {
-		transform: rotateY(20deg) translateX(6%);
+		transform: rotateY(2deg) translateX(1%);
 		border-left: 4px solid hsl(217deg 6% 72% / 1);
 	}
 
@@ -140,7 +146,7 @@ const Screen = styled.div`
 	transform-style: inherit;
 
 	${IMacWrapper}:hover & {
-		transform: translate3D(12px, 30px, 2px);
+		/* transform: translate3D(12px, 30px, 2px); */
 		border-color: hsla(0, 0%, 100%, 0.676);
 	}
 `
@@ -174,22 +180,36 @@ const Item = styled.div`
 
 const PlaygroundLogo = styled.div`
 	padding-inline-start: 12px;
-	padding-inline-end: auto;
+	margin-inline-end: auto;
+	font-family: 'Orbitron', 'Rubik', monospace;
+	font-weight: bold;
 `
 const PlaygroundNav = styled.nav`
 	& ol {
 		display: flex;
-		gap: 4px;
+		gap: 8px;
 		list-style-type: none;
 	}
 
 	& a {
 		text-decoration: none;
 		color: white;
+		padding: 16px;
 	}
 
 	& a:hover {
 		text-decoration: revert;
+	}
+`
+
+const PlaygroundProfilePic = styled.div`
+	height: 100%;
+	margin-inline-start: auto;
+
+	& img {
+		display: block;
+		height: 100%;
+		object-fit: cover;
 	}
 `
 
@@ -202,9 +222,7 @@ const ItemOne = styled(Item)`
 		color 1000ms ease-in-out;
 
 	${IMacWrapper}:hover & {
-		transform: translate3D(60px, -10px, 40px);
-		background-color: hsl(113, 85%, 74%);
-		color: hsl(240, 5%, 21%);
+		transform: translate3D(20px, -10px, 20px);
 	}
 `
 
@@ -215,9 +233,7 @@ const ItemTwo = styled(Item)`
 		color 2000ms ease-in-out;
 
 	${IMacWrapper}:hover & {
-		transform: translate3D(0px, 30px, 60px);
-		background-color: hsl(343, 100%, 50%);
-		color: hsl(240, 5%, 21%);
+		transform: translate3D(-10px, -10px, 20px);
 	}
 `
 
@@ -233,15 +249,13 @@ const ItemThree = styled(Item)`
 	font-size: calc(36 / 16 * 1rem);
 
 	${IMacWrapper}:hover & {
-		transform: translate3D(30px, -20px, 90px);
-		background-color: hsl(240, 100%, 69%);
-		color: hsl(240, 5%, 21%);
+		transform: translate3D(0px, -5px, 60px);
 	}
 `
 
 const ItemFour = styled(Item)`
 	grid-area: sticker;
-	border-color: hsl(315.9493670886076, 100%, 69.01960784313725%);
+	border-color: hsl(315, 100%, 69%);
 	transition: transform 1500ms ease-in-out, background-color 2000ms ease-in-out,
 		color 2500ms ease-in-out;
 	display: flex;
@@ -251,15 +265,13 @@ const ItemFour = styled(Item)`
 	font-size: calc(36 / 16 * 1rem);
 
 	${IMacWrapper}:hover & {
-		transform: translate3D(30px, -20px, 90px);
-		background-color: hsl(240, 100%, 69%);
-		color: hsl(240, 5%, 21%);
+		transform: translate3D(10px, 0px, 40px);
 	}
 `
 
 const ItemFive = styled(Item)`
 	grid-area: todo;
-	border-color: hsl(315.9493670886076, 100%, 69.01960784313725%);
+	border-color: hsl(37, 100%, 69%);
 	transition: transform 1500ms ease-in-out, background-color 2000ms ease-in-out,
 		color 2500ms ease-in-out;
 	display: flex;
@@ -269,12 +281,7 @@ const ItemFive = styled(Item)`
 	font-size: calc(36 / 16 * 1rem);
 
 	${IMacWrapper}:hover & {
-		transform: translate3D(30px, -20px, 90px);
-		background-color: hsl(240, 100%, 69%);
-		color: hsl(240, 5%, 21%);
-
-		/* @media (max-width: 550px) {
-			transform: translate3D(8px, 6px, 20px);
-		} */
+		transform: translate3D(10px, -10px, 20px);
 	}
+
 `
