@@ -9,6 +9,7 @@ import React, { useRef } from 'react'
 import { styled } from 'styled-components'
 import { NavLink } from 'react-router-dom'
 import * as Tooltip from '@radix-ui/react-tooltip'
+import { Twitter, Facebook, Linkedin } from 'react-feather'
 
 export default function Dock() {
 	let mouseX = useMotionValue(Infinity)
@@ -19,6 +20,20 @@ export default function Dock() {
 				onMouseMove={(e) => mouseX.set(e.pageX)}
 				onMouseLeave={() => mouseX.set(Infinity)}
 			>
+				<Tooltip.Root>
+					<Tooltip.Trigger className='trigger'>
+						<AppIcon mouseX={mouseX}>
+							<HomeAppIconWrapper />
+						</AppIcon>
+					</Tooltip.Trigger>
+					<Tooltip.Portal>
+						<Tooltip.Content className='content'>
+							<Tooltip.Arrow />
+							Home
+						</Tooltip.Content>
+					</Tooltip.Portal>
+				</Tooltip.Root>
+
 				<Tooltip.Root>
 					<Tooltip.Trigger className='trigger'>
 						<AppIcon mouseX={mouseX}>
@@ -74,6 +89,24 @@ export default function Dock() {
 						</Tooltip.Content>
 					</Tooltip.Portal>
 				</Tooltip.Root>
+				<Divider>
+					<AppDivider />
+				</Divider>
+				<SocialWrapper href='https://twitter.com/_philNelson' target='_blank'>
+					<Twitter />
+				</SocialWrapper>
+				<SocialWrapper
+					href='https://www.facebook.com/phil.nelson.165/'
+					target='_blank'
+				>
+					<Facebook />
+				</SocialWrapper>
+				<SocialWrapper
+					href='https://www.linkedin.com/in/philip-nelson-50941112/'
+					target='_blank'
+				>
+					<Linkedin />
+				</SocialWrapper>
 			</DockWrapper>
 		</Tooltip.Provider>
 	)
@@ -126,8 +159,100 @@ function AppIcon({ mouseX, children }: { mouseX: MotionValue; children: any }) {
 const AppIconWrapper = styled(motion.div)`
 	position: relative;
 	aspect-ratio: 1/1;
-	background-color: hsla(0, 0%, 0%, 0.278);
 	border-radius: 17.5%;
+`
+
+const Divider = styled.div`
+	width: 60px;
+	height: 60px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	& SVG {
+		height: 80%;
+		width: 80%;
+		stroke-width: 1;
+	}
+`
+
+const SocialWrapper = styled.a`
+	width: 60px;
+	height: 60px;
+	border-radius: 17px;
+	text-decoration: none;
+	color: hsla(0, 0%, 100%, 0.95);
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+	background-color: hsla(0, 0%, 60%, 0.35);
+	transition: background-color 300ms ease-in-out, color 300ms ease-in-out;
+
+	& SVG {
+		height: 60%;
+		width: 60%;
+		stroke-width: 1;
+		fill: hsla(0, 0%, 60%, 0.35);
+		stroke: hsl(0, 0%, 100%);
+		stroke-width: stroke-width 300ms ease-in-out, stroke 300ms ease-in-out,
+			fill 300ms ease-in-out;
+	}
+
+	&:hover {
+		background-color: hsla(0, 0%, 100%, 0.95);
+		transition: background-color 200ms ease-in-out;
+	}
+
+	&:hover SVG {
+		fill: hsl(0, 0%, 20%);
+		stroke: hsl(0, 0%, 20%);
+		stroke-width: stroke-width 200ms ease-in-out, stroke 200ms ease-in-out,
+			fill 300ms ease-in-out;
+	}
+`
+
+const AppDivider = styled.div`
+	height: 100%;
+	width: 2px;
+	border-radius: 2px;
+	border: 1px solid hsla(0, 0%, 60%, 0.5);
+	background-color: hsla(0, 0%, 60%, 0.5);
+`
+
+const TwitterLink = styled.a``
+
+function HomeAppIconWrapper() {
+	return (
+		<NavLink
+			to='/'
+			className={({ isActive }) => (isActive ? 'activated' : undefined)}
+		>
+			<HomeAppIcon>
+				<img src='/assets/3DHomeAppIcon.png' />
+			</HomeAppIcon>
+		</NavLink>
+	)
+}
+
+const HomeAppIcon = styled.button`
+	position: relative;
+	border: none;
+	background-color: hsl(240deg 50% 23%);
+	border-radius: 17%;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	cursor: pointer;
+
+	& img {
+		position: absolute;
+		top: -8%;
+		left: -6%;
+		min-width: 110%;
+		min-height: 110%;
+	}
 `
 
 function BrowserAppIconWrapper() {

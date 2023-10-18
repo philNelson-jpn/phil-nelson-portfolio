@@ -11,39 +11,33 @@ export default function MotionBrowser() {
 	const [selectedBox, setSelectedBox] = React.useState(0)
 
 	return (
-			<LayoutWrapper>
-				<BrowserCircleGroup>
-					<div className='red-circle'></div>
-					<div className='yellow-circle'></div>
-					<div className='green-circle'></div>
-				</BrowserCircleGroup>
-				<BrowserNavGroup>
-					<ArrowLeft />
-					<ArrowRight />
-					<RotateCw />
-					<AddressBar>your-awesome-website.com</AddressBar>
-				</BrowserNavGroup>
-				{range(5).map((boxIndex) => (
-					<Box
-						key={boxIndex}
-						className="box"
-						onClick={() => setSelectedBox(boxIndex)}
-					>
-						{selectedBox === boxIndex &&
-							range(content.length).map((tileIndex) => {
-								const layoutId = `${id}-${tileIndex}`
+		<LayoutWrapper>
+			<BrowserCircleGroup>
+				<div className='red-circle'></div>
+				<div className='yellow-circle'></div>
+				<div className='green-circle'></div>
+			</BrowserCircleGroup>
+			<BrowserNavGroup>
+				<ArrowLeft />
+				<ArrowRight />
+				<RotateCw />
+				<AddressBar>your-awesome-website.com</AddressBar>
+			</BrowserNavGroup>
+			{range(5).map((boxIndex) => (
+				<Box
+					key={boxIndex}
+					className='box'
+					onClick={() => setSelectedBox(boxIndex)}
+				>
+					{selectedBox === boxIndex &&
+						range(content.length).map((tileIndex) => {
+							const layoutId = `${id}-${tileIndex}`
 
-								return (
-									<Tile
-										key={layoutId}
-									>
-										{content[tileIndex]}
-									</Tile>
-								)
-							})}
-					</Box>
-				))}
-			</LayoutWrapper>
+							return <Tile key={layoutId}>{content[tileIndex]}</Tile>
+						})}
+				</Box>
+			))}
+		</LayoutWrapper>
 	)
 }
 
@@ -140,6 +134,7 @@ const Box = styled.button`
 	padding: 8px;
 	transition: background 800ms;
 	border-radius: 4px;
+	cursor: pointer;
 
 	&:nth-of-type(1) {
 		grid-column: 1 / -1;
@@ -169,5 +164,5 @@ const Tile = styled.div`
 	background: hsl(236, 91%, 68%);
 	border-radius: 4px;
 	z-index: 1;
-	font-size: calc(16/16 * 1rem);
+	font-size: calc(16 / 16 * 1rem);
 `
