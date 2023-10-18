@@ -53,7 +53,7 @@ const LayoutWrapper = styled.div`
 	padding: 4px;
 	/* margin: 0 auto; */
 	min-width: 100%;
-	min-height: 100%;
+	height: 100%;
 	/* width: 586px; */
 	/* height: 420px; */
 	/* aspect-ratio: 1 / 1; */

@@ -149,7 +149,7 @@ const Screen = styled.div`
 		'playground playground playground'
 		'gradient browser sticker'
 		'todo todo todo';
-	grid-template-rows: 10% 1fr 25%;
+	grid-template-rows: 10% 70% 18%;
 	grid-template-columns: 1fr 3fr 1fr;
 	perspective: 1750px;
 	gap: 5px;
@@ -238,14 +238,15 @@ const PlaygroundNav = styled.nav`
 const PlaygroundProfilePic = styled.div`
 	display: flex;
 	flex: 1;
-	height: 100%;
+	min-height: 100%;
 	margin-inline-start: auto;
+	align-items: center;
 	justify-content: end;
 	padding-inline-end: 12px;
 
 	& img {
 		display: block;
-		height: 100%;
+		height: 42px;
 		object-fit: cover;
 	}
 `
@@ -254,10 +255,20 @@ const ItemOne = styled(Item)`
 	grid-area: playground;
 	display: flex;
 	justify-content: space-between;
-	transition: transform 800ms ease-in-out;
+	transition: transform 1200ms ease-in-out;
+
+	& img {
+		filter: grayscale(1);
+		transition: filter 700ms ease-in-out;
+	}
 
 	${IMacWrapper}:hover & {
 		transform: translate3D(0px, -15px, 40px);
+	}
+
+	${IMacWrapper}:hover & img {
+		filter: grayscale(0);
+		transition: filter 1000ms ease-in-out;
 	}
 `
 
@@ -278,26 +289,30 @@ const ItemTwo = styled(Item)`
 		hsl(36deg 100% 47%) 74%,
 		hsl(55deg 100% 50%) 100%
 	);
-	filter: grayscale(50%);
+	filter: grayscale(1);
 
 	${IMacWrapper}:hover & {
 		transform: translate3D(-20px, -10px, 40px) rotate(-4deg);
-		filter: grayscale(0%);
+		filter: grayscale(0);
+		transition: transform 1500ms ease-in-out, filter 1000ms ease-in-out;
 	}
 `
 
 const ItemThree = styled(Item)`
 	grid-area: browser;
 	border: 2px solid hsl(0deg 0% 70% / 1);
-	transition: transform 1500ms ease-in-out;
+	transition: transform 1500ms ease-in-out, filter 700ms ease-in-out;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: space-around;
 	font-size: calc(36 / 16 * 1rem);
+	filter: grayscale(0.9);
 
 	${IMacWrapper}:hover & {
 		transform: translate3D(0px, 20px, 160px);
+		filter: grayscale(0);
+		transition: transform 1500ms ease-in-out, filter 1000ms ease-in-out;
 	}
 `
 
@@ -315,8 +330,8 @@ const ItemFour = styled(Item)`
 		object-fit: cover;
 		width: 100%;
 		height: 100%;
-		filter: grayscale(0.9);
-		transition: filter 300ms ease-in-out;
+		filter: grayscale(1);
+		transition: filter 700ms ease-in-out;
 	}
 
 	${IMacWrapper}:hover & {
@@ -325,20 +340,23 @@ const ItemFour = styled(Item)`
 
 	${IMacWrapper}:hover & img {
 		filter: grayscale(0);
-		transition: filter 300ms ease-in-out;
+		transition: filter 700ms ease-in-out;
 	}
 `
 
 const ItemFive = styled(Item)`
 	grid-area: todo;
-	transition: transform 1500ms ease-in-out;
+	transition: transform 1500ms ease-in-out, filter 700ms ease-in-out;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: space-around;
 	font-size: calc(36 / 16 * 1rem);
+	filter: grayscale(1);
 
 	${IMacWrapper}:hover & {
 		transform: translate3D(0px, 30px, 40px);
+		filter: grayscale(0);
+		transition: transform 1500ms ease-in-out, filter 1700ms ease-in-out;
 	}
 `

@@ -1,9 +1,8 @@
-import React from 'react'
 import { Delete } from 'react-feather'
 import { styled } from 'styled-components'
 
 export default function ProjectTodo() {
-	const [todos, setTodos] = React.useState([
+	const todos = [
 		{ value: 'Learn Japanese', id: 'Japanese is fun', isCompleted: true },
 		{
 			value: 'Learn HTML, CSS, and JavaScript',
@@ -16,8 +15,8 @@ export default function ProjectTodo() {
 			isCompleted: false,
 		},
 		{ value: 'Work with you!', id: "Let's do this!", isCompleted: false },
-	])
-	const [value, setValue] = React.useState("Let's do this!")
+	]
+	const value = "Let's do this!"
 
 	return (
 		<TodoWrapper>
@@ -36,7 +35,7 @@ export default function ProjectTodo() {
 					</li>
 				))}
 			</TodoList>
-            <ListWrapper>
+			<ListWrapper>
 				<CreateNewTodoWrapper>
 					<form>
 						<label htmlFor='new-list-form-input'>New Todo:</label>
@@ -57,7 +56,8 @@ export default function ProjectTodo() {
 }
 
 const TodoWrapper = styled.div`
-	padding: 4px;
+	height: 100%;
+	padding: 0px;
 	background-image: linear-gradient(
 		180deg,
 		hsl(240deg 15% 3% / 0.85) 0%,
@@ -84,43 +84,42 @@ const TodoWrapper = styled.div`
 `
 
 const ListWrapper = styled.div`
-    position: relative;
-    bottom: 0;
-    right: 0;
+	position: absolute;
+	bottom: 0;
+	right: 0;
 
-    display: flex;
-    justify-content: end;
+	display: flex;
+	justify-content: end;
 `
 
 const CreateNewTodoWrapper = styled.div`
-	height: 40px;
+	height: 60px;
 	display: flex;
 	align-items: center;
 	justify-content: start;
-	padding: 16px;
+	padding-inline-end: 8px;
 
 	& form {
 		display: flex;
 		align-items: end;
 		justify-content: center;
-		gap: 16px;
-		font-size: calc(16/16 * 1rem);
+		gap: 8px;
+		font-size: calc(16 / 16 * 1rem);
 	}
 `
 
 const Row = styled.div`
 	display: flex;
-    align-items: baseline;
+	align-items: baseline;
 	gap: 8px;
 
 	& input {
 		border: none;
 		background-color: transparent;
 		color: grey;
-		border-bottom: 3px solid grey;
+		border-bottom: 2px solid grey;
 		width: 200px;
 	}
-
 `
 
 const AddToDo = styled.button`
@@ -163,10 +162,10 @@ const AddToDo = styled.button`
 	& .front {
 		display: block;
 		position: relative;
-        top: 2px;
+		top: 2px;
 		padding: 2px 8px;
 		border-radius: 4px;
-		font-size: 1rem;
+		font-size: calc(14 / 16 * 1rem);
 		color: white;
 		background: hsl(268, 76%, 58%);
 		will-change: transform;
@@ -185,10 +184,10 @@ const TodoList = styled.ol`
 	margin-inline: 8px;
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr;
-	gap: 8px;
+	gap: 4px;
 	list-style-type: none;
 	padding: 0;
-	--breathing-room: 8px;
+	--breathing-room: 4px;
 
 	& li {
 		display: flex;
@@ -197,7 +196,7 @@ const TodoList = styled.ol`
 		margin-block-start: var(--breathing-room);
 		border-radius: 4px;
 		justify-content: space-between;
-		font-size: calc(14/16 * 1rem);
+		font-size: calc(12 / 16 * 1rem);
 	}
 
 	& button {
@@ -209,14 +208,14 @@ const TodoList = styled.ol`
 
 	& button:first-of-type {
 		position: relative;
-		padding: 8px;
+		padding-inline-start: 8px;
 		flex: 1;
 		text-align: left;
 	}
 
 	& .delete-btn {
 		background-color: transparent;
-		padding: 8px;
+		padding-inline-end: 8px;
 		overflow: hidden;
 		color: hsl(280, 15%, 65%);
 		width: 40px;
@@ -230,7 +229,7 @@ const TodoList = styled.ol`
 		top: 0;
 		bottom: 0;
 		margin: auto;
-		height: 5px;
+		height: 4px;
 		background: hsl(270deg 70% 60% / 0.6);
 		border-radius: 100px;
 		transform: translateY(1.5px) rotate(-0.4deg);
