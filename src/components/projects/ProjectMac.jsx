@@ -2,6 +2,7 @@ import { styled } from 'styled-components'
 import { Link } from 'react-router-dom'
 import '../../App.css'
 import ProjectMiniBrowser from './ProjectMiniBrowser'
+import ProjectMiniTodo from './ProjectMiniTodo'
 
 export default function Mac() {
 	return (
@@ -46,10 +47,14 @@ export default function Mac() {
 						</Link>
 					</ItemThree>
 					<ItemFour>
-						<Link to='sticker-clicker' />
+						<Link to='sticker-clicker'>
+							<img src='/assets/PhilStickerScreenMac.png' alt='Phil stickers' />
+						</Link>
 					</ItemFour>
 					<ItemFive>
-						<Link to='todo-list' />
+						<Link to='todo-list'>
+							<ProjectMiniTodo />
+						</Link>
 					</ItemFive>
 				</Screen>
 				<SVG
@@ -298,7 +303,6 @@ const ItemThree = styled(Item)`
 
 const ItemFour = styled(Item)`
 	grid-area: sticker;
-	border-color: hsl(315, 100%, 69%);
 	transition: transform 1500ms ease-in-out;
 	display: flex;
 	flex-direction: column;
@@ -306,14 +310,27 @@ const ItemFour = styled(Item)`
 	justify-content: space-around;
 	font-size: calc(36 / 16 * 1rem);
 
+	& img {
+		display: block;
+		object-fit: cover;
+		width: 100%;
+		height: 100%;
+		filter: grayscale(0.9);
+		transition: filter 300ms ease-in-out;
+	}
+
 	${IMacWrapper}:hover & {
 		transform: translate3D(0px, 10px, 80px) rotate(4deg);
+	}
+
+	${IMacWrapper}:hover & img {
+		filter: grayscale(0);
+		transition: filter 300ms ease-in-out;
 	}
 `
 
 const ItemFive = styled(Item)`
 	grid-area: todo;
-	border-color: hsl(37, 100%, 69%);
 	transition: transform 1500ms ease-in-out;
 	display: flex;
 	flex-direction: column;
