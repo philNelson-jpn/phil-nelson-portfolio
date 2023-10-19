@@ -200,6 +200,10 @@ const Item = styled.div`
 		text-decoration: none;
 		cursor: pointer;
 	}
+
+	&:hover {
+		outline: 4px solid hsl(0deg 0% 80% / 0.8);
+	}
 `
 
 const PlaygroundLogo = styled.div`
@@ -275,7 +279,8 @@ const ItemOne = styled(Item)`
 const ItemTwo = styled(Item)`
 	grid-area: gradient;
 	border: 2px solid hsl(0deg 0% 70% / 1);
-	transition: transform 1200ms ease-in-out, filter 1200ms ease-in-out;
+	transition: transform 1200ms ease-in-out, filter 1200ms ease-in-out,
+		outline 500ms ease-in-out;
 	background-image: linear-gradient(
 		340deg,
 		hsl(240deg 100% 20%) 0%,
@@ -295,6 +300,11 @@ const ItemTwo = styled(Item)`
 		transform: translate3D(-20px, -10px, 40px) rotate(-4deg);
 		filter: grayscale(0);
 		transition: transform 1500ms ease-in-out, filter 1000ms ease-in-out;
+	}
+
+	&:hover {
+		transition: outline 500ms ease-in-out;
+		outline: 6px solid hsl(0deg 0% 80% / 0.8);
 	}
 `
 
