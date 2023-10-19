@@ -220,7 +220,6 @@ const Item = styled.div`
 	justify-content: center;
 	align-items: center;
 	font-size: calc(24 / 16 * 1rem);
-	transition: outline 600ms ease-in-out, transform 1300ms ease-in-out;
 
 	& a {
 		height: 100%;
@@ -230,7 +229,8 @@ const Item = styled.div`
 	}
 
 	${IMacWrapper}:hover &:hover {
-	    transition: outline 300ms ease-in-out, transform 1300ms ease-in-out;
+		transition: outline 300ms ease-in-out, transform 1300ms ease-in-out,
+			filter 1300ms ease-in-out;
 		outline: 4px solid hsl(265deg 100% 78% / 0.8);
 	}
 `
@@ -330,9 +330,6 @@ const ItemTwo = styled(Item)`
 		filter: grayscale(0);
 		transition: transform 1500ms ease-in-out, filter 1000ms ease-in-out;
 	}
-
-
-
 `
 
 const ItemThree = styled(Item)`
