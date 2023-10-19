@@ -1,3 +1,4 @@
+import React from 'react'
 import { styled } from 'styled-components'
 import { Link } from 'react-router-dom'
 import '../../App.css'
@@ -5,6 +6,28 @@ import ProjectMiniBrowser from './ProjectMiniBrowser'
 import ProjectMiniTodo from './ProjectMiniTodo'
 
 export default function Mac() {
+	const [cachedImageSrc, setCachedImageSrc] = React.useState(
+		localStorage.getItem('cachedImage')
+	)
+
+	React.useEffect(() => {
+		// If cached image exists, set it as the image source
+		if (cachedImageSrc) {
+			document.getElementById('cachedImage').src = cachedImageSrc
+		} else {
+			// If not cached, load the image and save it to local storage
+			const image = document.getElementById('cachedImage')
+			const imageUrl = image.src
+			const img = new Image()
+			img.onload = () => {
+				// Image has loaded, save it to local storage and set the state
+				localStorage.setItem('cachedImage', imageUrl)
+				setCachedImageSrc(imageUrl)
+			}
+			img.src = imageUrl
+		}
+	}, [cachedImageSrc])
+
 	return (
 		<IMacWrapper>
 			<IMac>
@@ -48,7 +71,11 @@ export default function Mac() {
 					</ItemThree>
 					<ItemFour>
 						<Link to='sticker-clicker'>
-							<img src='/assets/PhilStickerScreenMac.png' alt='Phil stickers' />
+							<img
+								id='cachedImage'
+								src='/assets/PhilStickerScreenMac.png'
+								alt='Phil stickers'
+							/>
 						</Link>
 					</ItemFour>
 					<ItemFive>
@@ -193,6 +220,7 @@ const Item = styled.div`
 	justify-content: center;
 	align-items: center;
 	font-size: calc(24 / 16 * 1rem);
+	transition: outline 600ms ease-in-out, transform 1300ms ease-in-out;
 
 	& a {
 		height: 100%;
@@ -201,8 +229,9 @@ const Item = styled.div`
 		cursor: pointer;
 	}
 
-	&:hover {
-		outline: 4px solid hsl(0deg 0% 80% / 0.8);
+	${IMacWrapper}:hover &:hover {
+	    transition: outline 300ms ease-in-out, transform 1300ms ease-in-out;
+		outline: 4px solid hsl(265deg 100% 78% / 0.8);
 	}
 `
 
@@ -302,10 +331,8 @@ const ItemTwo = styled(Item)`
 		transition: transform 1500ms ease-in-out, filter 1000ms ease-in-out;
 	}
 
-	&:hover {
-		transition: outline 500ms ease-in-out;
-		outline: 6px solid hsl(0deg 0% 80% / 0.8);
-	}
+
+
 `
 
 const ItemThree = styled(Item)`

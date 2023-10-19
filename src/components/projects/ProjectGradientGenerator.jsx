@@ -3,7 +3,6 @@ import { motion, LayoutGroup } from 'framer-motion'
 import { styled } from 'styled-components'
 import { CornerLeftDown, CornerRightDown, Plus, Minus } from 'react-feather'
 
-
 const INITIAL_STATE = {
 	colors: ['#35c4fd', '#da2ff4', '#fb5b5b', '#ff7552', '#ffdd33', '#01ff51'],
 	numOfVisibleColors: 3,
@@ -69,88 +68,88 @@ export default function ProjectGradientGenerator() {
 	}
 
 	return (
-			<LayoutGroup>
-				<GradientWrapper>
-					<Wrapper>
-						<div className='change-me'>
-							<CornerLeftDown />
-							<p>Make your own Gradient!</p>
-							<CornerRightDown />
-						</div>
+		<LayoutGroup>
+			<GradientWrapper>
+				<Wrapper>
+					<div className='change-me'>
+						<CornerLeftDown />
+						<p>Make your own Gradient!</p>
+						<CornerRightDown />
+					</div>
 
-						<GradientPreview
-							style={{
-								backgroundImage,
-							}}
-						/>
-						<Colors>
-							{numOfVisibleColors >= 3 && (
-								<RemoveColorButton
-									onClick={removeColor}
-									layout={'position'}
+					<GradientPreview
+						style={{
+							backgroundImage,
+						}}
+					/>
+					<Colors>
+						{numOfVisibleColors >= 3 && (
+							<RemoveColorButton
+								onClick={removeColor}
+								layout={'position'}
+								transition={{
+									type: 'spring',
+									stiffness: 500,
+									damping: 30,
+								}}
+							>
+								<Minus />
+							</RemoveColorButton>
+						)}
+						{visibleColors.map((color, index) => {
+							const colorId = `color-${index}`
+							const layoutId = `${id}-${index}`
+							return (
+								<CustomColorInput
+									layoutId={layoutId}
+									key={colorId}
+									onClick={() => {
+										// Trigger the click event on the hidden input
+										if (inputRef.current) {
+											inputRef.current.click()
+										}
+									}}
+									style={{ backgroundColor: `${color}` }}
 									transition={{
 										type: 'spring',
-										stiffness: 500,
-										damping: 30,
+										stiffness: 300,
+										damping: 40,
+										restDelta: 0.05,
 									}}
 								>
-									<Minus />
-								</RemoveColorButton>
-							)}
-							{visibleColors.map((color, index) => {
-								const colorId = `color-${index}`
-								const layoutId = `${id}-${index}`
-								return (
-									<CustomColorInput
-										layoutId={layoutId}
-										key={colorId}
-										onClick={() => {
-											// Trigger the click event on the hidden input
-											if (inputRef.current) {
-												inputRef.current.click()
-											}
+									<Input
+										type='color'
+										value={color}
+										ref={inputRef}
+										onChange={(event) => {
+											dispatch({
+												type: 'change-color',
+												value: event.target.value,
+												index,
+											})
 										}}
-										style={{ backgroundColor: `${color}` }}
-										transition={{
-											type: 'spring',
-											stiffness: 300,
-											damping: 40,
-											restDelta: 0.05,
-										}}
-									>
-										<Input
-											type='color'
-											value={color}
-											ref={inputRef}
-											onChange={(event) => {
-												dispatch({
-													type: 'change-color',
-													value: event.target.value,
-													index,
-												})
-											}}
-											style={{ opacity: 0 }}
-										/>
-									</CustomColorInput>
-								)
-							})}
-							{numOfVisibleColors <= 5 && (
-								<AddColorButton
-									onClick={addColor}
-									layout={'position'}
-									transition={{
-										type: 'spring',
-										stiffness: 500,
-										damping: 30,
-									}}
-								>
-									<Plus />
-								</AddColorButton>
-							)}
-						</Colors>
-					</Wrapper>
-				</GradientWrapper>
-			</LayoutGroup>
+										style={{ opacity: 0 }}
+									/>
+								</CustomColorInput>
+							)
+						})}
+						{numOfVisibleColors <= 5 && (
+							<AddColorButton
+								onClick={addColor}
+								layout={'position'}
+								transition={{
+									type: 'spring',
+									stiffness: 500,
+									damping: 30,
+								}}
+							>
+								<Plus />
+							</AddColorButton>
+						)}
+					</Colors>
+				</Wrapper>
+			</GradientWrapper>
+		</LayoutGroup>
 	)
 }
 
