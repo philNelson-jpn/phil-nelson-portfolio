@@ -27,7 +27,7 @@ const Container = styled.div`
 	height: 850px;
 	display: grid;
 	place-content: center;
-
+	top: -72px;
 	grid-column: 2;
 	position: absolute;
 

@@ -171,7 +171,7 @@
 		grid-column: 1/-1;
 		width: 100%;
 		grid-row: 2;
-		font-size: calc(32 / 16 * 1rem);
+		font-size: calc(24 / 16 * 1rem);
 		max-width: 100%;
 		/* min-width: 25ch; */
 		padding-inline: 22px;

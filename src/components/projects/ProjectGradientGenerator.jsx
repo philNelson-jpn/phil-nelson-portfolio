@@ -176,11 +176,11 @@ const GradientWrapper = styled.div`
 
 	@media (max-width: 550px) {
 		grid-column: 1/-1;
-		grid-row: 3;
+		grid-row: 1;
 		margin: 0;
 		padding: 0;
-		top: 0;
-		max-width: 100%;
+		width: 100%;
+		border-radius: 0px;
 	}
 `
 
@@ -192,6 +192,10 @@ const Wrapper = styled.div`
 	display: grid;
 	grid-template-rows: 3em 4fr 1fr;
 	gap: 16px;
+
+	@media (max-width: 550px) {
+		padding-inline: 0;
+	}
 
 	& .change-me {
 		grid-row: 1;
@@ -309,6 +313,10 @@ const Colors = styled.div`
 	justify-content: center;
 	padding-block-end: 16px;
 	gap: 16px;
+
+	@media (max-width: 550px) {
+		gap: 8px;
+	}
 
 	& input[type='color'] {
 		flex: 1;

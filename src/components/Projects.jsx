@@ -12,7 +12,7 @@ export default function Projects() {
 		<ProjectsWrapper>
 			<Routes>
 				<Route path='/' element={<Layout />}>
-					<Route index element={<ProjectMac />} />
+					<Route index element={<ProjectMac />} className="index-route"/>
 					<Route path='/phire-phox' element={<ProjectMotionBrowser />} />
 					<Route
 						path='/gradient-generator'
@@ -32,7 +32,7 @@ const ProjectsWrapper = styled.div`
 	height: 100dvh;
 	background-color: var(--bg-color);
 	opacity: 0.95;
-	z-index: 2;
+	z-index: 1001;
 
 	display: grid;
 	grid-template-columns: 16px 1fr 16px;
@@ -42,5 +42,13 @@ const ProjectsWrapper = styled.div`
 
 	@media (max-width: 550px) {
 		grid-column: 1/-1;
+		overflow: hidden;
+		border-radius: 8px;
+	}
+
+	@media (max-width: 550px) {
+		.index-route {
+			display: none;
+		}
 	}
 `

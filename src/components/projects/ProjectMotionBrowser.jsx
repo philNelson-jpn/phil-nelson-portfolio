@@ -8,7 +8,22 @@ const NUM_OF_BOXES = 5
 
 export default function ProjectMotionBrowser() {
 	const id = React.useId()
-	const content = ['P', 'H', 'L', 'E', 'X', 'I', 'B', 'L', 'E', '','S', 'I', 'T', 'E']
+	const content = [
+		'P',
+		'H',
+		'L',
+		'E',
+		'X',
+		'I',
+		'B',
+		'L',
+		'E',
+		'',
+		'S',
+		'I',
+		'T',
+		'E',
+	]
 
 	const [selectedBox, setSelectedBox] = React.useState(0)
 
@@ -64,12 +79,12 @@ const LayoutWrapper = styled.div`
 	grid-gap: 4px;
 	border: 2px solid hsl(0deg 0% 100% / 0.3);
 	padding: 4px;
-    margin-block: 8px;
-    margin-inline: 8px;
+	margin-block: 8px;
+	margin-inline: 8px;
 	grid-template-columns: 2fr 3fr 4fr;
 	grid-template-rows: 32px 32px 2fr 4fr 5fr;
 	grid-column: 1/-1;
-    grid-row: 1;
+	grid-row: 1;
 	background-image: linear-gradient(
 		180deg,
 		hsl(240deg 15% 3% / 0.85) 0%,
@@ -84,6 +99,10 @@ const LayoutWrapper = styled.div`
 		hsl(240deg 15% 3% / 0.85) 100%
 	);
 	border-radius: 8px;
+
+	@media (max-width: 550px) {
+		margin: 0;
+	}
 `
 
 const BrowserCircleGroup = styled.div`
@@ -121,7 +140,7 @@ const BrowserNavGroup = styled.div`
 	padding-inline-start: 8px;
 	gap: 8px;
 	align-items: center;
-    margin-block: 8px;
+	margin-block: 8px;
 
 	& > * {
 		width: 16px;
@@ -137,8 +156,8 @@ const AddressBar = styled.div`
 	border-radius: 6px;
 	font-size: 1rem;
 	padding-inline-start: 8px;
-    padding-block: 4px;
-    margin-bottom: 2px;
+	padding-block: 4px;
+	margin-bottom: 2px;
 `
 
 const PhluidBoxTextWide = styled.span`
@@ -180,6 +199,10 @@ const Box = styled.button`
 	cursor: pointer;
 	transition: background 800ms;
 	border-radius: 4px;
+
+	@media (max-width: 550px) {
+		padding: 0;
+	}
 
 	&:hover {
 		background: hsla(237, 97%, 74%, 0.372);

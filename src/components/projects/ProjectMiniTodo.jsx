@@ -72,15 +72,6 @@ const TodoWrapper = styled.div`
 		hsl(240deg 15% 3% / 0.85) 100%
 	);
 	border-radius: 4px;
-
-	@media (max-width: 550px) {
-		grid-column: 1/-1;
-		grid-row: 3;
-		margin-top: 0;
-		padding: 0;
-		top: 0;
-		width: 100%;
-	}
 `
 
 const ListWrapper = styled.div`
@@ -99,12 +90,22 @@ const CreateNewTodoWrapper = styled.div`
 	justify-content: start;
 	padding-inline-end: 8px;
 
+	@media (max-width: 550px) {
+		height: 20px;
+	}
+
 	& form {
 		display: flex;
 		align-items: end;
 		justify-content: center;
 		gap: 8px;
 		font-size: calc(16 / 16 * 1rem);
+
+		@media (max-width: 550px) {
+			gap: 4px;
+			font-size: calc(8 / 16 * 1rem);
+			margin-bottom: 20px;
+		}
 	}
 `
 
@@ -119,6 +120,11 @@ const Row = styled.div`
 		color: grey;
 		border-bottom: 2px solid grey;
 		width: 200px;
+
+		@media (max-width: 550px) {
+			gap: 4px;
+			width: 100px;
+		}
 	}
 `
 
@@ -173,9 +179,9 @@ const AddToDo = styled.button`
 		transition: transform 600ms cubic-bezier(0.3, 0.7, 0.4, 1);
 
 		@media (max-width: 550px) {
-			width: 90px;
-			padding: 8px 8px;
-			font-size: 12px;
+			width: 60px;
+			padding: 4px 6px;
+			font-size: calc(8 / 16 * 1rem);
 		}
 	}
 `
@@ -197,6 +203,10 @@ const TodoList = styled.ol`
 		border-radius: 4px;
 		justify-content: space-between;
 		font-size: calc(12 / 16 * 1rem);
+
+		@media (max-width: 550px) {
+			font-size: calc(6 / 16 * 1rem);
+		}
 	}
 
 	& button {
@@ -204,6 +214,7 @@ const TodoList = styled.ol`
 		border: none;
 		cursor: pointer;
 		color: #e8e9ee;
+
 	}
 
 	& button:first-of-type {
@@ -219,6 +230,10 @@ const TodoList = styled.ol`
 		overflow: hidden;
 		color: hsl(280, 15%, 65%);
 		width: 40px;
+
+		@media (max-width: 550px) {
+			width: 30px;
+		}
 	}
 
 	& .toggle.completed::after {

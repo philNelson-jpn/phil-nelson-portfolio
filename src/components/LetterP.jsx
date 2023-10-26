@@ -19,5 +19,6 @@ const PStyles = styled.h1`
 		font-size: 6rem;
 		grid-column: 1;
 		padding-left: 16px;
+		z-index: 0;
 	}
 `

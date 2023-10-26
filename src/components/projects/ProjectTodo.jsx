@@ -137,11 +137,11 @@ const TodoWrapper = styled.div`
 
 	@media (max-width: 550px) {
 		grid-column: 1/-1;
-		grid-row: 3;
-		margin-top: 0;
+		grid-row: 1;
+		margin: 0;
 		padding: 0;
-		top: 0;
 		width: 100%;
+		border-radius: 0px;
 	}
 `
 
@@ -155,6 +155,7 @@ const CreateNewTodoWrapper = styled.div`
 
 	@media (max-width: 550px) {
 		padding: 16px;
+		height: 60px;
 	}
 
 	& form {
@@ -162,7 +163,12 @@ const CreateNewTodoWrapper = styled.div`
 		align-items: end;
 		justify-content: center;
 		gap: 16px;
-		font-size: 22px;
+		font-size: calc(22 / 16 * 1rem);
+
+		@media (max-width: 550px) {
+			gap: 8px;
+			font-size: 1rem;
+		}
 	}
 `
 
@@ -176,6 +182,11 @@ const Row = styled.div`
 		color: grey;
 		border-bottom: 3px solid grey;
 		width: 300px;
+
+		@media (max-width: 550px) {
+			padding-bottom: 0;
+			border-bottom: 1px solid grey;
+		}
 	}
 
 	@media (max-width: 550px) {
@@ -280,7 +291,11 @@ const TodoList = styled.ol`
 		margin-block-start: var(--breathing-room);
 		border-radius: 4px;
 		justify-content: space-between;
-		font-size: 18px;
+		font-size: calc(18 / 16 * 1rem);
+
+		@media (max-width: 550px) {
+			font-size: calc(14 / 16 * 1rem);
+		}
 	}
 
 	& button {

@@ -21,7 +21,7 @@ export default function Dock() {
 				onMouseLeave={() => mouseX.set(Infinity)}
 			>
 				<Tooltip.Root>
-					<Tooltip.Trigger className='trigger'>
+					<Tooltip.Trigger className='trigger home'>
 						<AppIcon mouseX={mouseX}>
 							<HomeAppIconWrapper />
 						</AppIcon>
@@ -138,6 +138,10 @@ const DockWrapper = styled(motion.div)`
 
 	@media (max-width: 550px) {
 		grid-column: 1/-1;
+
+		& .home {
+			display: none;
+		}
 	}
 `
 
@@ -178,6 +182,10 @@ const Divider = styled.div`
 		width: 80%;
 		stroke-width: 1;
 	}
+
+	@media (max-width: 550px) {
+		display: none;
+	}
 `
 
 const SocialWrapper = styled.a`
@@ -193,6 +201,10 @@ const SocialWrapper = styled.a`
 	cursor: pointer;
 	background-color: hsla(0, 0%, 60%, 0.35);
 	transition: background-color 300ms ease-in-out, color 300ms ease-in-out;
+
+	@media (max-width: 550px) {
+		display: none;
+	}
 
 	& SVG {
 		height: 60%;
@@ -256,6 +268,10 @@ const HomeAppIcon = styled.button`
 		left: -6%;
 		min-width: 110%;
 		min-height: 110%;
+	}
+
+	@media (max-width: 550px) {
+		display: none;
 	}
 `
 

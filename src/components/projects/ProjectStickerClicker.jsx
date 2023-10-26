@@ -125,11 +125,11 @@ const StickerClickerWrapper = styled.div`
 
 	@media (max-width: 550px) {
 		grid-column: 1/-1;
-		grid-row: 3;
+		grid-row: 1;
 		margin: 0;
 		padding: 0;
-		margin-top: -20px;
 		width: 100%;
+		border-radius: 0px;
 	}
 `
 
