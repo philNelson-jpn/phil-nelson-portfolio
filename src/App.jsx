@@ -15,51 +15,32 @@ import { HashRouter as Router } from 'react-router-dom'
 function App() {
 	return (
 		<Router>
-			<AppWrapper>
+			<MainWrapper>
 				<FixedWrapper>
 					<LogoComponent />
 					<PhilPhoto />
 				</FixedWrapper>
 				<DownArrow />
-				<MainWrapper>
-					<LetterP />
-					<Phlame />
-					<Phluid />
-					<Phlair />
-					<Phast />
-					<Phun />
-				</MainWrapper>
-				<Projects />
-			</AppWrapper>
+				<LetterP />
+				<Phlame />
+				<Phluid />
+				<Phlair />
+				<Phast />
+				<Phun />
+				<Projects/>
+			</MainWrapper>
 		</Router>
 	)
 }
 
-const AppWrapper = styled.div`
-	display: grid;
-	grid-template-columns: 1fr 600px 600px 1fr;
+// const AppWrapper = styled.div`
+// 	display: grid;
+// 	grid-template-columns: 1fr 8fr 8fr 1fr;
 
-	@media (max-width: 550px) {
-		grid-template-columns: 16px 1fr 16px;
-	}
-`
-
-const FixedWrapper = styled.div`
-	display: grid;
-	position: sticky;
-	height: 100vh;
-	overflow: hidden;
-	top: 0;
-	left: 0;
-	right: 0;
-	grid-column: 2/-2;
-	grid-template-columns: 1fr 600px 600px 1fr;
-
-	@media (max-width: 550px) {
-		grid-template-columns: 16px 1fr 16px;
-		grid-column: 2/-2;
-	}
-`
+// 	@media (max-width: 550px) {
+// 		grid-template-columns: 16px 1fr 16px;
+// 	}
+// `
 
 const MainWrapper = styled.div`
 	display: grid;
@@ -67,10 +48,27 @@ const MainWrapper = styled.div`
 	grid-column: 1/-1;
 
 	@media (max-width: 550px) {
-		/* grid-template-columns: 16px 1fr 16px;
- */
+		grid-template-columns: 16px 1fr 16px;
 		display: block;
 		grid-column: 1 / -1;
+	}
+`
+
+const FixedWrapper = styled.div`
+	display: grid;
+	position: sticky;
+	height: 100vh;
+	width: 100%;
+	inset: 0;
+	grid-column: 2/-2;
+	grid-template-columns: 1fr 1fr;
+	overflow: hidden;
+
+	@media (max-width: 550px) {
+		grid-template-columns: 16px 1fr 16px;
+		grid-column: 1/-1;
+		margin: 0;
+		padding-inline: 1rem;
 	}
 `
 

@@ -11,7 +11,7 @@ export default function Projects() {
 	return (
 		<ProjectsWrapper>
 			<Routes>
-				<Route path="/" element={<Layout />}>
+				<Route path='/' element={<Layout />}>
 					<Route index element={<ProjectMac />} />
 					<Route path='/phire-phox' element={<ProjectMotionBrowser />} />
 					<Route
@@ -39,4 +39,8 @@ const ProjectsWrapper = styled.div`
 	grid-template-rows: 1fr 100px 16px;
 	place-content: center;
 	grid-column: 2 / -2;
+
+	@media (max-width: 550px) {
+		grid-column: 1/-1;
+	}
 `

@@ -89,6 +89,6 @@ const DownArrowWrapper = styled.div`
 	}
 
 	@media (max-width: 550px) {
-		grid-column: 2 / -2;
+		grid-column: 1/-1;
 	}
 `

@@ -27,20 +27,18 @@ const Container = styled.div`
 	height: 850px;
 	display: grid;
 	place-content: center;
-	overflow: hidden;
 
-	grid-column: 3;
+	grid-column: 2;
 	position: absolute;
-	top: -75px;
 
 	@media (max-width: 550px) {
-		width: 55%;
+		width: 62%;
 		place-content: start;
 		position: absolute;
 		z-index: -1;
-		top: -25px;
-		right: -30px;
-		grid-column: 1;
+		top: -28px;
+		right: -40px;
+		grid-column: 1/-1;
 	}
 `
 
@@ -76,4 +74,5 @@ const Image = styled.img`
 	border-radius: 50%;
 	opacity: ${(props) => (props.loaded ? '1' : '0')};
 	transition: opacity 0.9s;
+	overflow: hidden;
 `

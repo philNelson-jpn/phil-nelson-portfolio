@@ -135,6 +135,10 @@ const DockWrapper = styled(motion.div)`
 		background: transparent;
 		padding: 0px 2px;
 	}
+
+	@media (max-width: 550px) {
+		grid-column: 1/-1;
+	}
 `
 
 function AppIcon({ mouseX, children }: { mouseX: MotionValue; children: any }) {
