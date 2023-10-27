@@ -135,6 +135,8 @@ const TodoWrapper = styled.div`
 	);
 	border-radius: 8px;
 
+	position: relative;
+
 	@media (max-width: 550px) {
 		grid-column: 1/-1;
 		grid-row: 1;
@@ -142,7 +144,6 @@ const TodoWrapper = styled.div`
 		padding: 0;
 		width: 100%;
 		border-radius: 0px;
-		position: relative;
 	}
 `
 
@@ -154,12 +155,12 @@ const CreateNewTodoWrapper = styled.div`
 	align-items: center;
 	justify-content: center;
 
-	@media (max-width: 550px) {
-		position: absolute;
-		bottom: 0;
-		left: 0;
-		right: 0;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
 
+	@media (max-width: 550px) {
 		& label {
 			display: none;
 		}
@@ -182,6 +183,10 @@ const CreateNewTodoWrapper = styled.div`
 const Row = styled.div`
 	display: flex;
 	gap: 16px;
+
+	@media (max-width: 550px) {
+		padding: 32px;
+	}
 
 	& input {
 		border: none;
