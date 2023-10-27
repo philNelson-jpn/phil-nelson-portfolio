@@ -55,61 +55,61 @@ export default function ProjectTodo() {
 	return (
 		<TodoWrapper>
 			<ListWrapper>
-				<CreateNewTodoWrapper>
-					<form
-						onSubmit={(event) => {
-							event.preventDefault()
-
-							handleCreateTodo(value)
-
-							setValue('')
-						}}
-					>
-						<label htmlFor='new-list-form-input'>New Todo:</label>
-
-						<Row>
-							<input
-								onClick={() => setValue('')}
-								onFocus={() => setValue('')}
-								id='new-list-form-input'
-								type='text'
-								value={value}
-								onChange={(event) => {
-									setValue(event.target.value)
+				<TodoList>
+					{todos.map(({ id, value, isCompleted }) => (
+						<li key={id}>
+							<button
+								className={`toggle ${isCompleted ? 'completed' : undefined}`}
+								onClick={() => {
+									handleToggleTodo(id)
 								}}
-							/>
-							<AddToDo>
-								<span className='shadow'></span>
-								<span className='edge'></span>
-								<span className='front'>Add Todo!</span>
-							</AddToDo>
-						</Row>
-					</form>
-				</CreateNewTodoWrapper>
+								aria-label='toggle item'
+							>
+								{value}
+							</button>
+							<button
+								className='delete-btn'
+								onClick={() => {
+									handleDeleteTodo(id)
+								}}
+							>
+								<Delete />
+							</button>
+						</li>
+					))}
+				</TodoList>
 			</ListWrapper>
-			<TodoList>
-				{todos.map(({ id, value, isCompleted }) => (
-					<li key={id}>
-						<button
-							className={`toggle ${isCompleted ? 'completed' : undefined}`}
-							onClick={() => {
-								handleToggleTodo(id)
+			<CreateNewTodoWrapper>
+				<form
+					onSubmit={(event) => {
+						event.preventDefault()
+
+						handleCreateTodo(value)
+
+						setValue('')
+					}}
+				>
+					<label htmlFor='new-list-form-input'>New Todo:</label>
+
+					<Row>
+						<input
+							onClick={() => setValue('')}
+							onFocus={() => setValue('')}
+							id='new-list-form-input'
+							type='text'
+							value={value}
+							onChange={(event) => {
+								setValue(event.target.value)
 							}}
-							aria-label='toggle item'
-						>
-							{value}
-						</button>
-						<button
-							className='delete-btn'
-							onClick={() => {
-								handleDeleteTodo(id)
-							}}
-						>
-							<Delete />
-						</button>
-					</li>
-				))}
-			</TodoList>
+						/>
+						<AddToDo>
+							<span className='shadow'></span>
+							<span className='edge'></span>
+							<span className='front'>Add Todo!</span>
+						</AddToDo>
+					</Row>
+				</form>
+			</CreateNewTodoWrapper>
 		</TodoWrapper>
 	)
 }
@@ -142,6 +142,7 @@ const TodoWrapper = styled.div`
 		padding: 0;
 		width: 100%;
 		border-radius: 0px;
+		position: relative;
 	}
 `
 
@@ -154,8 +155,14 @@ const CreateNewTodoWrapper = styled.div`
 	justify-content: center;
 
 	@media (max-width: 550px) {
-		padding: 16px;
-		height: 60px;
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
+
+		& label {
+			display: none;
+		}
 	}
 
 	& form {
@@ -167,7 +174,7 @@ const CreateNewTodoWrapper = styled.div`
 
 		@media (max-width: 550px) {
 			gap: 8px;
-			font-size: 1rem;
+			justify-content: start;
 		}
 	}
 `
@@ -186,11 +193,8 @@ const Row = styled.div`
 		@media (max-width: 550px) {
 			padding-bottom: 0;
 			border-bottom: 1px solid grey;
+			width: 100%;
 		}
-	}
-
-	@media (max-width: 550px) {
-		width: 295px;
 	}
 `
 

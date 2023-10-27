@@ -36,9 +36,6 @@ export default function Mac() {
 						<PlaygroundLogo>Playground</PlaygroundLogo>
 						<PlaygroundNav>
 							<ol>
-								<Link to='/'>
-									<li>Home</li>
-								</Link>
 								<Link to='gradient-generator'>
 									<li>Gradients</li>
 								</Link>
@@ -193,6 +190,15 @@ const Screen = styled.div`
 		/* transform: translate3D(12px, 30px, 2px); */
 		border-color: hsla(0, 0%, 100%, 0.676);
 	}
+
+	@media (max-width: 550px) {
+		grid-template-areas:
+			'gradient gradient gradient'
+			'browser browser sticker'
+			'todo todo todo';
+		grid-template-rows: 10% 70% 18%;
+		grid-template-columns: 1fr 3fr 1fr;
+	}
 `
 
 const SVG = styled.svg`
@@ -289,6 +295,10 @@ const ItemOne = styled(Item)`
 	display: flex;
 	justify-content: space-between;
 	transition: transform 1200ms ease-in-out;
+
+	@media (max-width: 550px) {
+		display: none;
+	}
 
 	& img {
 		filter: grayscale(1);
